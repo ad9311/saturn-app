@@ -73,4 +73,7 @@ group :development do
 
   # Use solagraph-rails as Ruby on Rails Language Server
   gem 'solargraph-rails'
+
+  # Use for linting erb files
+  gem 'erb_lint'
 end
