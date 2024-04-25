@@ -65,7 +65,9 @@ group :development do
   # Use hirb format query in the console
   gem 'hirb'
 
+  # Use solagraph as Ruby Language Server
   gem 'solargraph'
 
+  # Use solagraph-rails as Ruby on Rails Language Server
   gem 'solargraph-rails'
 end
