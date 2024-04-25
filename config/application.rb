@@ -38,5 +38,11 @@ module SaturnApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Default time zone
+    config.time_zone = 'America/Bogota'
+
+    # Active record default time zone
+    config.active_record.default_timezone = :utc
   end
 end
