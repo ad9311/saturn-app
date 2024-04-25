@@ -64,4 +64,8 @@ group :development do
 
   # Use hirb format query in the console
   gem 'hirb'
+
+  gem 'solargraph'
+
+  gem 'solargraph-rails'
 end
