@@ -3,7 +3,7 @@ require: rubocop-rails
 AllCops:
   NewCops: enable
   DisplayCopNames: true
-  TargetRubyVersion: '3.2.2'
+  TargetRubyVersion: '3.2.3'
 
 Metrics/BlockLength:
   Enabled: false
