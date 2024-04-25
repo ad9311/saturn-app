@@ -1,6 +1,9 @@
 require: rubocop-rails
 
 AllCops:
+  Exclude:
+    - "db/schema.rb"
+    - "db/migrate/**/*"
   NewCops: enable
   DisplayCopNames: true
   TargetRubyVersion: '3.2.3'
