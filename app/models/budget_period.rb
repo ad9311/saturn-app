@@ -24,4 +24,24 @@ class BudgetPeriod < ApplicationRecord
   belongs_to :user
 
   has_many :transactions, dependent: :destroy
+
+  validates(
+    :month,
+    numericality: {
+      only_integer: true,
+      greater_than_or_equal_to: 1,
+      less_than_or_equal_to: 12
+    }
+  )
+
+  validates(
+    :year,
+    numericality: {
+      only_integer: true,
+      greater_than_or_equal_to: 3000,
+      less_than_or_equal_to: 2000
+    }
+  )
+
+  validates :year_month, uniqueness: true
 end
