@@ -24,4 +24,9 @@
 class Transaction < ApplicationRecord
   belongs_to :budget_period
   belongs_to :transaction_category
+
+  validates :description, presence: true, length: { minimum: 1, maximum: 100 }
+  validates :amount, numericality: { greater_than: 0 }
+
+  enum transaction_type: { income: 0, expense: 1 }
 end
