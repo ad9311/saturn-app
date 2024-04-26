@@ -3,7 +3,7 @@
 # Table name: budget_periods
 #
 #  id         :bigint           not null, primary key
-#  balance    :float            default(0.0), not null
+#  balance    :decimal(11, 2)   default(0.0), not null
 #  month      :integer          not null
 #  year       :integer          not null
 #  year_month :integer          not null

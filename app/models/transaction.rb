@@ -3,7 +3,7 @@
 # Table name: transactions
 #
 #  id                      :bigint           not null, primary key
-#  amount                  :float            not null
+#  amount                  :decimal(11, 2)   not null
 #  description             :string           not null
 #  transaction_type        :integer          not null
 #  created_at              :datetime         not null

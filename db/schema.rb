@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_26_011853) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_26_013448) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "budget_periods", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.float "balance", default: 0.0, null: false
+    t.decimal "balance", precision: 11, scale: 2, default: "0.0", null: false
     t.integer "month", null: false
     t.integer "year", null: false
     t.integer "year_month", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_26_011853) do
     t.bigint "budget_period_id", null: false
     t.bigint "transaction_category_id", null: false
     t.string "description", null: false
-    t.float "amount", null: false
+    t.decimal "amount", precision: 11, scale: 2, null: false
     t.integer "transaction_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
