@@ -4,6 +4,8 @@ AllCops:
   Exclude:
     - "db/schema.rb"
     - "db/migrate/**/*"
+    - "bin/**/*"
+    - "config/initializers/**/*"
   NewCops: enable
   DisplayCopNames: true
   TargetRubyVersion: '3.2.3'
