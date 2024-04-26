@@ -25,23 +25,21 @@ class BudgetPeriod < ApplicationRecord
 
   has_many :transactions, dependent: :destroy
 
+  validates :year_month, uniqueness: true
   validates(
     :month,
-    numericality: {
-      only_integer: true,
-      greater_than_or_equal_to: 1,
-      less_than_or_equal_to: 12
-    }
+    numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 12 }
   )
-
   validates(
     :year,
-    numericality: {
-      only_integer: true,
-      greater_than_or_equal_to: 3000,
-      less_than_or_equal_to: 2000
-    }
+    numericality: { only_integer: true, greater_than_or_equal_to: 2000, less_than_or_equal_to: 3000 }
   )
 
-  validates :year_month, uniqueness: true
+  before_save :set_year_month
+
+  private
+
+  def set_year_month
+    self.year_month = "#{year}#{month}".to_i
+  end
 end
