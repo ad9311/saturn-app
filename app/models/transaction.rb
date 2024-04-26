@@ -29,4 +29,52 @@ class Transaction < ApplicationRecord
   validates :amount, numericality: { greater_than: 0 }
 
   enum transaction_type: { income: 0, expense: 1 }
+
+  after_create do |record|
+    if record.income?
+      add_amount_to_budget_period_balance(amount)
+    else
+      substract_amount_to_budget_period_balance(amount)
+    end
+  end
+
+  after_update do |record|
+    if saved_change_to_amount?
+      if record.income?
+        add_amount_to_budget_period_balance(amount)
+      else
+        substract_amount_to_budget_period_balance(amount)
+      end
+    end
+  end
+
+  before_destroy do |record|
+    if record.income?
+      substract_amount_to_budget_period_balance(amount)
+    else
+      add_amount_to_budget_period_balance(amount)
+    end
+  end
+
+  before_update do |record|
+    if amount_changed?
+      if record.income?
+        substract_amount_to_budget_period_balance(amount_was)
+      else
+        add_amount_to_budget_period_balance(amount_was)
+      end
+    end
+  end
+
+  private
+
+  def add_amount_to_budget_period_balance(new_amount)
+    budget_period_balance = budget_period.balance
+    budget_period.update(balance: budget_period_balance + new_amount)
+  end
+
+  def substract_amount_to_budget_period_balance(new_amount)
+    budget_period_balance = budget_period.balance
+    budget_period.update(balance: budget_period_balance - new_amount)
+  end
 end
