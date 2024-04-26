@@ -3,9 +3,9 @@
 # Table name: transactions
 #
 #  id                      :bigint           not null, primary key
-#  amount                  :float
-#  description             :string
-#  transaction_type        :integer
+#  amount                  :float            not null
+#  description             :string           not null
+#  transaction_type        :integer          not null
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #  budget_period_id        :bigint           not null

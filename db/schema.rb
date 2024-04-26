@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_26_001019) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_26_011853) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "budget_periods", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.float "balance"
-    t.integer "month"
-    t.integer "year"
-    t.integer "year_month"
+    t.float "balance", default: 0.0, null: false
+    t.integer "month", null: false
+    t.integer "year", null: false
+    t.integer "year_month", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_budget_periods_on_user_id"
@@ -28,8 +28,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_26_001019) do
 
   create_table "transaction_categories", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "name"
-    t.string "color"
+    t.string "name", null: false
+    t.string "color", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_transaction_categories_on_user_id"
@@ -38,9 +38,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_26_001019) do
   create_table "transactions", force: :cascade do |t|
     t.bigint "budget_period_id", null: false
     t.bigint "transaction_category_id", null: false
-    t.string "description"
-    t.float "amount"
-    t.integer "transaction_type"
+    t.string "description", null: false
+    t.float "amount", null: false
+    t.integer "transaction_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["budget_period_id"], name: "index_transactions_on_budget_period_id"

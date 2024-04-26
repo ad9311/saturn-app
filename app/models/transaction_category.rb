@@ -3,8 +3,8 @@
 # Table name: transaction_categories
 #
 #  id         :bigint           not null, primary key
-#  color      :string
-#  name       :string
+#  color      :string           not null
+#  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :bigint           not null
