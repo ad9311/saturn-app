@@ -10,9 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_25_215156) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_26_001019) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "budget_periods", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.float "balance"
+    t.integer "month"
+    t.integer "year"
+    t.integer "year_month"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_budget_periods_on_user_id"
+    t.index ["year_month"], name: "index_budget_periods_on_year_month", unique: true
+  end
+
+  create_table "transaction_categories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_transaction_categories_on_user_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "budget_period_id", null: false
+    t.bigint "transaction_category_id", null: false
+    t.string "description"
+    t.float "amount"
+    t.integer "transaction_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_period_id"], name: "index_transactions_on_budget_period_id"
+    t.index ["transaction_category_id"], name: "index_transactions_on_transaction_category_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,4 +66,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_25_215156) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "budget_periods", "users"
+  add_foreign_key "transaction_categories", "users"
+  add_foreign_key "transactions", "budget_periods"
+  add_foreign_key "transactions", "transaction_categories"
 end
