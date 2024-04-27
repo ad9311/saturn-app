@@ -10,10 +10,13 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <div>
+    <!--<div>
       <p><%= notice %></p>
       <p><%= alert %></p>
-    </div>
+    </div>-->
+    <header>
+      <%= render "components/navbar" %>
+    </header>
     <main>
       <%= yield %>
     </main>

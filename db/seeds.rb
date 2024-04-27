@@ -11,13 +11,13 @@ Transaction.create(
   transaction_category:,
   budget_period:,
   description: 'This is a test',
-  amount: 100,
+  amount: 100.0,
   transaction_type: :income
 )
-# Transaction.create(
-#   transaction_category:,
-#   budget_period:,
-#   description: 'This is another test',
-#   amount: 5,
-#   transaction_type: :expense
-# )
+Transaction.create(
+  transaction_category:,
+  budget_period:,
+  description: 'This is another test',
+  amount: 5.0,
+  transaction_type: :expense
+)
