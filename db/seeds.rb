@@ -8,11 +8,11 @@ user = User.create(
   last_name: 'Díaz'
 )
 
-TransactionCategory.create(user:, name: 'Groceries', color: '#FF5722')
-TransactionCategory.create(user:, name: 'Online shopping', color: '#FF5722')
-TransactionCategory.create(user:, name: 'Utilities', color: '#28B600')
-TransactionCategory.create(user:, name: 'Subscriptions', color: '#B60000')
-TransactionCategory.create(user:, name: 'Other', color: '#B69500')
+ExpenseCategory.create(user:, name: 'Groceries', color: '#FF5722')
+ExpenseCategory.create(user:, name: 'Online shopping', color: '#FF5722')
+ExpenseCategory.create(user:, name: 'Utilities', color: '#28B600')
+ExpenseCategory.create(user:, name: 'Subscriptions', color: '#B60000')
+ExpenseCategory.create(user:, name: 'Other', color: '#B69500')
 
 BudgetPeriod.create(user:, month: 1, year: 2023)
 

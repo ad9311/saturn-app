@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: transaction_categories
+# Table name: expense_categories
 #
 #  id         :bigint           not null, primary key
 #  color      :string           not null
@@ -11,13 +11,13 @@
 #
 # Indexes
 #
-#  index_transaction_categories_on_user_id  (user_id)
+#  index_expense_categories_on_user_id  (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class TransactionCategory < ApplicationRecord
+class ExpenseCategory < ApplicationRecord
   belongs_to :user
 
   has_many :expense_transactions, dependent: :destroy

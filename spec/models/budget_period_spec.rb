@@ -36,7 +36,7 @@ RSpec.describe BudgetPeriod, type: :model do
       first_name: 'Jon',
       last_name: 'Doe'
     )
-    @transaction_category = TransactionCategory.create(
+    @transaction_category = ExpenseCategory.create(
       name: 'Groceries',
       color: '#FFFFFF'
     )

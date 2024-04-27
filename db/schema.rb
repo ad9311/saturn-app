@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_27_160331) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_27_165554) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,15 +31,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_160331) do
     t.index ["user_id"], name: "index_budget_periods_on_user_id"
   end
 
+  create_table "expense_categories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.string "color", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_expense_categories_on_user_id"
+  end
+
   create_table "expense_transactions", force: :cascade do |t|
     t.bigint "budget_period_id", null: false
-    t.bigint "transaction_category_id", null: false
     t.string "description"
     t.decimal "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "expense_category_id", null: false
     t.index ["budget_period_id"], name: "index_expense_transactions_on_budget_period_id"
-    t.index ["transaction_category_id"], name: "index_expense_transactions_on_transaction_category_id"
+    t.index ["expense_category_id"], name: "index_expense_transactions_on_expense_category_id"
   end
 
   create_table "income_transactions", force: :cascade do |t|
@@ -49,15 +58,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_160331) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["budget_period_id"], name: "index_income_transactions_on_budget_period_id"
-  end
-
-  create_table "transaction_categories", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "name", null: false
-    t.string "color", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_transaction_categories_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,8 +80,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_160331) do
   end
 
   add_foreign_key "budget_periods", "users"
+  add_foreign_key "expense_categories", "users"
   add_foreign_key "expense_transactions", "budget_periods"
-  add_foreign_key "expense_transactions", "transaction_categories"
+  add_foreign_key "expense_transactions", "expense_categories"
   add_foreign_key "income_transactions", "budget_periods"
-  add_foreign_key "transaction_categories", "users"
 end
