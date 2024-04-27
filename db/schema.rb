@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_27_142335) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_27_160331) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,13 +44,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_142335) do
 
   create_table "income_transactions", force: :cascade do |t|
     t.bigint "budget_period_id", null: false
-    t.bigint "transaction_category_id", null: false
     t.string "description", null: false
     t.decimal "amount", precision: 11, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["budget_period_id"], name: "index_income_transactions_on_budget_period_id"
-    t.index ["transaction_category_id"], name: "index_income_transactions_on_transaction_category_id"
   end
 
   create_table "transaction_categories", force: :cascade do |t|
@@ -85,6 +83,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_142335) do
   add_foreign_key "expense_transactions", "budget_periods"
   add_foreign_key "expense_transactions", "transaction_categories"
   add_foreign_key "income_transactions", "budget_periods"
-  add_foreign_key "income_transactions", "transaction_categories"
   add_foreign_key "transaction_categories", "users"
 end

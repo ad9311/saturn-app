@@ -2,27 +2,23 @@
 #
 # Table name: income_transactions
 #
-#  id                      :bigint           not null, primary key
-#  amount                  :decimal(11, 2)   not null
-#  description             :string           not null
-#  created_at              :datetime         not null
-#  updated_at              :datetime         not null
-#  budget_period_id        :bigint           not null
-#  transaction_category_id :bigint           not null
+#  id               :bigint           not null, primary key
+#  amount           :decimal(11, 2)   not null
+#  description      :string           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  budget_period_id :bigint           not null
 #
 # Indexes
 #
-#  index_income_transactions_on_budget_period_id         (budget_period_id)
-#  index_income_transactions_on_transaction_category_id  (transaction_category_id)
+#  index_income_transactions_on_budget_period_id  (budget_period_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (budget_period_id => budget_periods.id)
-#  fk_rails_...  (transaction_category_id => transaction_categories.id)
 #
 class IncomeTransaction < ApplicationRecord
   belongs_to :budget_period
-  belongs_to :transaction_category
 
   validates :description, presence: true, length: { minimum: 1, maximum: 100 }
   validates :amount, numericality: { greater_than: 0 }

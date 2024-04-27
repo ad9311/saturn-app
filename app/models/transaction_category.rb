@@ -20,7 +20,6 @@
 class TransactionCategory < ApplicationRecord
   belongs_to :user
 
-  has_many :income_transactions, dependent: :destroy
   has_many :expense_transactions, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 1, maximum: 25 }
