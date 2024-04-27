@@ -30,13 +30,14 @@ require 'rails_helper'
 RSpec.describe BudgetPeriod, type: :model do
   before(:context) do
     @user = User.create(
-      email: 'test@test.com',
+      email: 'budgetperiodtest@test.com',
       password: 'password',
       password_confirmation: 'password',
       first_name: 'Jon',
       last_name: 'Doe'
     )
-    @transaction_category = ExpenseCategory.create(
+    @expense_category = ExpenseCategory.create(
+      user: @user,
       name: 'Groceries',
       color: '#FFFFFF'
     )
@@ -45,5 +46,51 @@ RSpec.describe BudgetPeriod, type: :model do
       month: 1,
       year: 2024
     )
+  end
+
+  it 'increments the budget period balance' do
+    @budget_period.income_transactions.create(description: 'test', amount: 1_000.0)
+    expect(@budget_period.balance.to_f).to eq(1000.0)
+  end
+
+  it 'decrements the budget period balance' do
+    @budget_period.expense_transactions.create(
+      expense_category: @expense_category,
+      description: 'test',
+      amount: 500.0
+    )
+    expect(@budget_period.balance.to_f).to eq(500.0)
+  end
+
+  it 'reverts balance back when an income is destroyed' do
+    income = @budget_period.income_transactions.create(description: 'test', amount: 50.0)
+    income.destroy
+    expect(@budget_period.balance.to_f).to eq(500.0)
+  end
+
+  it 'reverts balance back when an expense is destroyed' do
+    expense = @budget_period.expense_transactions.create(
+      expense_category: @expense_category,
+      description: 'test',
+      amount: 50.0
+    )
+    expense.destroy
+    expect(@budget_period.balance.to_f).to eq(500.0)
+  end
+
+  it 'corrects the balance when an income is updated' do
+    income = @budget_period.income_transactions.create(description: 'test', amount: 50.0)
+    income.update(amount: 20.0)
+    expect(@budget_period.balance.to_f).to eq(520.0)
+  end
+
+  it 'corrects the balance when an expense is updated' do
+    expense = @budget_period.expense_transactions.create(
+      expense_category: @expense_category,
+      description: 'test',
+      amount: 10.0
+    )
+    expense.update(amount: 20.0)
+    expect(@budget_period.balance.to_f).to eq(500.0)
   end
 end

@@ -26,9 +26,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:example) do
+  before(:context) do
     @user = User.new(
-      email: 'test@test.com',
+      email: 'usertest@test.com',
       password: 'password',
       password_confirmation: 'password',
       first_name: 'Jon',
