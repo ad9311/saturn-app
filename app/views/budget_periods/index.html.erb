@@ -1,3 +1,5 @@
-<% @budget_periods.each do |budget_period| %>
-  <%= budget_period.uid %>
-<% end %>
+<ul>
+  <% @budget_periods.each do |budget_period| %>
+    <li><%= link_to budget_period.uid, "budgets/#{budget_period.uid}" %></li>
+  <% end %>
+</ul>
