@@ -37,6 +37,8 @@ class User < ApplicationRecord
 
   has_many :budget_periods, dependent: :destroy
   has_many :transactions, through: :budget_periods
+  has_many :income_transactions, through: :budget_periods
+  has_many :expense_transactions, through: :budget_periods
   has_many :transaction_categories, dependent: :destroy
 
   def full_name
