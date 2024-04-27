@@ -1,2 +1,38 @@
-es:
-  hello: hello
+en:
+  budget_period:
+    "01":
+      full: January
+      short: Jan
+    "02":
+      full: February
+      short: Feb
+    "03":
+      full: March
+      short: Mar
+    "04":
+      full: April
+      short: Apr
+    "05":
+      full: May
+      short: May
+    "06":
+      full: June
+      short: Jun
+    "07":
+      full: July
+      short: Jul
+    "08":
+      full: August
+      short: Aug
+    "09":
+      full: September
+      short: Sep
+    "10":
+      full: October
+      short: Oct
+    "11":
+      full: November
+      short: Nov
+    "12":
+      full: December
+      short: Dec

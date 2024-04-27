@@ -1,0 +1,22 @@
+<table class="w-max">
+  <thead>
+    <tr>
+      <% table_columns.each do |column| %>
+        <th><%= column %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% table_rows.each do |rows| %>
+      <tr>
+        <% rows.each_with_index do |cell, index| %>
+          <% if index.zero? %>
+            <td><%= link_to "Show", cell %></td>
+          <% else %>
+            <td><%= cell %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

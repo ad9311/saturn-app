@@ -10,16 +10,12 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <!--<div>
-      <p><%= notice %></p>
-      <p><%= alert %></p>
-    </div>-->
     <% if user_signed_in? %>
       <header>
-        <%= render "components/navbar" %>
+        <%= render "partials/navbar" %>
       </header>
     <% end %>
-    <main class="container mx-auto px-2">
+    <main class="container mt-10 mx-auto px-2">
       <%= yield %>
     </main>
   </body>

@@ -1,5 +1,6 @@
-<ul>
-  <% @budget_periods.each do |budget_period| %>
-    <li><%= link_to budget_period.uid, "budgets/#{budget_period.uid}" %></li>
-  <% end %>
-</ul>
+<section>
+  <h2>Budget periods</h2>
+  <div class="overflow-x-auto">
+    <%= render "partials/budget_periods_table", table_columns: @table_columns, table_rows: @budget_periods %>
+  </div>
+</section>
