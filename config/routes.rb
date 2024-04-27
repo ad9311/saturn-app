@@ -11,4 +11,8 @@ Rails.application.routes.draw do
 
   # Home
   resources :home, only: %i[index]
+
+  # Budget periods
+  get 'budgets', to: 'budget_periods#index'
+  get 'budgets/:year_month', to: 'budget_periods#show'
 end
