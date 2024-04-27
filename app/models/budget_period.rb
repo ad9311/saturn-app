@@ -28,7 +28,6 @@
 class BudgetPeriod < ApplicationRecord
   belongs_to :user
 
-  has_many :transactions, dependent: :destroy
   has_many :income_transactions, dependent: :destroy
   has_many :expense_transactions, dependent: :destroy
 
