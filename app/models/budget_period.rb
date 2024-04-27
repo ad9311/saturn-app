@@ -41,6 +41,6 @@ class BudgetPeriod < ApplicationRecord
   private
 
   def set_year_month
-    self.year_month = "#{year}#{month}".to_i
+    self.year_month = "#{year}#{month.to_s.rjust(2, '0')}".to_i
   end
 end

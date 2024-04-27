@@ -14,9 +14,11 @@
       <p><%= notice %></p>
       <p><%= alert %></p>
     </div>-->
-    <header>
-      <%= render "components/navbar" %>
-    </header>
+    <% if user_signed_in? %>
+      <header>
+        <%= render "components/navbar" %>
+      </header>
+    <% end %>
     <main>
       <%= yield %>
     </main>

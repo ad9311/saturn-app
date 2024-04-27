@@ -119,6 +119,8 @@ GEM
       rubocop
       smart_properties
     erubi (1.12.0)
+    faker (3.3.1)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hirb (0.7.3)
@@ -352,6 +354,7 @@ DEPENDENCIES
   debug
   devise
   erb_lint
+  faker
   hirb
   importmap-rails
   pg (~> 1.1)

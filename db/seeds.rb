@@ -1,3 +1,5 @@
+require 'faker'
+
 user = User.create(
   email: 'diazangel9311@gmail.com',
   password: '123456789',
@@ -5,19 +7,22 @@ user = User.create(
   first_name: 'Ángel',
   last_name: 'Díaz'
 )
-transaction_category = TransactionCategory.create(user:, name: 'Groceries', color: 'ffffff')
-budget_period = BudgetPeriod.create(user:, month: 1, year: 2010)
-Transaction.create(
-  transaction_category:,
-  budget_period:,
-  description: 'This is a test',
-  amount: 100.0,
-  transaction_type: :income
-)
-Transaction.create(
-  transaction_category:,
-  budget_period:,
-  description: 'This is another test',
-  amount: 5.0,
-  transaction_type: :expense
-)
+
+TransactionCategory.create(user:, name: 'Groceries', color: '#FF5722')
+TransactionCategory.create(user:, name: 'Online shopping', color: '#FF5722')
+TransactionCategory.create(user:, name: 'Utilities', color: '#28B600')
+TransactionCategory.create(user:, name: 'Subscriptions', color: '#B60000')
+TransactionCategory.create(user:, name: 'Other', color: '#B69500')
+
+(1..12).each do |month|
+  budget_period = BudgetPeriod.create(user:, month:, year: 2023)
+  Faker::Number.between(from: 1, to: 10).times do
+    Transaction.create(
+      transaction_category: user.transaction_categories.sample,
+      budget_period:,
+      description: Faker::Commerce.product_name,
+      amount: Faker::Commerce.price,
+      transaction_type: Faker::Number.between(from: 0, to: 1)
+    )
+  end
+end
