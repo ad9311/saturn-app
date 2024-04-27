@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_27_041639) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_27_132218) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_041639) do
     t.integer "uid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "total_income", precision: 11, scale: 2, default: "0.0", null: false
+    t.decimal "total_expenses", precision: 11, scale: 2, default: "0.0", null: false
+    t.integer "transaction_count", default: 0, null: false
+    t.integer "income_count", default: 0, null: false
+    t.integer "expense_count", default: 0, null: false
     t.index ["uid"], name: "index_budget_periods_on_uid", unique: true
     t.index ["user_id"], name: "index_budget_periods_on_user_id"
   end
