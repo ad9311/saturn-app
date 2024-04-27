@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_26_013448) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_27_041639) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,11 +19,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_26_013448) do
     t.decimal "balance", precision: 11, scale: 2, default: "0.0", null: false
     t.integer "month", null: false
     t.integer "year", null: false
-    t.integer "year_month", null: false
+    t.integer "uid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["uid"], name: "index_budget_periods_on_uid", unique: true
     t.index ["user_id"], name: "index_budget_periods_on_user_id"
-    t.index ["year_month"], name: "index_budget_periods_on_year_month", unique: true
   end
 
   create_table "transaction_categories", force: :cascade do |t|

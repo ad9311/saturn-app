@@ -14,5 +14,5 @@ Rails.application.routes.draw do
 
   # Budget periods
   get 'budgets', to: 'budget_periods#index'
-  get 'budgets/:year_month', to: 'budget_periods#show'
+  get 'budgets/:uid', to: 'budget_periods#show'
 end

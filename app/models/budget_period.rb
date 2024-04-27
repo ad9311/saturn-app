@@ -5,16 +5,16 @@
 #  id         :bigint           not null, primary key
 #  balance    :decimal(11, 2)   default(0.0), not null
 #  month      :integer          not null
+#  uid        :integer          not null
 #  year       :integer          not null
-#  year_month :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :bigint           not null
 #
 # Indexes
 #
-#  index_budget_periods_on_user_id     (user_id)
-#  index_budget_periods_on_year_month  (year_month) UNIQUE
+#  index_budget_periods_on_uid      (uid) UNIQUE
+#  index_budget_periods_on_user_id  (user_id)
 #
 # Foreign Keys
 #
@@ -25,7 +25,7 @@ class BudgetPeriod < ApplicationRecord
 
   has_many :transactions, dependent: :destroy
 
-  validates :year_month, uniqueness: true
+  validates :uid, uniqueness: true
   validates :balance, numericality: true
   validates(
     :month,
@@ -36,11 +36,11 @@ class BudgetPeriod < ApplicationRecord
     numericality: { only_integer: true, greater_than_or_equal_to: 2000, less_than_or_equal_to: 3000 }
   )
 
-  before_save :set_year_month
+  before_save :set_uid
 
   private
 
-  def set_year_month
-    self.year_month = "#{year}#{month.to_s.rjust(2, '0')}".to_i
+  def set_uid
+    self.uid = "#{year}#{month.to_s.rjust(2, '0')}".to_i
   end
 end
