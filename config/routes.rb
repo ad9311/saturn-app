@@ -16,4 +16,12 @@ Rails.application.routes.draw do
   get 'budgets', to: 'budget_periods#index'
   get 'budgets/:uid', to: 'budget_periods#show'
   get 'budgets/:uid/details', to: 'budget_periods#details'
+
+  # Income transactions
+  resources :budgets, param: :uid do
+    get 'income/new', to: 'income_transactions#new'
+    post 'income', to: 'income_transactions#create'
+    get 'income/:id/edit', to: 'income_transactions#edit'
+    patch 'income/:id', to: 'income_transactions#update'
+  end
 end
