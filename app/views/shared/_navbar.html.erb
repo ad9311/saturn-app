@@ -1,11 +1,15 @@
 <div class="bg-gray-200 border border-gray-300">
-  <nav class="mx-auto container relative">
+  <nav class="mx-auto py-2 container relative">
     <div class="px-2 flex justify-between items-center">
-      <div data-sliding-menu-target="menuContainer" class="block md:hidden" data-controller="sliding-menu" id="sliding-menu-container">
-        <button data-action="click->sliding-menu#toggleMenu">MENU</button>
-        <%= render "shared/sliding_link_menu", links: navigation_links %>
+      <div data-sliding-menu-target="menuContainer" data-controller="sliding-menu">
+        <div class="block md:hidden">
+          <button data-action="click->sliding-menu#toggleMenu" class="pt-1">
+            <%= image_tag "menu.svg", alt: "menu", class: "w-8" %>
+          </button>
+          <%= render "shared/sliding_link_menu", links: navigation_links %>
+        </div>
+        <div class="px-2 hidden md:block"><%= render "shared/navbar_links", links: navigation_links %></div>
       </div>
-      <div class="px-2 hidden md:block"><%= render "shared/navbar_links", links: navigation_links %></div>
       <h1>SaturnApp</h1>
     </div>
   </nav>
