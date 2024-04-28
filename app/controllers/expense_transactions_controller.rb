@@ -1,6 +1,6 @@
 class ExpenseTransactionsController < ApplicationController
   before_action :set_budget_period
-  before_action :set_expense, only: %i[edit update]
+  before_action :set_expense, only: %i[edit update destroy]
   before_action :set_create_form_path, :set_expense_categories, only: %i[new create]
   before_action :set_update_form_path, :set_expense_categories, only: %i[edit update]
   before_action :set_expense_categories, only: %i[new create edit update]
@@ -26,6 +26,12 @@ class ExpenseTransactionsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @expense.destroy!
+
+    redirect_to budget_period_details_path(@budget_period.uid)
   end
 
   private

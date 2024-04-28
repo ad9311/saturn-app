@@ -40,8 +40,8 @@ class BudgetPeriodsController < ApplicationController
   end
 
   def details
-    @income_table_columns = %w[Edit Description Amount Date]
-    @expense_table_columns = %w[Edit Description Category Amount Date]
+    @income_table_columns = %w[Edit Description Amount Date Delete]
+    @expense_table_columns = %w[Edit Description Category Amount Date Delete]
     @income = @budget_period.income_transactions.order(created_at: :desc).map do |income|
       [
         {
@@ -50,7 +50,11 @@ class BudgetPeriodsController < ApplicationController
         },
         { data: income.description },
         { data: income.amount },
-        { data: income.created_at }
+        { data: income.created_at },
+        {
+          render: 'shared/table/destroy_button',
+          options: { path: budget_income_transaction_path(@budget_period.uid, income.id) }
+        }
       ]
     end
     @expenses = @budget_period.expense_transactions.order(created_at: :desc).map do |expense|
@@ -62,7 +66,11 @@ class BudgetPeriodsController < ApplicationController
         { data: expense.description },
         { data: expense.expense_category.name },
         { data: expense.amount },
-        { data: expense.created_at }
+        { data: expense.created_at },
+        {
+          render: 'shared/table/destroy_button',
+          options: { path: budget_expense_transaction_path(@budget_period.uid, expense.id) }
+        }
       ]
     end
   end
