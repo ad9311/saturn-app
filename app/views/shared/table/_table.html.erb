@@ -10,11 +10,13 @@
     <% table_rows.each do |rows| %>
       <tr>
         <% rows.each_with_index do |cell, index| %>
-          <% if index.zero? %>
-            <td><%= link_to "Show", cell %></td>
-          <% else %>
-            <td><%= cell %></td>
-          <% end %>
+          <td>
+            <% if cell[:partial].nil? %>
+              <%= cell[:data] %>
+            <% else %>
+              <%= render cell[:partial], **cell[:options] %>
+            <% end %>
+          </td>
         <% end %>
       </tr>
     <% end %>
