@@ -1,5 +1,5 @@
-<%= render "shared/form_errors", record: @income %>
-<%= form_with url: @form_url, model: @income do |f| %>
+<%= render "shared/form_errors", model: @income %>
+<%= form_with model: @income, url: @form_path do |f| %>
   <div>
     <%= f.label :description %>
     <%= f.text_area :description %>

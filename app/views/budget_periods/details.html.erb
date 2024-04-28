@@ -6,7 +6,7 @@
   <span>Balance: <%= @budget_period.balance %></span>
 </div>
 <div class="overflow-x-auto">
-  <%= link_to "New income", root_path %>
+  <%= link_to "New income",  new_budget_income_transaction_path(@budget_period.uid) %>
   <%= render "shared/table/table", table_columns: @income_table_columns, table_rows: @income %>
   <span>Total income: <%= @budget_period.total_income %></span>
 </div>

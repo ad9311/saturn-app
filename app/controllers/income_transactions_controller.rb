@@ -4,27 +4,29 @@ class IncomeTransactionsController < ApplicationController
 
   def new
     @income = IncomeTransaction.new
-    @form_url = budget_income_path
+    @form_path = budget_income_transactions_path
   end
 
   def edit
-    @form_url = "/budgets/#{@budget_period.uid}/income/#{@income.id}"
+    @form_path = budget_income_transaction_path
   end
 
   def create
+    @form_path = budget_income_transactions_path
     @income = @budget_period.income_transactions.build(income_params)
     if @income.save
       redirect_to budgets_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
+    @form_path = budget_income_transaction_path
     if @income.update(income_params)
       redirect_to budgets_path
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
