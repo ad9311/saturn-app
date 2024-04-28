@@ -5,7 +5,7 @@ class ExpenseCategoriesController < ApplicationController
     @table_columns = %w[Edit Name Color]
     @categories = current_user.expense_categories.map do |category|
       [
-        { render: 'shared/table/table_link', options: { text: 'Edit', path: edit_expense_category_path(category) } },
+        { render: 'shared/table/table_link', options: { body: 'Edit', path: edit_expense_category_path(category) } },
         { data: category.name },
         { data: category.color },
         { render: 'shared/table/destroy_button', options: { path: expense_category_path(category) } }
