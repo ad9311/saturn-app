@@ -1,4 +1,4 @@
-<p><%= @budget_period.uid %></p>
+<h2><%= @budget_period.display_period_full %></h2>
 <div class="overflow-x-auto">
   <%= render "shared/table/table", table_columns: @income_table_columns, table_rows: @income %>
 </div>
