@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="navbar"
+// Connects to data-controller="sliding-menu"
 export default class extends Controller {
   static targets = ['menu', 'menuContainer']
 

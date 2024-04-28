@@ -1,8 +1,8 @@
-<div class="bg-gray-200 border border-gray-300 rounded-md w-fit absolute -left-full transition-all" data-navbar-target="menu">
+<div class="bg-gray-200 border border-gray-300 rounded-md w-fit absolute -left-full transition-all" data-sliding-menu-target="menu">
   <p class="pl-5 pt-10"><%= current_user.full_name %></p>
   <ul class="py-10 pl-5 min-w-60">
-    <% dataset.each do |data| %>
-      <li class="mb-2"><%= link_to data[:label], data[:path] %></li>
+    <% links.each do |link| %>
+      <li class="mb-2"><%= link_to link[:label], link[:path] %></li>
     <% end %>
   </ul>
 </div>
