@@ -1,7 +1,7 @@
 <span>
-  ←&nbsp;<%= link_to "budgets", budgets_path %>/<%= @budget_period.uid %>
+  ←&nbsp;<%= link_to "Budgets", budgets_path %>/<%= @budget_period.display_period_short(' ') %>
 </span>
-<h2><%= @budget_period.display_period_full %></h2>
+<h2><%= @budget_period.display_period_full('/') %></h2>
 <%= link_to "Full details", "#{@budget_period.uid}/details" %>
 <div class="text-center">
   <% @balance_summary.each do |summary| %>

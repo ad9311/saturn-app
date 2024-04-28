@@ -15,7 +15,7 @@ class BudgetPeriodsController < ApplicationController
     @budget_periods = current_user.budget_periods.order(uid: :desc).map do |budget_period|
       [
         { partial: 'shared/table/table_link', options: { text: 'Show', path: "/budgets/#{budget_period.uid}" } },
-        { data: budget_period.display_period_short },
+        { data: budget_period.display_period_short('/') },
         { data: budget_period.balance },
         { data: budget_period.total_income },
         { data: budget_period.total_expenses },

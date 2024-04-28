@@ -1,9 +1,9 @@
 <span>
-  ←&nbsp;<%= link_to "budgets", budgets_path %>/<%= link_to @budget_period.uid, "/budgets/#{@budget_period.uid}" %>/details
+  ←&nbsp;<%= link_to "Budgets", budgets_path %>/<%= link_to @budget_period.display_period_short(' '), "/budgets/#{@budget_period.uid}" %>/Details
 </span>
-<h2><%= @budget_period.display_period_full %></h2>
+<h2><%= @budget_period.display_period_full('/') %></h2>
 <div class="text-center">
-  <span>balance: <%= @budget_period.balance %></span>
+  <span>Balance: <%= @budget_period.balance %></span>
 </div>
 <div class="overflow-x-auto">
   <%= link_to "New income", root_path %>

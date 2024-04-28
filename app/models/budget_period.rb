@@ -44,14 +44,14 @@ class BudgetPeriod < ApplicationRecord
 
   before_save :set_uid
 
-  def display_period_short
+  def display_period_short(separator)
     month_string = I18n.t("activerecord.budget_period.#{month.to_s.rjust(2, '0')}.short")
-    "#{month_string}/#{year}"
+    "#{month_string}#{separator}#{year}"
   end
 
-  def display_period_full
+  def display_period_full(separator)
     month_string = I18n.t("activerecord.budget_period.#{month.to_s.rjust(2, '0')}.full")
-    "#{month_string}/#{year}"
+    "#{month_string}#{separator}#{year}"
   end
 
   private
