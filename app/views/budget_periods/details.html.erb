@@ -13,7 +13,7 @@
   <span>Total income: <%= @budget_period.total_income %></span>
 </div>
 <div class="overflow-x-auto">
-  <%= link_to "New expense", root_path %>
+  <%= link_to "New expense", new_budget_expense_transaction_path(@budget_period.uid) %>
   <%= render "shared/table/table", table_columns: @expense_table_columns, table_rows: @expenses %>
   <span>Total expenses: <%= @budget_period.total_expenses %></span>
 </div>

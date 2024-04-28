@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   # Income transactions
   resources :budgets, only: [], param: :uid do
     resources :income_transactions, path: :income, only: %i[new edit create update]
+    resources :expense_transactions, path: :expense, only: %i[new edit create update]
   end
 end
