@@ -9,6 +9,7 @@ if Rails.env.development?
     last_name: 'Díaz'
   )
 
+  ExpenseCategory.create(user:, name: 'default', color: '#000000', default: true)
   ExpenseCategory.create(user:, name: 'Groceries', color: '#FF5722')
   ExpenseCategory.create(user:, name: 'Online shopping', color: '#FF5722')
   ExpenseCategory.create(user:, name: 'Utilities', color: '#28B600')
