@@ -1,9 +1,11 @@
 <div class="bg-gray-200 border border-gray-300">
   <nav class="mx-auto container relative" data-controller="navbar">
     <div class="px-2 flex justify-between items-center">
-      <button data-action="click->navbar#toggleMenu">MENU</button>
+      <div data-navbar-target="menuContainer">
+        <button data-action="click->navbar#toggleMenu">MENU</button>
+        <%= render "shared/sliding_link_menu", dataset: sliding_menu_links %>
+      </div>
       <h1>SaturnApp</h1>
     </div>
-    <%= render "shared/sliding_link_menu", dataset: sliding_menu_links %>
   </nav>
 </div>
