@@ -1,12 +1,13 @@
 <%= render "shared/form_errors", model: @expense %>
 <%= form_with model: @expense, url: @form_path do |f| %>
   <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div>
     <%= f.label :expense_category_id %>
     <%= f.select :expense_category_id, @expense_categories %>
+    <%= link_to "Add a category", new_expense_category_path(redirect_path: request.path) %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
   </div>
   <div>
     <%= f.label :amount %>

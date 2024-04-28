@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # Devise
   devise_for :users
 
+  # Users
+  get 'settings', to: 'users#settings', as: :user_settings
+
   # Home
   resources :home, only: %i[index]
 

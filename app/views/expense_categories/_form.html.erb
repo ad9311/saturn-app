@@ -1,5 +1,8 @@
 <%= render "shared/form_errors", model: @category %>
 <%= form_with model: @category do |f| %>
+  <% unless @redirect_path.nil? %>
+    <%= hidden_field_tag 'redirect_path', @redirect_path %>
+  <% end %>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
