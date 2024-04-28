@@ -24,4 +24,7 @@ Rails.application.routes.draw do
     resources :income_transactions, path: :income, only: %i[new edit create update]
     resources :expense_transactions, path: :expense, only: %i[new edit create update]
   end
+
+  # Expense categories
+  resources :expense_categories, except: :show
 end
