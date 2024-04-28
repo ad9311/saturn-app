@@ -11,10 +11,10 @@
       <tr>
         <% rows.each_with_index do |cell, index| %>
           <td>
-            <% if cell[:partial].nil? %>
+            <% if cell[:render].nil? %>
               <%= cell[:data] %>
             <% else %>
-              <%= render cell[:partial], **cell[:options] %>
+              <%= render cell[:render], **cell[:options] %>
             <% end %>
           </td>
         <% end %>

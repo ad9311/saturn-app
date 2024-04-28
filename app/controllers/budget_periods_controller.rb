@@ -14,7 +14,7 @@ class BudgetPeriodsController < ApplicationController
     ]
     @budget_periods = current_user.budget_periods.order(uid: :desc).map do |budget_period|
       [
-        { partial: 'shared/table/table_link', options: { text: 'Show', path: "/budgets/#{budget_period.uid}" } },
+        { render: 'shared/table/table_link', options: { text: 'Show', path: "/budgets/#{budget_period.uid}" } },
         { data: budget_period.display_period_short('/') },
         { data: budget_period.balance },
         { data: budget_period.total_income },
@@ -40,10 +40,14 @@ class BudgetPeriodsController < ApplicationController
   end
 
   def details
-    @income_table_columns = %w[Description Amount Date]
-    @expense_table_columns = %w[Description Category Amount Date]
+    @income_table_columns = %w[Edit Description Amount Date]
+    @expense_table_columns = %w[Edit Description Category Amount Date]
     @income = @budget_period.income_transactions.order(created_at: :desc).map do |income|
       [
+        {
+          render: 'shared/table/table_link',
+          options: { text: 'Edit', path: edit_budget_income_transaction_path(@budget_period.uid, income.id) }
+        },
         { data: income.description },
         { data: income.amount },
         { data: income.created_at }
@@ -51,6 +55,10 @@ class BudgetPeriodsController < ApplicationController
     end
     @expenses = @budget_period.expense_transactions.order(created_at: :desc).map do |expense|
       [
+        {
+          render: 'shared/table/table_link',
+          options: { text: 'Edit', path: edit_budget_expense_transaction_path(@budget_period.uid, expense.id) }
+        },
         { data: expense.description },
         { data: expense.expense_category.name },
         { data: expense.amount },

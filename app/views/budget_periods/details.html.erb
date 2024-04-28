@@ -1,8 +1,4 @@
-<span>
-  ←&nbsp;<%= link_to "Budgets", budget_periods_path %>/
-  <%= link_to @budget_period.display_period_short(' '), budget_period_path(@budget_period.uid) %>/
-  Details
-</span>
+<%= render "shared/breadcrumb_navigation", breadcrumbs: budget_period_breadcrumb_details(@budget_period) %>
 <h2><%= @budget_period.display_period_full('/') %></h2>
 <div class="text-center">
   <span>Balance: <%= @budget_period.balance %></span>
