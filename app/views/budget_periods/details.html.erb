@@ -1,0 +1,17 @@
+<span>
+  ←&nbsp;<%= link_to "budgets", budgets_path %>/<%= link_to @budget_period.uid, "/budgets/#{@budget_period.uid}" %>/details
+</span>
+<h2><%= @budget_period.display_period_full %></h2>
+<div class="text-center">
+  <span>balance: <%= @budget_period.balance %></span>
+</div>
+<div class="overflow-x-auto">
+  <%= link_to "New income", root_path %>
+  <%= render "shared/table/table", table_columns: @income_table_columns, table_rows: @income %>
+  <span>Total income: <%= @budget_period.total_income %></span>
+</div>
+<div class="overflow-x-auto">
+  <%= link_to "New expense", root_path %>
+  <%= render "shared/table/table", table_columns: @expense_table_columns, table_rows: @expenses %>
+  <span>Total expenses: <%= @budget_period.total_expenses %></span>
+</div>

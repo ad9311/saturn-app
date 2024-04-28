@@ -1,7 +1,15 @@
+<span>
+  ←&nbsp;<%= link_to "budgets", budgets_path %>/<%= @budget_period.uid %>
+</span>
 <h2><%= @budget_period.display_period_full %></h2>
-<div class="overflow-x-auto">
-  <%= render "shared/table/table", table_columns: @income_table_columns, table_rows: @income %>
+<%= link_to "Full details", "#{@budget_period.uid}/details" %>
+<div class="text-center">
+  <% @balance_summary.each do |summary| %>
+    <div><%= summary[:label] %><%= summary[:data] %></div>
+  <% end %>
 </div>
-<div class="overflow-x-auto">
-  <%= render "shared/table/table", table_columns: @expense_table_columns, table_rows: @expenses %>
+<div class="grid grid-cols-3">
+  <% @transaction_summary.each do |summary| %>
+    <div><%= summary[:label] %><%= summary[:data] %></div>
+  <% end %>
 </div>

@@ -1,5 +1,5 @@
 class BudgetPeriodsController < ApplicationController
-  before_action :set_budget_period, only: %i[show]
+  before_action :set_budget_period, only: %i[show details]
 
   def index
     @table_columns = [
@@ -27,6 +27,19 @@ class BudgetPeriodsController < ApplicationController
   end
 
   def show
+    @balance_summary = [
+      { label: 'Balance', data: @budget_period.balance },
+      { label: 'Total income', data: @budget_period.total_income },
+      { label: 'Total expenses', data: @budget_period.total_expenses }
+    ]
+    @transaction_summary = [
+      { label: 'Transactions', data: @budget_period.transaction_count },
+      { label: 'Income', data: @budget_period.income_count },
+      { label: 'Expenses', data: @budget_period.expense_count }
+    ]
+  end
+
+  def details
     @income_table_columns = %w[Description Amount Date]
     @expense_table_columns = %w[Description Category Amount Date]
     @income = @budget_period.income_transactions.order(created_at: :desc).map do |income|
