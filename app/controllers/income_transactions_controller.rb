@@ -13,7 +13,7 @@ class IncomeTransactionsController < ApplicationController
   def create
     @income = @budget_period.income_transactions.build(income_params)
     if @income.save
-      redirect_to budget_period_path(@budget_period.uid)
+      redirect_to budget_period_details_path(@budget_period.uid)
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class IncomeTransactionsController < ApplicationController
 
   def update
     if @income.update(income_params)
-      redirect_to budget_period_path(@budget_period.uid)
+      redirect_to budget_period_details_path(@budget_period.uid)
     else
       render :edit, status: :unprocessable_entity
     end

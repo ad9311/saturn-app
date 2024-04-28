@@ -14,7 +14,7 @@ class ExpenseTransactionsController < ApplicationController
   def create
     @expense = @budget_period.expense_transactions.build(expense_params)
     if @expense.save
-      redirect_to budget_period_path(@budget_period.uid)
+      redirect_to budget_period_details_path(@budget_period.uid)
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,7 +22,7 @@ class ExpenseTransactionsController < ApplicationController
 
   def update
     if @expense.update(expense_params)
-      redirect_to budget_period_path(@budget_period.uid)
+      redirect_to budget_period_details_path(@budget_period.uid)
     else
       render :edit, status: :unprocessable_entity
     end
