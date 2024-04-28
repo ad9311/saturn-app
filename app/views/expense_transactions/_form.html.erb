@@ -1,8 +1,12 @@
 <%= render "shared/form_errors", model: @expense %>
 <%= form_with model: @expense, url: @form_path do |f| %>
   <div>
-    <%= f.label :expense_category_id %>
-    <%= f.select :expense_category_id, @expense_categories %>
+    <% if @expense_categories.empty? %>
+      <span>No categories, please add a catagory to procede</span>
+    <% else %>
+      <%= f.label :expense_category_id %>
+      <%= f.select :expense_category_id, @expense_categories %>
+    <% end %>
     <%= link_to "Add a category", new_expense_category_path(redirect_path: request.path) %>
   </div>
   <div>
