@@ -1,5 +1,3 @@
-<span>
-  ←&nbsp;<%= link_to "Budgets", budget_periods_path %>/<%= link_to @budget_period.display_period_short(' '), budget_period_path(@budget_period.uid) %>/<%= link_to "Details", budget_period_details_path(@budget_period.uid) %>/New income
-</span>
+<%= render "shared/breadcrumb_navigation", breadcrumbs: transaction_breadcrumb(@budget_period, 'New income') %>
 <h2>New income</h2>
 <%= render "form" %>
