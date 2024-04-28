@@ -1,5 +1,7 @@
 <span>
-  ←&nbsp;<%= link_to "Budgets", budgets_path %>/<%= link_to @budget_period.display_period_short(' '), "/budgets/#{@budget_period.uid}" %>/Details
+  ←&nbsp;<%= link_to "Budgets", budget_periods_path %>/
+  <%= link_to @budget_period.display_period_short(' '), budget_period_path(@budget_period.uid) %>/
+  Details
 </span>
 <h2><%= @budget_period.display_period_full('/') %></h2>
 <div class="text-center">
