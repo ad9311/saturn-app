@@ -53,6 +53,18 @@ RSpec.describe BudgetPeriod, type: :model do
     expect(@budget_period.balance.to_f).to eq(1000.0)
   end
 
+  it 'has transaction count to 1' do
+    expect(@budget_period.transaction_count).to eq(1)
+  end
+
+  it 'has income count to 1' do
+    expect(@budget_period.income_count).to eq(1)
+  end
+
+  it 'has total income to the same value of balance' do
+    expect(@budget_period.total_income.to_f).to eq(1000.0)
+  end
+
   it 'decrements the budget period balance' do
     @budget_period.expense_transactions.create(
       expense_category: @expense_category,
@@ -62,10 +74,34 @@ RSpec.describe BudgetPeriod, type: :model do
     expect(@budget_period.balance.to_f).to eq(500.0)
   end
 
+  it 'has transaction count to 2' do
+    expect(@budget_period.transaction_count).to eq(2)
+  end
+
+  it 'has expense count to 1' do
+    expect(@budget_period.expense_count).to eq(1)
+  end
+
+  it 'has total expenses to the same value of last expense' do
+    expect(@budget_period.total_expenses.to_f).to eq(500.0)
+  end
+
   it 'reverts balance back when an income is destroyed' do
     income = @budget_period.income_transactions.create(description: 'test', amount: 50.0)
     income.destroy
     expect(@budget_period.balance.to_f).to eq(500.0)
+  end
+
+  it 'has transaction count to 2 after deleting last income' do
+    expect(@budget_period.transaction_count).to eq(2)
+  end
+
+  it 'has income count to 1 after deleting last income' do
+    expect(@budget_period.income_count).to eq(1)
+  end
+
+  it 'has total income of 500 after deleting last income' do
+    expect(@budget_period.total_income.to_f).to eq(1000.0)
   end
 
   it 'reverts balance back when an expense is destroyed' do
@@ -78,10 +114,26 @@ RSpec.describe BudgetPeriod, type: :model do
     expect(@budget_period.balance.to_f).to eq(500.0)
   end
 
+  it 'has transaction count to 2 after destroying last expense' do
+    expect(@budget_period.transaction_count).to eq(2)
+  end
+
+  it 'has expense count to 1 after destroying last expense' do
+    expect(@budget_period.expense_count).to eq(1)
+  end
+
+  it 'has total expenses to the same value of last expense' do
+    expect(@budget_period.total_expenses.to_f).to eq(500.0)
+  end
+
   it 'corrects the balance when an income is updated' do
     income = @budget_period.income_transactions.create(description: 'test', amount: 50.0)
     income.update(amount: 20.0)
     expect(@budget_period.balance.to_f).to eq(520.0)
+  end
+
+  it 'has total income of all income' do
+    expect(@budget_period.total_income.to_f).to eq(1020.0)
   end
 
   it 'corrects the balance when an expense is updated' do
@@ -92,5 +144,9 @@ RSpec.describe BudgetPeriod, type: :model do
     )
     expense.update(amount: 20.0)
     expect(@budget_period.balance.to_f).to eq(500.0)
+  end
+
+  it 'has total expenses of all expenses' do
+    expect(@budget_period.total_expenses.to_f).to eq(520.0)
   end
 end

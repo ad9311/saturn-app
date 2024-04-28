@@ -47,7 +47,7 @@ class ExpenseTransaction < ApplicationRecord
   def run_before_destroy
     decrement_transaction_count!
     credit_budget_period!(amount)
-    credit_total_expense!(amount)
+    debit_total_expense!(amount)
     decrement_expense_count!
   end
 
