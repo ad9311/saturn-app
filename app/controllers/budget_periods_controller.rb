@@ -1,4 +1,5 @@
 class BudgetPeriodsController < ApplicationController
+  before_action :next_budget_period, only: :index
   before_action :set_budget_period, only: %i[show details]
 
   def index
@@ -79,5 +80,14 @@ class BudgetPeriodsController < ApplicationController
 
   def set_budget_period
     @budget_period = BudgetPeriod.find_by(uid: params[:uid])
+  end
+
+  def next_budget_period
+    last_budget_period = current_user.budget_periods.order(uid: :desc).first
+    current_date = Time.zone.now
+
+    return if last_budget_period.month == current_date.month && last_budget_period.year == current_date.year
+
+    current_user.budget_periods.create(month: current_date.month, year: current_date.year)
   end
 end
