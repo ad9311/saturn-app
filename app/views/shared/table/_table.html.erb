@@ -1,24 +1,26 @@
-<table class="w-max">
-  <thead>
-    <tr>
-      <% table_columns.each do |column| %>
-        <th><%= column %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% table_rows.each do |rows| %>
+<div class="mx-auto bg-white p-1 w-max rounded-md drop-shadow-md">
+  <table class="w-max table">
+    <thead>
       <tr>
-        <% rows.each_with_index do |cell, index| %>
-          <td>
-            <% if cell[:render].nil? %>
-              <%= cell[:data] %>
-            <% else %>
-              <%= render cell[:render], **cell[:options] %>
-            <% end %>
-          </td>
+        <% table_columns.each do |column| %>
+          <th class="p-2 text-slate-400"><%= column %></th>
         <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody class="divide-y divide-slate-600">
+      <% table_rows.each do |rows| %>
+        <tr>
+          <% rows.each_with_index do |cell, index| %>
+            <td class="p-2">
+              <% if cell[:render].nil? %>
+                <%= cell[:data] %>
+              <% else %>
+                <%= render cell[:render], **cell[:options] %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

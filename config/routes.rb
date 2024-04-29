@@ -19,9 +19,6 @@ Rails.application.routes.draw do
   resources :budget_periods, path: :budgets, param: :uid, only: %i[index show]
   get 'budgets/:uid/details', to: 'budget_periods#details', as: :budget_period_details
 
-  # get 'budgets', to: 'budget_periods#index'
-  # get 'budgets/:uid', to: 'budget_periods#show', as: :budget
-
   # Income transactions
   resources :budgets, only: [], param: :uid do
     resources :income_transactions, path: :income, except: %i[index show]

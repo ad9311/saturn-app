@@ -15,7 +15,14 @@ class BudgetPeriodsController < ApplicationController
     ]
     @budget_periods = current_user.budget_periods.order(uid: :desc).map do |budget_period|
       [
-        { render: 'shared/table/table_link', options: { body: 'Show', path: "/budgets/#{budget_period.uid}" } },
+        {
+          render: 'shared/table/table_image_link',
+          options: {
+            path: budget_period_path(budget_period.uid),
+            image_path: 'magnifying-glass.svg',
+            alt: 'more'
+          }
+        },
         { data: budget_period.display_period_short('/') },
         { data: budget_period.balance },
         { data: budget_period.total_income },
@@ -28,16 +35,12 @@ class BudgetPeriodsController < ApplicationController
   end
 
   def show
-    @balance_summary = [
-      { label: 'Balance', data: @budget_period.balance },
-      { label: 'Total income', data: @budget_period.total_income },
-      { label: 'Total expenses', data: @budget_period.total_expenses }
-    ]
-    @transaction_summary = [
-      { label: 'Transactions', data: @budget_period.transaction_count },
-      { label: 'Income', data: @budget_period.income_count },
-      { label: 'Expenses', data: @budget_period.expense_count }
-    ]
+    @balance = @budget_period.balance
+    @total_income = @budget_period.total_income
+    @total_expenses = @budget_period.total_expenses
+    @transaction_count = @budget_period.transaction_count
+    @income_count = @budget_period.income_count
+    @expense_count = @budget_period.expense_count
   end
 
   def details

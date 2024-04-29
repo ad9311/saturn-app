@@ -13,4 +13,12 @@ module BudgetPeriodsHelper
       { body: 'Details' }
     ]
   end
+
+  def budget_period_navigation_links(budget_period)
+    [
+      { body: 'Full details', path: budget_period_details_path(budget_period.uid) },
+      { body: 'New income', path: new_budget_income_transaction_path(budget_period.uid) },
+      { body: 'New expense', path: new_budget_expense_transaction_path(budget_period.uid) }
+    ]
+  end
 end

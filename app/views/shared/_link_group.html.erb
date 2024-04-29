@@ -1,0 +1,7 @@
+<ul class="flex gap-2">
+  <% links.each do |link| %>
+    <li>
+      <%= link_to link[:body], link[:path], class: "link" %>
+    </li>
+  <% end %>
+</ul>

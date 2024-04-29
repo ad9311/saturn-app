@@ -1,15 +1,41 @@
-<%= render "shared/breadcrumb_navigation", breadcrumbs: budget_period_breadcrumb_show(@budget_period) %>
-<h2><%= @budget_period.display_period_full('/') %></h2>
-<%= link_to "Full details", budget_period_details_path(@budget_period.uid) %>
-<%= link_to "New income", new_budget_income_transaction_path(@budget_period.uid) %>
-<%= link_to "New expense", new_budget_expense_transaction_path(@budget_period.uid) %>
-<div class="text-center">
-  <% @balance_summary.each do |summary| %>
-    <div><%= summary[:label] %><%= summary[:data] %></div>
-  <% end %>
-</div>
-<div class="grid grid-cols-3">
-  <% @transaction_summary.each do |summary| %>
-    <div><%= summary[:label] %><%= summary[:data] %></div>
-  <% end %>
-</div>
+<section>
+  <h2 class="title text-center mb-5"><%= @budget_period.display_period_full('/') %></h2>
+  <div class="mb-5">
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: budget_period_breadcrumb_show(@budget_period) %>
+  </div>
+  <div class="mt-10 w-fit mx-auto card">
+    <div class="p-5">
+      <div class="mb-5 text-center">
+        <p class="text-slate-400">Balance</p>
+        <strong class="text-xl number <%= @balance.positive? ? 'text-green-500' : 'text-rose-500' %>"><%= @balance %></strong>
+      </div>
+      <div class="flex items-center gap-5">
+        <div class="text-center">
+          <p class="text-slate-400">Income</p>
+          <strong class="text-xl number text-green-500"><%= @total_income %></strong>
+        </div>
+        <div class="text-center">
+          <p class="text-slate-400">Expenses</p>
+          <strong class="text-xl number text-rose-500"><%= @total_expenses %></strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-5 w-fit mx-auto">
+    <%= render "shared/link_group", links: budget_period_navigation_links(@budget_period) %>
+  </div>
+  <div class="mt-5 mx-auto max-w-xl card flex items-center justify-between">
+    <div class="text-center">
+      <p class="text-slate-400 text-sm">Number of transactions</p>
+      <strong class="text-lg number text-slate-500"><%= @transaction_count %></strong>
+    </div>
+    <div class="text-center">
+      <p class="text-slate-400 text-sm">Number of income</p>
+      <strong class="text-lg number text-slate-500"><%= @income_count %></strong>
+    </div>
+    <div class="text-center">
+      <p class="text-slate-400 text-sm">Number of expenses</p>
+      <strong class="text-lg number text-slate-500"><%= @expense_count %></strong>
+    </div>
+  </div>
+</section>

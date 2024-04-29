@@ -4,7 +4,7 @@ class ExpenseCategoriesController < ApplicationController
 
   def index
     @table_columns = %w[Edit Name Color]
-    @categories = current_user.expense_categories.map do |category|
+    @categories = current_user.expense_categories.where(default: false).map do |category|
       [
         { render: 'shared/table/table_link', options: { body: 'Edit', path: edit_expense_category_path(category) } },
         { data: category.name },

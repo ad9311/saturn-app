@@ -1,10 +1,12 @@
-<% breadcrumbs.each_with_index do |breadcrumb, index| %>
-  <% if index.zero? %>
-    <span>←</span>
+<div class="text-slate-400 italic">
+  <% breadcrumbs.each_with_index do |breadcrumb, index| %>
+    <% if index.zero? %>
+      <span>←</span>
+    <% end %>
+    <% if breadcrumb[:path].nil? %>
+      <span><%= breadcrumb[:body] %></span>
+    <% else %>
+      <span class=""><%= link_to breadcrumb[:body], breadcrumb[:path], class: "link" %> /</span>
+    <% end %>
   <% end %>
-  <% if breadcrumb[:path].nil? %>
-    <span><%= breadcrumb[:body] %></span>
-  <% else %>
-    <span><%= link_to breadcrumb[:body], breadcrumb[:path] %> /</span>
-  <% end %>
-<% end %>
+</div>
