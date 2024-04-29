@@ -57,6 +57,6 @@ class ExpenseTransactionsController < ApplicationController
   end
 
   def set_expense_categories
-    @expense_categories = current_user.expense_categories.map { |ec| [ec.name, ec.id] }
+    @expense_categories = current_user.expense_categories.where(default: false).map { |ec| [ec.name, ec.id] }
   end
 end
