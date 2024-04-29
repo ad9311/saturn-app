@@ -1,0 +1,16 @@
+<div class="">
+  <table class="table">
+    <thead>
+      <tr>
+        <% table_columns.each do |column| %>
+          <th><%= column %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% row_data[:rows].each do |row| %>
+        <%= render row_data[:render], record: row %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

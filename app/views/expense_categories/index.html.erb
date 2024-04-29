@@ -1,7 +1,9 @@
 <section>
-  <h2>Expense categories</h2>
-  <%= link_to "New category", new_expense_category_path %>
-  <div class="overflow-x-auto">
-    <%= render "shared/table/table", table_columns: @table_columns, table_rows: @categories %>
+  <h2 class="title mb-5 text-center">Expense categories</h2>
+  <div class="mb-10">
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Settings', path: user_settings_path }] %>
+  </div>
+  <div class="w-fit mx-auto">
+    <%= render "shared/table", table_columns: @table_columns, row_data: @row_data %>
   </div>
 </section>

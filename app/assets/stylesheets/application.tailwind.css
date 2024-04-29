@@ -28,7 +28,15 @@ body {
   }
 
   .table tr th {
-    @apply bg-slate-200;
+    @apply bg-slate-200 p-2 text-slate-400;
+  }
+
+  .table tbody {
+    @apply divide-y divide-slate-600;
+  }
+
+  .table td {
+    @apply px-3 py-1.5;
   }
 
   .table tr:nth-child(even) {

@@ -13,25 +13,7 @@ class BudgetPeriodsController < ApplicationController
       'Income count',
       'Expense count'
     ]
-    @budget_periods = current_user.budget_periods.order(uid: :desc).map do |budget_period|
-      [
-        {
-          render: 'shared/table/table_image_link',
-          options: {
-            path: budget_period_path(budget_period.uid),
-            image_path: 'magnifying-glass.svg',
-            alt: 'more'
-          }
-        },
-        { data: budget_period.display_period_short('/') },
-        { data: budget_period.balance },
-        { data: budget_period.total_income },
-        { data: budget_period.total_expenses },
-        { data: budget_period.transaction_count },
-        { data: budget_period.income_count },
-        { data: budget_period.expense_count }
-      ]
-    end
+    @row_data = { rows: current_user.budget_periods.order(uid: :desc), render: 'shared/table_budget_period_row' }
   end
 
   def show

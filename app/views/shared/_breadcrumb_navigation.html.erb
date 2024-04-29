@@ -6,7 +6,9 @@
     <% if breadcrumb[:path].nil? %>
       <span><%= breadcrumb[:body] %></span>
     <% else %>
-      <span class=""><%= link_to breadcrumb[:body], breadcrumb[:path], class: "link" %> /</span>
+      <span class=""><%= link_to breadcrumb[:body], breadcrumb[:path], class: "link" %>
+        <%= index == breadcrumbs.size - 1 ? '' : '/' %>
+      </span>
     <% end %>
   <% end %>
 </div>

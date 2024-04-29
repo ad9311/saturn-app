@@ -1,6 +1,7 @@
 <section>
   <h2 class="title mb-5 text-center">Budget periods</h2>
-  <div class="overflow-x-auto">
-    <%= render "shared/table/table", table_columns: @table_columns, table_rows: @budget_periods %>
+  <div class="mb-10">
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Home', path: root_path }] %>
   </div>
+  <%= render "shared/table", table_columns: @table_columns, row_data: @row_data %>
 </section>

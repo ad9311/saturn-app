@@ -7,16 +7,16 @@
     <div class="p-5">
       <div class="mb-5 text-center">
         <p class="text-slate-400">Balance</p>
-        <strong class="text-xl number <%= @balance.positive? ? 'text-green-500' : 'text-rose-500' %>"><%= @balance %></strong>
+        <strong class="text-xl number <%= @balance.positive? ? 'text-green-500' : 'text-rose-500' %>"><%= number_to_currency(@balance) %></strong>
       </div>
       <div class="flex items-center gap-5">
         <div class="text-center">
           <p class="text-slate-400">Income</p>
-          <strong class="text-xl number text-green-500"><%= @total_income %></strong>
+          <strong class="text-xl number text-green-500"><%= number_to_currency(@total_income) %></strong>
         </div>
         <div class="text-center">
           <p class="text-slate-400">Expenses</p>
-          <strong class="text-xl number text-rose-500"><%= @total_expenses %></strong>
+          <strong class="text-xl number text-rose-500"><%= number_to_currency(@total_expenses) %></strong>
         </div>
       </div>
     </div>
