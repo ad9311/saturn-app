@@ -27,7 +27,7 @@ if Rails.env.development?
         )
       else
         ExpenseTransaction.create(
-          expense_category: user.expense_categories.sample,
+          expense_category: user.expense_categories.where(default: false).sample,
           budget_period:,
           description: Faker::Commerce.product_name,
           amount: Faker::Commerce.price
