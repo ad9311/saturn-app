@@ -24,7 +24,7 @@ body {
   }
 
   .card {
-    @apply p-3 md:p-5 bg-white rounded-md shadow-md;
+    @apply p-2 md:p-5 bg-white rounded-md shadow-md;
   }
 
   .table {
@@ -89,7 +89,7 @@ body {
   }
 
   .alert {
-    @apply mb-5 p-3 md:p-5 bg-rose-50 rounded-md;
+    @apply mb-5 p-2 md:p-5 bg-rose-50 rounded-md;
   }
 
   .alert span {
@@ -97,7 +97,7 @@ body {
   }
 
   .warning {
-    @apply mb-5 p-3 md:p-5 bg-orange-50 rounded-md;
+    @apply mb-5 p-2 md:p-5 bg-orange-50 rounded-md;
   }
 
   .alert span {
