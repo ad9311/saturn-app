@@ -88,3 +88,5 @@ group :development do
   # Use for linting erb files
   gem 'erb_lint'
 end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
