@@ -42,7 +42,7 @@ class BudgetPeriodsController < ApplicationController
     last_budget_period = current_user.budget_periods.order(uid: :desc).first
     current_date = Time.zone.now
 
-    return if last_budget_period.month == current_date.month && last_budget_period.year == current_date.year
+    return if last_budget_period&.month == current_date.month && last_budget_period&.year == current_date.year
 
     current_user.budget_periods.create(month: current_date.month, year: current_date.year)
   end

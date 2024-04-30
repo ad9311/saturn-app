@@ -31,10 +31,6 @@ body {
     @apply text-left;
   }
 
-  .table thead tr {
-    @apply text-center;
-  }
-
   .table tr th {
     @apply bg-slate-200 p-2 text-slate-400;
   }
@@ -66,8 +62,14 @@ body {
   .form textarea,
   .form input[type="number"],
   .form input[type="text"],
+  .form input[type="password"],
+  .form input[type="email"],
   .form select {
     @apply w-full rounded-md text-slate-500;
+  }
+
+  .form  input[type="checkbox"] {
+    @apply text-lime-600;
   }
 
   .form input[type="color"] {
@@ -84,5 +86,25 @@ body {
 
   .form .submit {
     @apply mt-10 flex justify-end;
+  }
+
+  .alert {
+    @apply mb-5 p-3 md:p-5 bg-rose-50 rounded-md;
+  }
+
+  .alert span {
+    @apply text-rose-600;
+  }
+
+  .warning {
+    @apply mb-5 p-3 md:p-5 bg-orange-50 rounded-md;
+  }
+
+  .alert span {
+    @apply text-orange-600;
+  }
+
+  .devise-links a {
+    @apply link;
   }
 }
