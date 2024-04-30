@@ -1,2 +1,13 @@
-<h2>Settings</h2>
-<%= link_to "Expense categories", expense_categories_path %>
+<h2 class="title mb-5 text-center">Settings</h2>
+<div class="mb-10">
+  <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Home', path: root_path }] %>
+</div>
+<div class="card">
+  <ul>
+    <% settings_links.each do |link| %>
+      <li>
+        <%= link_to link[:body], link[:path], class: "link" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
