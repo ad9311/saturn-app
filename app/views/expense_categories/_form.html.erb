@@ -1,15 +1,19 @@
-<%= render "shared/form_errors", model: @category %>
-<%= form_with model: @category do |f| %>
-  <% unless @redirect_path.nil? %>
-    <%= hidden_field_tag 'redirect_path', @redirect_path %>
+<div class="card">
+  <%= render "shared/form_errors", model: @category %>
+  <%= form_with model: @category, class: "form" do |f| %>
+    <% unless @redirect_path.nil? %>
+      <%= hidden_field_tag 'redirect_path', @redirect_path %>
+    <% end %>
+    <div class="group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="group">
+      <%= f.label :color %>
+      <%= f.color_field :color %>
+    </div>
+    <div class="submit">
+      <%= f.submit 'Submit' %>
+    </div>
   <% end %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :color %>
-    <%= f.color_field :color %>
-  </div>
-  <%= f.submit 'Submit' %>
-<% end %>
+</div>

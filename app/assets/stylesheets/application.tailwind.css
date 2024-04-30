@@ -65,8 +65,13 @@ body {
 
   .form textarea,
   .form input[type="number"],
+  .form input[type="text"],
   .form select {
     @apply w-full rounded-md text-slate-500;
+  }
+
+  .form input[type="color"] {
+    @apply h-8 w-8;
   }
 
   .form input[type="submit"] {

@@ -8,14 +8,6 @@ class ExpenseCategoriesController < ApplicationController
       rows: current_user.expense_categories.where(default: false),
       render: 'shared/table_expense_category_row'
     }
-    # @categories = current_user.expense_categories.where(default: false).map do |category|
-    #   [
-    #     { render: 'shared/table/table_link', options: { body: 'Edit', path: edit_expense_category_path(category) } },
-    #     { data: category.name },
-    #     { data: category.color },
-    #     { render: 'shared/table/destroy_button', options: { path: expense_category_path(category) } }
-    #   ]
-    # end
   end
 
   def new
