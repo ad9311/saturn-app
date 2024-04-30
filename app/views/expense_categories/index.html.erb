@@ -4,6 +4,6 @@
     <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Settings', path: user_settings_path }] %>
   </div>
   <div class="w-fit mx-auto">
-    <%= render "shared/table", table_columns: @table_columns, row_data: @row_data %>
+    <%= render "shared/table", table_columns: @table_columns, render_path: @render_path, rows: @rows %>
   </div>
 </section>

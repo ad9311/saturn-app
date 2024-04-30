@@ -1,14 +1,14 @@
 <tr>
   <td class="text-center">
-    <%= link_to edit_budget_income_transaction_path(@budget_period.uid, record) do %>
+    <%= link_to edit_budget_income_transaction_path(data[:budget_period].uid, data[:income]) do %>
       <%= image_tag "pencil.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>
-  <td><%= record.description %></td>
-  <td class="text-green-600 number"><%= number_to_currency(record.amount) %></td>
-  <td class="italic text-slate-500"><%= record.created_at.strftime('%A %d') %></td>
+  <td><%= data[:income].description %></td>
+  <td class="text-green-600 number"><%= number_to_currency(data[:income].amount) %></td>
+  <td class="italic text-slate-500"><%= data[:income].created_at.strftime('%A %d') %></td>
   <td class="text-center">
-    <%= button_to budget_income_transaction_path(@budget_period.uid, record), method: :delete do %>
+    <%= button_to budget_income_transaction_path(data[:budget_period].uid, data[:income]), method: :delete do %>
       <%= image_tag "bin.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>

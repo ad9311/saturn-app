@@ -7,16 +7,16 @@
     <div class="p-5">
       <div class="mb-5 text-center">
         <p class="text-slate-400">Balance</p>
-        <strong class="text-xl number <%= @balance.positive? ? 'text-green-500' : 'text-rose-500' %>"><%= number_to_currency(@balance) %></strong>
+        <strong class="text-xl number <%= @budget_period.balance.positive? ? 'text-green-500' : 'text-rose-500' %>"><%= number_to_currency(@budget_period.balance) %></strong>
       </div>
       <div class="flex items-center gap-5">
         <div class="text-center">
           <p class="text-slate-400">Income</p>
-          <strong class="text-xl number text-green-500"><%= number_to_currency(@total_income) %></strong>
+          <strong class="text-xl number text-green-500"><%= number_to_currency(@budget_period.total_income) %></strong>
         </div>
         <div class="text-center">
           <p class="text-slate-400">Expenses</p>
-          <strong class="text-xl number text-rose-500"><%= number_to_currency(@total_expenses) %></strong>
+          <strong class="text-xl number text-rose-500"><%= number_to_currency(@budget_period.total_expenses) %></strong>
         </div>
       </div>
     </div>
@@ -27,15 +27,15 @@
   <div class="mt-5 mx-auto max-w-xl card flex items-center justify-between">
     <div class="text-center">
       <p class="text-slate-400 text-sm">Number of transactions</p>
-      <strong class="text-lg number text-slate-500"><%= @transaction_count %></strong>
+      <strong class="text-lg number text-slate-500"><%= @budget_period.transaction_count %></strong>
     </div>
     <div class="text-center">
       <p class="text-slate-400 text-sm">Number of income</p>
-      <strong class="text-lg number text-slate-500"><%= @income_count %></strong>
+      <strong class="text-lg number text-slate-500"><%= @budget_period.income_count %></strong>
     </div>
     <div class="text-center">
       <p class="text-slate-400 text-sm">Number of expenses</p>
-      <strong class="text-lg number text-slate-500"><%= @expense_count %></strong>
+      <strong class="text-lg number text-slate-500"><%= @budget_period.expense_count %></strong>
     </div>
   </div>
 </section>

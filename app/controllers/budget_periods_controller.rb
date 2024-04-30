@@ -13,60 +13,23 @@ class BudgetPeriodsController < ApplicationController
       'Income count',
       'Expense count'
     ]
-    @row_data = { rows: current_user.budget_periods.order(uid: :desc), render: 'shared/table_budget_period_row' }
+    @render_path = 'shared/table_budget_period_row'
+    @rows = current_user.budget_periods.order(uid: :desc).map { |budget_period| { budget_period: } }
   end
 
-  def show
-    @balance = @budget_period.balance
-    @total_income = @budget_period.total_income
-    @total_expenses = @budget_period.total_expenses
-    @transaction_count = @budget_period.transaction_count
-    @income_count = @budget_period.income_count
-    @expense_count = @budget_period.expense_count
-  end
+  def show; end
 
   def details
     @income_table_columns = %w[Edit Description Amount Date Delete]
     @expense_table_columns = %w[Edit Description Category Amount Date Delete]
-    @row_data_income = {
-      rows: @budget_period.income_transactions.order(created_at: :desc),
-      render: 'shared/table_income_row'
-    }
-    @row_data_expenses = {
-      rows: @budget_period.expense_transactions.order(created_at: :desc),
-      render: 'shared/table_expense_row'
-    }
-    # @income = @budget_period.income_transactions.order(created_at: :desc).map do |income|
-    #   [
-    #     {
-    #       render: 'shared/table/table_link',
-    #       options: { body: 'Edit', path: edit_budget_income_transaction_path(@budget_period.uid, income.id) }
-    #     },
-    #     { data: income.description },
-    #     { data: income.amount },
-    #     { data: income.created_at },
-    #     {
-    #       render: 'shared/table/destroy_button',
-    #       options: { path: budget_income_transaction_path(@budget_period.uid, income.id) }
-    #     }
-    #   ]
-    # end
-    # @expenses = @budget_period.expense_transactions.order(created_at: :desc).map do |expense|
-    #   [
-    #     {
-    #       render: 'shared/table/table_link',
-    #       options: { body: 'Edit', path: edit_budget_expense_transaction_path(@budget_period.uid, expense.id) }
-    #     },
-    #     { data: expense.description },
-    #     { data: expense.expense_category.name },
-    #     { data: expense.amount },
-    #     { data: expense.created_at },
-    #     {
-    #       render: 'shared/table/destroy_button',
-    #       options: { path: budget_expense_transaction_path(@budget_period.uid, expense.id) }
-    #     }
-    #   ]
-    # end
+    @income_render_path = 'shared/table_income_row'
+    @expense_render_path = 'shared/table_expense_row'
+    @income_rows = @budget_period.income_transactions.order(created_at: :desc).map do |income|
+      { income:, budget_period: @budget_period }
+    end
+    @expense_rows = @budget_period.expense_transactions.order(created_at: :desc).map do |expense|
+      { expense:, budget_period: @budget_period }
+    end
   end
 
   private

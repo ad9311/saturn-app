@@ -1,13 +1,13 @@
 <tr>
   <td class="text-center">
-    <%= link_to edit_expense_category_path(record) do %>
+    <%= link_to edit_expense_category_path(data[:category]) do %>
       <%= image_tag "pencil.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>
-  <td><%= record.name %></td>
-  <td><span class="block w-10 h-4 rounded-md" style="background-color: <%= record.color %>;"></span></td>
+  <td><%= data[:category].name %></td>
+  <td><span class="block w-10 h-4 rounded-md" style="background-color: <%= data[:category].color %>;"></span></td>
   <td class="text-center">
-    <%= button_to expense_category_path(record), method: :delete do %>
+    <%= button_to expense_category_path(data[:category]), method: :delete do %>
       <%= image_tag "bin.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>

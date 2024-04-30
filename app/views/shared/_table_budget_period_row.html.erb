@@ -1,16 +1,16 @@
 <tr>
   <td>
-    <%= link_to budget_period_path(record.uid) do %>
+    <%= link_to budget_period_path(data[:budget_period].uid) do %>
       <%= image_tag "magnifying-glass.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>
-  <td class="italic text-slate-500"><%= record.display_period_short('/') %></td>
-  <td class="<%= record.balance.positive? ? 'text-green-600' : 'text-rose-600' %> number" style="background-color: #e2e8f0;">
-    <%= number_to_currency(record.balance) %>
+  <td class="italic text-slate-500"><%= data[:budget_period].display_period_short('/') %></td>
+  <td class="<%= data[:budget_period].balance.positive? ? 'text-green-600' : 'text-rose-600' %> number" style="background-color: #e2e8f0;">
+    <%= number_to_currency(data[:budget_period].balance) %>
   </td>
-  <td class="text-green-600 number"><%= number_to_currency(record.total_income) %></td>
-  <td class="text-rose-600 number"><%= number_to_currency(record.total_expenses) %></td>
-  <td class="number"><%= record.transaction_count %></td>
-  <td class="number"><%= record.income_count %></td>
-  <td class="number"><%= record.expense_count %></td>
+  <td class="text-green-600 number"><%= number_to_currency(data[:budget_period].total_income) %></td>
+  <td class="text-rose-600 number"><%= number_to_currency(data[:budget_period].total_expenses) %></td>
+  <td class="number"><%= data[:budget_period].transaction_count %></td>
+  <td class="number"><%= data[:budget_period].income_count %></td>
+  <td class="number"><%= data[:budget_period].expense_count %></td>
 </tr>
