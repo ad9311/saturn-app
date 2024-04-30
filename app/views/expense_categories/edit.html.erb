@@ -1,2 +1,5 @@
-<h2>Edit expense category</h2>
+<h2 class="title mb-5 text-center">Edit expense category</h2>
+<div class="mb-10">
+  <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Expense categories', path: expense_categories_path }] %>
+</div>
 <%= render "form" %>
