@@ -26,10 +26,10 @@
   <div class="mt-5 w-fit mx-auto">
     <%= render "shared/link_group", links: budget_period_details_nav_links(@budget_period) %>
   </div>
-  <div class="mt-5 w-fit mx-auto">
+  <div class="mt-5">
     <%= render "shared/table", table_columns: @income_table_columns, row_data: @row_data_income %>
   </div>
-  <div class="mt-5 w-fit mx-auto">
+  <div class="mt-5">
     <%= render "shared/table", table_columns: @expense_table_columns, row_data: @row_data_expenses %>
   </div>
 </section>

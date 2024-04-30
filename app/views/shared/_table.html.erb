@@ -1,16 +1,18 @@
-<div class="">
-  <table class="table">
-    <thead>
-      <tr>
-        <% table_columns.each do |column| %>
-          <th><%= column %></th>
+<div class="card overflow-hidden">
+  <div class="overflow-x-auto">
+    <table class="table w-full whitespace-nowrap">
+      <thead>
+        <tr>
+          <% table_columns.each do |column| %>
+            <th><%= column %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% row_data[:rows].each do |row| %>
+          <%= render row_data[:render], record: row %>
         <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% row_data[:rows].each do |row| %>
-        <%= render row_data[:render], record: row %>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </div>

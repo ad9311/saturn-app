@@ -24,7 +24,15 @@ body {
   }
 
   .card {
-    @apply p-5 relative -z-10 bg-white rounded-md drop-shadow-md;
+    @apply p-5 bg-white rounded-md drop-shadow-md;
+  }
+
+  .table {
+    @apply text-left;
+  }
+
+  .table thead tr {
+    @apply text-center;
   }
 
   .table tr th {
