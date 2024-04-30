@@ -10,7 +10,10 @@
         </div>
         <div class="px-2 hidden md:block"><%= render "shared/navbar_links", links: navigation_links %></div>
       </div>
-      <%= image_tag "saturn.svg", alt: "saturn-app", class: "w-12" %>
+      <%= link_to root_path, class: "flex items-center gap-1" do %>
+        <h1 class="text-slate-500 font-bold">SaturnApp</h1>
+        <%= image_tag "saturn.svg", alt: "saturn-app", class: "w-12" %>
+      <% end %>
     </div>
   </nav>
 </div>
