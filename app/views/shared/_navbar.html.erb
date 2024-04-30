@@ -1,4 +1,4 @@
-<div class="bg-white border border-gray-200 drop-shadow-sm">
+<div class="sticky top w-full bg-white border border-gray-200 drop-shadow-sm">
   <nav class="mx-auto py-2 container">
     <div class="px-2 flex justify-between items-center">
       <div data-sliding-menu-target="menuContainer" data-controller="sliding-menu">
@@ -10,7 +10,7 @@
         </div>
         <div class="px-2 hidden md:block"><%= render "shared/navbar_links", links: navigation_links %></div>
       </div>
-      <h1>SaturnApp</h1>
+      <%= image_tag "saturn.svg", alt: "saturn-app", class: "w-12" %>
     </div>
   </nav>
 </div>

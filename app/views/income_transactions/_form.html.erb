@@ -1,12 +1,16 @@
-<%= render "shared/form_errors", model: @income %>
-<%= form_with model: @income, url: @form_path do |f| %>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div>
-    <%= f.label :amount %>
-    <%= f.number_field :amount, min: 0.01, step: 0.01 %>
-  </div>
-  <%= f.submit 'Submit' %>
-<% end %>
+<div class="card">
+  <%= render "shared/form_errors", model: @income %>
+  <%= form_with model: @income, url: @form_path, class: "form" do |f| %>
+    <div class="group">
+      <%= f.label :description %>
+      <%= f.text_area :description, placeholder: "Type something" %>
+    </div>
+    <div class="group">
+      <%= f.label :amount %>
+      <%= f.number_field :amount, min: 0.01, step: 0.01, placeholder: 0.0 %>
+    </div>
+    <div class="submit">
+      <%= f.submit 'Submit' %>
+    </div>
+  <% end %>
+</div>

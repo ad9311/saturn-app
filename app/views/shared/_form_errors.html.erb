@@ -1,7 +1,10 @@
 <% unless model.errors.blank? %>
-  <ul>
-    <% model.errors.full_messages.each do |e| %>
-      <li><%= e %></li>
-    <% end %>
-  </ul>
+  <div class="mb-5 p-3 md:p-5 bg-rose-50 rounded-md">
+    <p class="mb-3 text-rose-600 font-bold">This form has errors:</p>
+    <ul class="list-inside list-disc">
+      <% model.errors.full_messages.each do |e| %>
+        <li class="text-rose-600"><%= e %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

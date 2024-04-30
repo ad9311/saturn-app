@@ -1,21 +1,28 @@
-<%= render "shared/form_errors", model: @expense %>
-<%= form_with model: @expense, url: @form_path do |f| %>
-  <div>
-    <% if @expense_categories.empty? %>
-      <span>No categories, please add a catagory to procede</span>
-    <% else %>
-      <%= f.label :expense_category_id %>
-      <%= f.select :expense_category_id, @expense_categories %>
-    <% end %>
-    <%= link_to "Add a category", new_expense_category_path(redirect_path: request.path) %>
-  </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div>
-    <%= f.label :amount %>
-    <%= f.number_field :amount, min: 1.0, step: 0.01 %>
-  </div>
-  <%= f.submit 'Submit' %>
-<% end %>
+<div class="card">
+  <%= render "shared/form_errors", model: @expense %>
+  <%= form_with model: @expense, url: @form_path, class: "form" do |f| %>
+      <% if @expense_categories.empty? %>
+        <div class="mb-5 p-3 md:p-5 bg-orange-50 rounded-md">
+          <span class="text-orange-600">No categories, please add a catagory to procede</span>
+        </div>
+        <%= render "shared/add_category_expense_form" %>
+      <% else %>
+        <div class="group">
+          <%= f.label :expense_category_id %>
+          <%= f.select :expense_category_id, @expense_categories %>
+          <%= render "shared/add_category_expense_form" %>
+        </div>
+      <% end %>
+    <div class="group">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div class="group">
+      <%= f.label :amount %>
+      <%= f.number_field :amount, min: 1.0, step: 0.01, placeholder: 0.0 %>
+    </div>
+    <div class="submit">
+      <%= f.submit 'Submit' %>
+    </div>
+  <% end %>
+</div>

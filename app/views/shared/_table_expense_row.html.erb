@@ -5,10 +5,14 @@
     <% end %>
   </td>
   <td><%= record.description %></td>
-  <td style="color: <%= record.expense_category.color %>;">
-    <%= record.expense_category.name %>
+  <td>
+    <% if record.expense_category.default? %>
+      <span class="text-slate-400">No category</span>
+    <% else %>
+      <span style="color: <%= record.expense_category.color %>;"><%= record.expense_category.name %></span>
+    <% end %>
   </td>
-  <td class="text-green-600 number"><%= number_to_currency(record.amount) %></td>
+  <td class="text-rose-600 number"><%= number_to_currency(record.amount) %></td>
   <td class="italic text-slate-500"><%= record.created_at.strftime('%A %d') %></td>
   <td class="text-center">
     <%= button_to budget_expense_transaction_path(@budget_period.uid, record), method: :delete do %>

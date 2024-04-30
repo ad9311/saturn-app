@@ -24,7 +24,7 @@ body {
   }
 
   .card {
-    @apply p-5 bg-white rounded-md drop-shadow-md;
+    @apply p-3 md:p-5 bg-white rounded-md shadow-md;
   }
 
   .table {
@@ -53,5 +53,31 @@ body {
 
   .table tr:nth-child(odd) {
     @apply bg-white;
+  }
+
+  .form label  {
+    @apply block italic text-slate-400;
+  }
+
+  .form textarea {
+    @apply h-20 resize-none text-slate-500;
+  }
+
+  .form textarea,
+  .form input[type="number"],
+  .form select {
+    @apply w-full rounded-md text-slate-500;
+  }
+
+  .form input[type="submit"] {
+    @apply px-5 py-2 bg-lime-600 text-white rounded-md;
+  }
+
+  .form .group {
+    @apply mb-5;
+  }
+
+  .form .submit {
+    @apply mt-10 flex justify-end;
   }
 }
