@@ -3,5 +3,9 @@
   <div class="mb-10">
     <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Home', path: root_path }] %>
   </div>
-  <%= render "shared/table", table_columns: @table_columns, render_path: @render_path, rows: @rows %>
+  <%= Time.zone.now %>
+  <%= turbo_frame_tag "budgets_table" do %>
+    <%= render "shared/table", table_columns: @table_columns, render_path: @render_path, rows: @rows %>
+    <%= paginate @rows, param_name: :budgets_page %>
+  <% end %>
 </section>

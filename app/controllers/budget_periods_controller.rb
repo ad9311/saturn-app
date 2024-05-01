@@ -14,7 +14,8 @@ class BudgetPeriodsController < ApplicationController
       'Expense count'
     ]
     @render_path = 'budget_period_table_row'
-    @rows = current_user.budget_periods.order(uid: :desc).map { |budget_period| { budget_period: } }
+    rows = current_user.budget_periods.order(uid: :desc).map { |budget_period| { budget_period: } }
+    @rows = Kaminari.paginate_array(rows).page(params[:budgets_page])
   end
 
   def show; end
