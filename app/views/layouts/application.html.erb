@@ -19,7 +19,7 @@
           <%= render "shared/sidebar" %>
         </div>
       <% end %>
-      <main class="<%= user_signed_in? ? '' : 'w-96' %> container mt-10 mx-auto px-2 overflow-hidden">
+      <main class="<%= user_signed_in? ? '' : 'w-96' %> container mt-10 mx-auto px-2 pb-40 overflow-hidden">
         <%= yield %>
       </main>
     </div>
