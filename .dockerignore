@@ -35,3 +35,10 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 /public/assets
+
+# Node files
+package.json
+package-lock.json
+
+# Linter files
+eslint.config.mjs
