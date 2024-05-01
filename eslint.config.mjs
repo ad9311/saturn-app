@@ -1,21 +1,22 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
+import globals from 'globals'
+import pluginJs from '@eslint/js'
 
 
 export default [
   {
-    ignores: ["config/tailwind.config.js"],
+    ignores: ['config/tailwind.config.js'],
   },
   {
-    languageOptions: { globals: globals.browser },
+    languageOptions: {globals: globals.browser},
     rules: {
-      semi: [2, "never"],
-      indent: ["error", 2],
-      "no-unused-vars": ["error"],
-      "no-empty-function": ["error"],
-      "no-confusing-arrow": ["error"],
-      quotes: ["error", "single"]
+      semi: [2, 'never'],
+      indent: ['error', 2],
+      'no-unused-vars': ['error'],
+      'no-empty-function': ['error'],
+      'no-confusing-arrow': ['error'],
+      quotes: ['error', 'single'],
+      'object-curly-spacing': ['error', 'never']
     }
   },
   pluginJs.configs.recommended,
-];
+]
