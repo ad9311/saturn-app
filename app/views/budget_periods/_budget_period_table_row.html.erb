@@ -1,6 +1,6 @@
 <tr>
   <td title="More">
-    <%= link_to budget_period_path(data[:budget_period].uid) do %>
+    <%= link_to budget_period_path(data[:budget_period].uid), data: { turbo: false } do %>
       <%= image_tag "magnifying-glass.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>

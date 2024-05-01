@@ -37,3 +37,10 @@ en:
       "12":
         full: December
         short: Dec
+  views:
+    pagination:
+      first: First
+      last: Last
+      previous: Prev
+      next: Next
+      truncate: "..."

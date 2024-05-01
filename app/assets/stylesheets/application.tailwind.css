@@ -16,7 +16,7 @@ body {
   }
 
   .link {
-    @apply text-lime-600 hover:underline;
+    @apply text-lime-600 hover:underline underline-offset-4 hover:text-lime-700 transition-all;
   }
 
   .number {
@@ -102,5 +102,36 @@ body {
 
   .devise-links a {
     @apply link;
+  }
+
+  .paginator {
+    @apply mt-5 w-fit mx-auto flex gap-2;
+  }
+
+  .paginator a {
+    @apply
+    text-slate-500
+    bg-slate-300
+    rounded-md
+    hover:underline
+    underline-offset-4
+    hover:bg-lime-600
+    hover:text-white
+    transition-all;
+  }
+
+  .paginator .page {
+    @apply block w-7 h-7 text-center;
+  }
+
+  .paginator .current-page {
+    @apply text-white bg-lime-600 rounded-md font-bold;
+  }
+
+  .paginator .first-page,
+  .paginator .last-page,
+  .paginator .next-page,
+  .paginator .prev-page {
+    @apply block h-7 px-1 text-center;
   }
 }
