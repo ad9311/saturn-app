@@ -1,0 +1,19 @@
+<tr>
+  <td title="Edit income" class="text-center">
+    <%= link_to edit_budget_income_transaction_path(data[:budget_period].uid, data[:income]) do %>
+      <%= image_tag "pencil.svg", alt: "more", class: "w-5" %>
+    <% end %>
+  </td>
+  <td title="<%= data[:income].description %>"><%= data[:income].description %></td>
+  <td title="Income amount: <%= number_to_currency(data[:income].amount) %>" class="text-green-600 number">
+    <%= number_to_currency(data[:income].amount) %>
+  </td>
+  <td title="<%= data[:income].created_at.strftime('%B %d, %Y %I:%M%p') %>" class="italic text-slate-500">
+    <%= data[:income].created_at.strftime('%A %d') %>
+  </td>
+  <td title="Delete income" class="text-center">
+    <%= button_to budget_income_transaction_path(data[:budget_period].uid, data[:income]), method: :delete do %>
+      <%= image_tag "bin.svg", alt: "more", class: "w-5" %>
+    <% end %>
+  </td>
+</tr>

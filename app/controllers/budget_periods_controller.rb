@@ -13,7 +13,7 @@ class BudgetPeriodsController < ApplicationController
       'Income count',
       'Expense count'
     ]
-    @render_path = 'shared/table_budget_period_row'
+    @render_path = 'budget_period_table_row'
     @rows = current_user.budget_periods.order(uid: :desc).map { |budget_period| { budget_period: } }
   end
 
@@ -22,8 +22,8 @@ class BudgetPeriodsController < ApplicationController
   def details
     @income_table_columns = %w[Edit Description Amount Date Delete]
     @expense_table_columns = %w[Edit Description Category Amount Date Delete]
-    @income_render_path = 'shared/table_income_row'
-    @expense_render_path = 'shared/table_expense_row'
+    @income_render_path = 'income_transactions/income_table_row'
+    @expense_render_path = 'expense_transactions/expense_table_row'
     @income_rows = @budget_period.income_transactions.order(created_at: :desc).map do |income|
       { income:, budget_period: @budget_period }
     end

@@ -4,7 +4,7 @@ class ExpenseCategoriesController < ApplicationController
 
   def index
     @table_columns = %w[Edit Name Color Delete]
-    @render_path = 'shared/table_expense_category_row'
+    @render_path = 'expense_category_table_row'
     @rows = current_user.expense_categories.where(default: false).map { |category| { category: } }
   end
 

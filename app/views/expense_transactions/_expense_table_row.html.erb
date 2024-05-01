@@ -1,20 +1,24 @@
 <tr>
-  <td class="text-center">
+  <td title="Edit expense" class="text-center">
     <%= link_to edit_budget_expense_transaction_path(data[:budget_period].uid, data[:expense]) do %>
       <%= image_tag "pencil.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>
-  <td><%= data[:expense].description %></td>
-  <td>
+  <td title="<%= data[:expense].description %>"><%= data[:expense].description %></td>
+  <td title="<%= data[:expense].expense_category.default? ? 'No category' : data[:expense].expense_category.name %>">
     <% if data[:expense].expense_category.default? %>
       <span class="text-slate-400">No category</span>
     <% else %>
       <span style="color: <%= data[:expense].expense_category.color %>;"><%= data[:expense].expense_category.name %></span>
     <% end %>
   </td>
-  <td class="text-rose-600 number"><%= number_to_currency(data[:expense].amount) %></td>
-  <td class="italic text-slate-500"><%= data[:expense].created_at.strftime('%A %d') %></td>
-  <td class="text-center">
+  <td
+    title="Expense amount: <%= number_to_currency(data[:expense].amount) %>"
+    class="text-rose-600 number">
+      <%= number_to_currency(data[:expense].amount) %>
+  </td>
+  <td title="<%= data[:expense].created_at.strftime('%B %d, %Y %I:%M%p') %>" class="italic text-slate-500"><%= data[:expense].created_at.strftime('%A %d') %></td>
+  <td title="Delete expense" class="text-center">
     <%= button_to budget_expense_transaction_path(data[:budget_period].uid, data[:expense]), method: :delete do %>
       <%= image_tag "bin.svg", alt: "more", class: "w-5" %>
     <% end %>

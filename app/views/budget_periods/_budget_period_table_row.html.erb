@@ -1,0 +1,41 @@
+<tr>
+  <td title="More">
+    <%= link_to budget_period_path(data[:budget_period].uid) do %>
+      <%= image_tag "magnifying-glass.svg", alt: "more", class: "w-5" %>
+    <% end %>
+  </td>
+  <td
+    title="<%= data[:budget_period].display_period_full(' ') %>"
+    class="italic text-slate-500">
+      <%= data[:budget_period].display_period_short('/') %>
+  </td>
+  <td
+    title="Balance: <%= number_to_currency(data[:budget_period].balance) %>"
+    class="<%= data[:budget_period].balance.positive? ? 'text-green-600' : 'text-rose-600' %> number" style="background-color: #e2e8f0;">
+    <%= number_to_currency(data[:budget_period].balance) %>
+  </td>
+  <td
+    title="Total income transactions: <%= number_to_currency(data[:budget_period].total_income) %>"
+    class="text-green-600 number">
+      <%= number_to_currency(data[:budget_period].total_income) %>
+  </td>
+  <td
+    title="Total expense transactions: <%= number_to_currency(data[:budget_period].total_expenses) %>"
+    class="text-rose-600 number">
+      <%= number_to_currency(data[:budget_period].total_expenses) %>
+  </td>
+  <td
+    title="Number of transactions: <%= data[:budget_period].transaction_count %>"
+    class="number">
+      <%= data[:budget_period].transaction_count %>
+  </td>
+  <td
+    title="Number of income transactions: <%= data[:budget_period].income_count %>"
+    class="number"><%= data[:budget_period].income_count %>
+  </td>
+  <td
+    title="Number of expense transactions: <%= data[:budget_period].expense_count %>"
+    class="number">
+      <%= data[:budget_period].expense_count %>
+  </td>
+</tr>
