@@ -42,3 +42,6 @@ package-lock.json
 
 # Linter files
 eslint.config.mjs
+
+# Misc files
+.TODO

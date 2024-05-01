@@ -44,8 +44,11 @@ gem 'bootsnap', require: false
 # Use devise for user authentication
 gem 'devise'
 
-# Use faker to populate seeds
-gem 'faker'
+# Use dockerfile-rails to manage Dockerfiles
+gem 'dockerfile-rails', '>= 1.6', group: :development
+
+# Use kaminari for pagination
+gem 'kaminari'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -53,6 +56,9 @@ group :development, :test do
 
   # Use rspec-rails for unit testing
   gem 'rspec-rails', '~> 6.1.0'
+
+  # Use faker to populate seeds
+  gem 'faker'
 end
 
 group :test do
@@ -88,5 +94,3 @@ group :development do
   # Use for linting erb files
   gem 'erb_lint'
 end
-
-gem "dockerfile-rails", ">= 1.6", :group => :development

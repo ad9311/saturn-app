@@ -100,10 +100,6 @@ body {
     @apply mb-5 p-2 md:p-3 bg-orange-50 rounded-md;
   }
 
-  .alert span {
-    @apply text-orange-600;
-  }
-
   .devise-links a {
     @apply link;
   }
