@@ -7,7 +7,7 @@ export default [
     ignores: ['config/tailwind.config.js'],
   },
   {
-    languageOptions: {globals: globals.browser},
+    languageOptions: { globals: globals.browser },
     rules: {
       semi: [2, 'never'],
       indent: ['error', 2],
@@ -15,7 +15,7 @@ export default [
       'no-empty-function': ['error'],
       'no-confusing-arrow': ['error'],
       quotes: ['error', 'single'],
-      'object-curly-spacing': ['error', 'never']
+      'object-curly-spacing': ['error', 'always']
     }
   },
   pluginJs.configs.recommended,
