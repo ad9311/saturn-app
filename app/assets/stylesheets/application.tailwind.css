@@ -7,7 +7,8 @@
 
 body {
   @apply text-slate-700 bg-gray-100;
-  font-family: "Roboto", sans-serif;
+
+  font-family: Roboto, sans-serif;
 }
 
 @layer components {
@@ -20,7 +21,7 @@ body {
   }
 
   .number {
-    font-family: "Arvo", serif;
+    font-family: Arvo, serif;
   }
 
   .card {
