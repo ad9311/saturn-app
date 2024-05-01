@@ -10,14 +10,19 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <% if user_signed_in? %>
-      <header>
-        <%= render "shared/navbar" %>
-      </header>
-    <% end %>
-    <main class="container mt-10 mx-auto px-2">
-      <%= yield %>
-    </main>
+    <header>
+      <%= render "shared/navbar" %>
+    </header>
+    <div class="mx-auto lg:container lg:flex lg:gap-5 xl:gap-20">
+      <% if user_signed_in? %>
+        <div class="hidden lg:block">
+          <%= render "shared/sidebar" %>
+        </div>
+      <% end %>
+      <main class="<%= user_signed_in? ? '' : 'w-96' %> container mt-10 mx-auto px-2 overflow-hidden">
+        <%= yield %>
+      </main>
+    </div>
     <footer class="fixed w-full bottom-0 h-3">
       <div class="bg-lime-600 text-transparent">-</div>
     </footer>

@@ -1,0 +1,11 @@
+<p class="px-5 pt-14 text-center text-slate-500 font-bold"><%= current_user.full_name %></p>
+<ul class="pt-14 pb-20 px-5 min-w-52">
+  <% links.each do |link| %>
+    <li class="mb-2 py-1 bg-gray-100 rounded-md text-center">
+      <%= link_to link[:body], link[:path], class: "link font-bold" %>
+    </li>
+  <% end %>
+</ul>
+<div class="pb-8 text-center">
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "text-rose-600 hover:underline" %>
+</div>
