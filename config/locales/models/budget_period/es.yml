@@ -1,5 +1,5 @@
 es:
-  activerecord:
+  models:
     budget_period:
       "01":
         full: Enero
@@ -37,10 +37,3 @@ es:
       "12":
         full: Diciembre
         short: Dec
-  views:
-    pagination:
-      first: Primero
-      last: Último
-      previous: Ant.
-      next: Sig.
-      truncate: "..."

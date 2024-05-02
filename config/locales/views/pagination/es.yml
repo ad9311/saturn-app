@@ -1,0 +1,8 @@
+es:
+  views:
+    pagination:
+      first: Primero
+      last: Último
+      previous: Prev.
+      next: Sig.
+      truncate: "..."
