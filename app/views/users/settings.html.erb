@@ -5,8 +5,8 @@
 <div class="card max-w-96">
   <ul>
     <% settings_links.each do |link| %>
-      <li>
-        <%= link_to link[:body], link[:path], class: "link" %>
+      <li class="mb-3 link bg-gray-100 rounded-md text-center font-bold hover:bg-gray-200">
+        <%= link_to link[:body], link[:path], class: "py-2 block" %>
       </li>
     <% end %>
   </ul>
