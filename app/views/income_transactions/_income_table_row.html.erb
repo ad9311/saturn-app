@@ -1,6 +1,6 @@
 <tr>
   <td title="Edit income" class="text-center">
-    <%= link_to edit_budget_income_transaction_path(data[:budget_period].uid, data[:income]) do %>
+    <%= link_to edit_budget_income_transaction_path(data[:budget_period].uid, data[:income]), data: { turbo: false } do %>
       <%= image_tag "pencil.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>
@@ -12,7 +12,7 @@
     <%= data[:income].created_at.strftime('%A %d') %>
   </td>
   <td title="Delete income" class="text-center">
-    <%= button_to budget_income_transaction_path(data[:budget_period].uid, data[:income]), method: :delete do %>
+    <%= button_to budget_income_transaction_path(data[:budget_period].uid, data[:income]), method: :delete, data: { turbo: false } do %>
       <%= image_tag "bin.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>

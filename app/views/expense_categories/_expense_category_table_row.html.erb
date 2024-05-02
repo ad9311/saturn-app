@@ -1,6 +1,6 @@
 <tr>
   <td title="Edit category" class="text-center">
-    <%= link_to edit_expense_category_path(data[:category]) do %>
+    <%= link_to edit_expense_category_path(data[:category]), data: { turbo: false } do %>
       <%= image_tag "pencil.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>
@@ -9,7 +9,7 @@
     <span class="block w-10 h-4 rounded-md" style="background-color: <%= data[:category].color %>;"></span>
   </td>
   <td title="Delete category" class="text-center">
-    <%= button_to expense_category_path(data[:category]), method: :delete do %>
+    <%= button_to expense_category_path(data[:category]), method: :delete, data: { turbo: false } do %>
       <%= image_tag "bin.svg", alt: "more", class: "w-5" %>
     <% end %>
   </td>
