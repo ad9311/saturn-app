@@ -56,6 +56,7 @@ group :development, :test do
 
   # Use rspec-rails for unit testing
   gem 'rspec-rails', '~> 6.1.0'
+  gem 'rubocop-rspec_rails'
 
   # Use faker to populate seeds
   gem 'faker'
