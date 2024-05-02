@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def set_user_setting
     return unless user_signed_in?
 
-    UserSetting.create(user: current_user) if current_user.user_setting.nil?
-    I18n.locale = current_user.user_setting.locale || I18n.default_locale
+    Setting.create(user: current_user) if current_user.setting.nil?
+    I18n.locale = current_user.setting.locale || I18n.default_locale
   end
 end

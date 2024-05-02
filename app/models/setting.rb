@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: user_settings
+# Table name: settings
 #
 #  id         :bigint           not null, primary key
 #  locale     :string           default("en"), not null
@@ -10,13 +10,13 @@
 #
 # Indexes
 #
-#  index_user_settings_on_user_id  (user_id)
+#  index_settings_on_user_id  (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class UserSetting < ApplicationRecord
+class Setting < ApplicationRecord
   belongs_to :user
 
   validates :locale, inclusion: { in: %w[en es] }

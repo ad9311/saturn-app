@@ -1,0 +1,28 @@
+<h2 class="title mb-5 text-center">Settings</h2>
+<div class="mb-10">
+  <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Home', path: root_path }] %>
+</div>
+<div class="card max-w-96">
+  <div>
+    <%= form_with model: Setting.new, url: "/settings/locale", method: :patch, id: "locale-form" ,class: "form" do |f| %>
+      <div class="group">
+        <%= f.label :language %>
+        <%= f.select :locale, options_for_select([['English', 'en'], ['Español', 'es']], selected: I18n.locale.to_s), {}, { onchange: "submitForm()" } %>
+      </div>
+    <% end %>
+  </div>
+  <hr class="my-10">
+  <ul>
+    <% settings_links.each do |link| %>
+      <li class="mb-3 link bg-gray-100 rounded-md text-center font-bold hover:bg-gray-200">
+        <%= link_to link[:body], link[:path], class: "py-2 block" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<script>
+  function submitForm() {
+    document.getElementById('locale-form').submit();
+  }
+</script>

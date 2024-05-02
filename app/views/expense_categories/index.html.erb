@@ -1,7 +1,7 @@
 <section>
   <h2 class="title mb-5 text-center">Expense categories</h2>
   <div class="mb-10">
-    <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Settings', path: user_settings_path }] %>
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Settings', path: settings_path }] %>
   </div>
   <div class="w-fit mx-auto">
     <%= turbo_frame_tag "categories_table" do %>

@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Users
-  get 'settings', to: 'users#settings', as: :user_settings
+  resources :settings, only: :index
+  patch 'settings/locale', to: 'settings#update_locale'
 
   # Home
   resources :home, only: %i[index]

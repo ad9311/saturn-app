@@ -52,7 +52,7 @@ body {
   }
 
   .form label  {
-    @apply block italic text-slate-400;
+    @apply block mb-0.5 italic text-slate-400;
   }
 
   .form textarea {
