@@ -1,0 +1,46 @@
+es:
+  activerecord:
+    budget_period:
+      "01":
+        full: Enero
+        short: Ene
+      "02":
+        full: Febrero
+        short: Feb
+      "03":
+        full: Marzo
+        short: Mar
+      "04":
+        full: Abril
+        short: Abr
+      "05":
+        full: Mayo
+        short: May
+      "06":
+        full: Junio
+        short: Jun
+      "07":
+        full: Julio
+        short: Jul
+      "08":
+        full: Agosto
+        short: Ago
+      "09":
+        full: Septiembre
+        short: Sep
+      "10":
+        full: Octubre
+        short: Oct
+      "11":
+        full: Noviembre
+        short: Nov
+      "12":
+        full: Diciembre
+        short: Dec
+  views:
+    pagination:
+      first: Primero
+      last: Último
+      previous: Ant.
+      next: Sig.
+      truncate: "..."

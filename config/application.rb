@@ -44,5 +44,10 @@ module SaturnApp
 
     # Active record default time zone
     config.active_record.default_timezone = :utc
+
+    # Locales
+    config.i18n.available_locales = %i[en es]
+    config.i18n.default_locale = :en
+    config.i18n.fallbacks = [:en]
   end
 end

@@ -35,6 +35,7 @@ class User < ApplicationRecord
     :trackable
   )
 
+  has_one  :user_setting, dependent: :destroy
   has_many :budget_periods, dependent: :destroy
   has_many :income_transactions, through: :budget_periods
   has_many :expense_transactions, through: :budget_periods

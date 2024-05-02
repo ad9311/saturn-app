@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_28_232700) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_02_021225) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_28_232700) do
     t.index ["budget_period_id"], name: "index_income_transactions_on_budget_period_id"
   end
 
+  create_table "user_settings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "locale", default: "en", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_settings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -85,4 +93,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_28_232700) do
   add_foreign_key "expense_transactions", "budget_periods"
   add_foreign_key "expense_transactions", "expense_categories"
   add_foreign_key "income_transactions", "budget_periods"
+  add_foreign_key "user_settings", "users"
 end
