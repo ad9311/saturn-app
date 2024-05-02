@@ -5,7 +5,8 @@ class ExpenseCategoriesController < ApplicationController
   def index
     @table_columns = %w[Edit Name Color Delete]
     @render_path = 'expense_category_table_row'
-    @rows = current_user.expense_categories.where(default: false).map { |category| { category: } }
+    rows = current_user.expense_categories.where(default: false).map { |category| { category: } }
+    @rows = Kaminari.paginate_array(rows).page(params[:categories_page])
   end
 
   def new

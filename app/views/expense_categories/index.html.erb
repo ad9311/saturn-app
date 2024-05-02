@@ -4,6 +4,9 @@
     <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Settings', path: user_settings_path }] %>
   </div>
   <div class="w-fit mx-auto">
-    <%= render "shared/table", table_columns: @table_columns, render_path: @render_path, rows: @rows %>
+    <%= turbo_frame_tag "categories_table" do %>
+      <%= render "shared/table", table_columns: @table_columns, render_path: @render_path, rows: @rows %>
+      <%= paginate @rows, param_name: :categories_page %>
+    <% end %>
   </div>
 </section>

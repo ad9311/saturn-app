@@ -27,9 +27,15 @@
     <%= render "shared/link_group", links: budget_period_details_nav_links(@budget_period) %>
   </div>
   <div class="mt-5">
-    <%= render "shared/table", table_columns: @income_table_columns, render_path: @income_render_path, rows: @income_rows %>
+    <%= turbo_frame_tag "income_table" do %>
+      <%= render "shared/table", table_columns: @income_table_columns, render_path: @income_render_path, rows: @income_rows %>
+      <%= paginate @income_rows, param_name: :income_page %>
+    <% end %>
   </div>
   <div class="mt-5">
-    <%= render "shared/table", table_columns: @expense_table_columns, render_path: @expense_render_path, rows:  @expense_rows %>
+    <%= turbo_frame_tag "expenses_table" do %>
+      <%= render "shared/table", table_columns: @expense_table_columns, render_path: @expense_render_path, rows:  @expense_rows %>
+      <%= paginate @expense_rows, param_name: :expense_page %>
+    <% end %>
   </div>
 </section>
