@@ -1,0 +1,22 @@
+es:
+  views:
+    budget_periods:
+      title_short: Períodos
+      title_full: Períodos presupuestarios
+      details: Detalles
+      full_details: Ver detallado
+      new_income: Añadir ingreso
+      new_expense: Añadir gasto
+      balance: Saldo
+      income: Ingresos
+      expenses: Gastos
+      total_income_short: Ingresos totales
+      total_income_full: Ingresos totales
+      total_expenses_short: Gastos totales
+      total_expenses_full: Gastos totales
+      transaction_count_full: Número de transacciones
+      transaction_count_short: N. transacciones
+      income_count_full: Número de ingresos
+      income_count_short: N. ingresos
+      expense_count_full: Número de gastos
+      expense_count_short: N. gastos

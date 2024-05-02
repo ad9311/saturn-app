@@ -4,14 +4,14 @@ class BudgetPeriodsController < ApplicationController
 
   def index
     @table_columns = [
-      'More',
-      'Date',
-      'Balance',
-      'Total income',
-      'Total expenses',
-      'Transaction count',
-      'Income count',
-      'Expense count'
+      t('views.shared.table.more'),
+      t('views.shared.table.date'),
+      t('views.budget_periods.balance'),
+      t('views.budget_periods.total_income_short'),
+      t('views.budget_periods.total_expenses_short'),
+      t('views.budget_periods.transaction_count_short'),
+      t('views.budget_periods.income_count_short'),
+      t('views.budget_periods.expense_count_short')
     ]
     @render_path = 'budget_period_table_row'
     rows = current_user.budget_periods.order(uid: :desc).map { |budget_period| { budget_period: } }
@@ -21,8 +21,21 @@ class BudgetPeriodsController < ApplicationController
   def show; end
 
   def details
-    @income_table_columns = %w[Edit Description Amount Date Delete]
-    @expense_table_columns = %w[Edit Description Category Amount Date Delete]
+    @income_table_columns = [
+      t('views.shared.table.edit'),
+      t('views.transactions.description'),
+      t('views.transactions.amount'),
+      t('views.shared.table.date'),
+      t('views.shared.table.delete')
+    ]
+    @expense_table_columns = [
+      t('views.shared.table.edit'),
+      t('views.transactions.description'),
+      t('views.transactions.category'),
+      t('views.transactions.amount'),
+      t('views.shared.table.date'),
+      t('views.shared.table.delete')
+    ]
     @income_render_path = 'income_transactions/income_table_row'
     @expense_render_path = 'expense_transactions/expense_table_row'
     income_rows = @budget_period.income_transactions.order(created_at: :desc).map do |income|

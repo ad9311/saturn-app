@@ -1,7 +1,7 @@
 <section>
-  <h2 class="title mb-5 text-center">Budget periods</h2>
+  <h2 class="title mb-5 text-center"><%= t("views.budget_periods.title_full") %></h2>
   <div class="mb-10">
-    <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: 'Home', path: root_path }] %>
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: t("views.home.title"), path: root_path }] %>
   </div>
   <%= turbo_frame_tag "budgets_table" do %>
     <%= render "shared/table", table_columns: @table_columns, render_path: @render_path, rows: @rows %>

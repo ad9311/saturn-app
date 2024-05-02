@@ -1,0 +1,9 @@
+en:
+  views:
+    shared:
+      table:
+        more: More
+        see_more: See more
+        date: Date
+        edit: Edit
+        delete: Delete

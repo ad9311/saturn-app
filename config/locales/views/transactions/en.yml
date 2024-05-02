@@ -1,0 +1,6 @@
+en:
+  views:
+    transactions:
+      category: Category
+      description: Description
+      amount: Amount

@@ -1,0 +1,6 @@
+es:
+  views:
+    transactions:
+      category: Categoría
+      description: Descripción
+      amount: Monto

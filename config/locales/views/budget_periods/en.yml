@@ -1,0 +1,22 @@
+en:
+  views:
+    budget_periods:
+      title_short: Budgets
+      title_full: Budget periods
+      details: Details
+      full_details: Full details
+      new_income: New income
+      new_expense: New expense
+      balance: Balance
+      income: Income
+      expenses: Expenses
+      total_income_short: Total income
+      total_income_full: Total income transactions
+      total_expenses_short: Total expenses
+      total_expenses_full: Total expense transactions
+      transaction_count_full: Number of transactions
+      transaction_count_short: Transaction count
+      income_count_full: Number of income transactions
+      income_count_short: Income count
+      expense_count_full: Number of expense transactions
+      expense_count_short: Expense count
