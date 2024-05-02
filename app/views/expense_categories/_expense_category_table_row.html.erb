@@ -8,7 +8,7 @@
   <td title="<%= data[:category].color %>">
     <span class="block w-10 h-4 rounded-md" style="background-color: <%= data[:category].color %>;"></span>
   </td>
-  <td title="Delete category" class="text-center">
+  <td title="Delete category">
     <%= button_to expense_category_path(data[:category]), method: :delete, data: { turbo: false } do %>
       <%= image_tag "bin.svg", alt: "more", class: "w-5" %>
     <% end %>

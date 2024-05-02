@@ -11,7 +11,7 @@
   <td title="<%= data[:income].created_at.strftime('%B %d, %Y %I:%M%p') %>" class="italic text-slate-500">
     <%= data[:income].created_at.strftime('%A %d') %>
   </td>
-  <td title="Delete income" class="text-center">
+  <td title="Delete income">
     <%= button_to budget_income_transaction_path(data[:budget_period].uid, data[:income]), method: :delete, data: { turbo: false } do %>
       <%= image_tag "bin.svg", alt: "more", class: "w-5" %>
     <% end %>

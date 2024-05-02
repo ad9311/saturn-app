@@ -1,0 +1,7 @@
+en:
+  views:
+    forms:
+      textarea_placeholder: Type something...
+      add: Add
+      edit: Edit
+      error_title: This form has errors
