@@ -11,11 +11,11 @@
       </div>
       <div class="flex items-center gap-5">
         <div class="text-center">
-          <p class="text-slate-400"><%= t("views.transactions.income_short") %></p>
+          <p class="text-slate-400"><%= t("views.budget_periods.income_short") %></p>
           <p class="text-xl number text-green-500"><%= number_to_currency(@budget_period.total_income) %></p>
         </div>
         <div class="text-center">
-          <p class="text-slate-400"><%= t("views.transactions.expense_short") %></p>
+          <p class="text-slate-400"><%= t("views.budget_periods.expense_short") %></p>
           <p class="text-xl number text-rose-500"><%= number_to_currency(@budget_period.total_expenses) %></p>
         </div>
       </div>

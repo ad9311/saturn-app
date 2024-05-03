@@ -1,5 +1,5 @@
 <tr>
-  <td title="Edit expense" class="text-center">
+  <td title="<%= t("views.budget_periods.table.edit_expense") %>" class="text-center">
     <%= link_to edit_budget_expense_transaction_path(data[:budget_period].uid, data[:expense]), data: { turbo: false } do %>
       <%= image_tag "pencil.svg", alt: "more", class: "w-5" %>
     <% end %>
@@ -13,7 +13,7 @@
     <% end %>
   </td>
   <td
-    title="Expense amount: <%= number_to_currency(data[:expense].amount) %>"
+    title="<%= t("views.budget_periods.table.expense_amount") %>: <%= number_to_currency(data[:expense].amount) %>"
     class="text-rose-600 number">
       <%= number_to_currency(data[:expense].amount) %>
   </td>

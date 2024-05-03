@@ -18,3 +18,26 @@ en:
       income_count_short: Income count
       expense_count_full: Number of expense transactions
       expense_count_short: Expense count
+      income_short: Income
+      income_full: Income transaction
+      expense_short: Expense
+      expense_full: Expense transaction
+      breadcrumbs:
+        back_to_home: Home
+      table:
+        more: More
+        date: Date
+        edit: Edit
+        delete: Delete
+        transaction_description: Description
+        transaction_amount: Amount
+        expense_category: Category
+        income_amount: Income amount
+        expense_amount: Expense amount
+        edit_income: Edit income
+        edit_expense: Edit expense
+        delete_income: Delete income
+        delete_expense: Delete expense
+      forms:
+        add_income: Añadir ingreso
+        add_expense: Añadir gasto

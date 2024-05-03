@@ -1,7 +1,7 @@
 <tr>
-  <td title="<%= t("views.shared.table.see_more") %>">
+  <td title="<%= t("views.budget_periods.table.more") %>">
     <%= link_to budget_period_path(data[:budget_period].uid), data: { turbo: false } do %>
-      <%= image_tag "magnifying-glass.svg", alt: t("views.shared.table.more"), class: "w-5" %>
+      <%= image_tag "magnifying-glass.svg", alt: t("views.budget_periods.table.more"), class: "w-5" %>
     <% end %>
   </td>
   <td
