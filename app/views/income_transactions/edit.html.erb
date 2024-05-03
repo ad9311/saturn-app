@@ -1,5 +1,5 @@
-<h2 class="title mb-5 text-center">Edit income</h2>
+<h2 class="title mb-5 text-center"><%= t("views.transactions.forms.edit_income") %></h2>
 <div class="mb-10">
-  <%= render "shared/breadcrumb_navigation", breadcrumbs: transaction_breadcrumb(@budget_period, 'Edit income') %>
+  <%= render "shared/breadcrumb_navigation", breadcrumbs: transaction_breadcrumb(@budget_period, t("views.transactions.forms.edit_income")) %>
 </div>
 <%= render "form" %>

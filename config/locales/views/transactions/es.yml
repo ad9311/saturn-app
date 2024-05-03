@@ -1,14 +1,12 @@
 es:
   views:
     transactions:
-      income_short: Ingreso
-      income_full: Ingreso
-      expense_short: Gasto
-      expense_full: Gasto
-      category: Categoría
-      description: Descripción
-      amount: Monto
-      add_income: Añadir ingreso
-      add_expense: Añadir gasto
-      new_income: Nuevo ingreso
-      new_expense: Nuevo gasto
+      forms:
+        new_income: Nuevo ingreso
+        new_expense: Nuevo gasto
+        edit_income: Editar ingreso
+        edit_expense: Editar gasto
+        description: Descripción
+        amount: Monto
+        category: Categoría
+        create_category: Crear nueva categoría

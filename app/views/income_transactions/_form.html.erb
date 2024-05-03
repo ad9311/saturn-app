@@ -2,15 +2,15 @@
   <%= render "shared/form_errors", model: @income %>
   <%= form_with model: @income, url: @form_path, class: "form" do |f| %>
     <div class="group">
-      <%= f.label :description, t("views.transactions.description") %>
+      <%= f.label :description, t("views.transactions.forms.description") %>
       <%= f.text_area :description, placeholder: t("views.forms.textarea_placeholder") %>
     </div>
     <div class="group">
-      <%= f.label :amount, t("views.transactions.amount") %>
+      <%= f.label :amount, t("views.transactions.forms.amount") %>
       <%= f.number_field :amount, min: 0.01, step: 0.01, placeholder: 0.0 %>
     </div>
     <div class="submit">
-      <%= f.submit action_name == 'new' ? t("views.forms.add") : t("views.forms.edit") %>
+      <%= f.submit action_name == 'new' ? t("views.forms.create") : t("views.forms.update") %>
     </div>
   <% end %>
 </div>

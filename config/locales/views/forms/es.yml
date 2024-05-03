@@ -1,0 +1,6 @@
+en:
+  views:
+    forms:
+      textarea_placeholder: Escribe algo aquí...
+      create: Crear
+      update: Actualizar

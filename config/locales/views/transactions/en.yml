@@ -1,14 +1,12 @@
 en:
   views:
     transactions:
-      income_short: Income
-      income_full: Income transactions
-      expense_full: Expense
-      expense_short: Expense transactions
-      category: Category
-      description: Description
-      amount: Amount
-      add_income: New income
-      add_expense: New expense
-      new_income: New income
-      new_expense: New expense
+      forms:
+        new_income: New income
+        new_expense: New expense
+        edit_income: Edit income
+        edit_expense: Edit expense
+        description: Description
+        amount: Amount
+        category: Category
+        create_category: Create new category
