@@ -32,6 +32,7 @@ es:
         transaction_description: Descripción
         transaction_amount: Monto
         expense_category: Categoría
+        no_category: Sin categoría
         income_amount: Monto
         expense_amount: Monto
         edit_income: Editar ingreso

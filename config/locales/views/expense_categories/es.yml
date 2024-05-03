@@ -1,0 +1,10 @@
+es:
+  views:
+    expense_categories:
+      forms:
+        categories: Categorías
+        new_expense: Nuevo gasto
+        new_category: Nueva categoría de gasto
+        edit_category: Editar categoría de gasto
+        name: Nombre
+        color: Color

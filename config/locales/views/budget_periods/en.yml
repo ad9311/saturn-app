@@ -32,6 +32,7 @@ en:
         transaction_description: Description
         transaction_amount: Amount
         expense_category: Category
+        no_category: No category
         income_amount: Income amount
         expense_amount: Expense amount
         edit_income: Edit income

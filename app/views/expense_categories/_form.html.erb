@@ -5,15 +5,15 @@
       <%= hidden_field_tag 'redirect_path', @redirect_path %>
     <% end %>
     <div class="group">
-      <%= f.label :name %>
+      <%= f.label :name, t("views.expense_categories.forms.name") %>
       <%= f.text_field :name %>
     </div>
     <div class="group">
-      <%= f.label :color %>
+      <%= f.label :color, t("views.expense_categories.forms.color") %>
       <%= f.color_field :color %>
     </div>
     <div class="submit">
-      <%= f.submit 'Submit' %>
+      <%= f.submit action_name == 'new' ? t("views.forms.create") : t("views.forms.update") %>
     </div>
   <% end %>
 </div>
