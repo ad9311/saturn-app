@@ -50,15 +50,15 @@ gem 'dockerfile-rails', '>= 1.6', group: :development
 # Use kaminari for pagination
 gem 'kaminari'
 
+# Use faker to populate seeds
+gem 'faker'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
 
   # Use rspec-rails for unit testing
   gem 'rspec-rails', '~> 6.1.0'
-
-  # Use faker to populate seeds
-  gem 'faker'
 end
 
 group :test do
