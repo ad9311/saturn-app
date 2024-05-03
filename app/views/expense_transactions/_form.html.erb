@@ -2,8 +2,8 @@
   <%= render "shared/form_errors", model: @expense %>
   <%= form_with model: @expense, url: @form_path, class: "form" do |f| %>
       <% if @expense_categories.empty? %>
-        <div class="mb-5 p-2 md:p-3 bg-orange-50 rounded-md">
-          <span class="text-orange-600">No categories, please add a catagory to procede</span>
+        <div class="warning">
+          <span><%= t("views.transactions.forms.warnings.create_category") %></span>
         </div>
         <%= render "add_category_expense_form" %>
       <% else %>

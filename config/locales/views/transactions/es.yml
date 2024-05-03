@@ -10,3 +10,5 @@ es:
         amount: Monto
         category: Categoría
         create_category: Crear nueva categoría
+        warnings:
+          create_category: No hay categorías, por favor crea una para continuar.
