@@ -2,7 +2,7 @@ require 'faker'
 
 if Rails.env.development?
   user = User.create(
-    email: 'diazangel9311@gmail.com',
+    email: 'example@gmail.com',
     password: '123456789',
     password_confirmation: '123456789',
     first_name: 'Ángel',
