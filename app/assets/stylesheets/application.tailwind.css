@@ -149,6 +149,7 @@ body {
 
   .modal-container {
     @apply pb-40 px-2 md:px-3 fixed top-0 left-0 w-full h-full z-10 flex items-center;
-    background-color: rgba(0, 0, 0, 0.3);
+
+    background-color: rgb(0 0 0 / 30%);
   }
 }
