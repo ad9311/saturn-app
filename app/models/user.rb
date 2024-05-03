@@ -41,7 +41,15 @@ class User < ApplicationRecord
   has_many :expense_transactions, through: :budget_periods
   has_many :expense_categories, dependent: :destroy
 
+  before_destroy :prepare_destroy, prepend: true
+
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  private
+
+  def prepare_destroy
+    expense_categories.default.update(deletable: true)
   end
 end

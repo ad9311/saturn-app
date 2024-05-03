@@ -5,6 +5,7 @@
 #  id         :bigint           not null, primary key
 #  color      :string           not null
 #  default    :boolean          default(FALSE), not null
+#  deletable  :boolean          default(TRUE), not null
 #  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -29,14 +30,20 @@ class ExpenseCategory < ApplicationRecord
   before_destroy :transfer_expenses_to_default, prepend: true
   before_destroy :prevent_default_category_deletion, prepend: true
 
+  scope :default, -> { where(default: true)[0] }
+
   def default?
+    default
+  end
+
+  def deletable?
     default
   end
 
   private
 
   def prevent_default_category_deletion
-    throw(:abort) if default?
+    throw(:abort) if !deletable? && default?
   end
 
   def transfer_expenses_to_default

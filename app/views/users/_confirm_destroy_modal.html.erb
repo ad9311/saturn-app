@@ -6,6 +6,6 @@
   </div>
   <div class="mt-10 flex items-center justify-end gap-5">
     <%= button_to t("views.users.delete.cancel"), settings_path, method: :get, data: { turbo_stream: true }, class: "cancel-button" %>
-    <%= button_to t("views.users.delete.delete"), destroy_user_path, method: :delete, data: { turbo_stream: true }, class: "destroy-button" %>
+    <%= button_to t("views.users.delete.delete"), destroy_user_path, method: :delete, data: { turbo: false }, class: "destroy-button" %>
   </div>
 </div>

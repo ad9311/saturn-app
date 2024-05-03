@@ -4,6 +4,6 @@ class UsersController < ApplicationController
   def destroy
     current_user.destroy!
 
-    redirect_to new_user_session
+    redirect_to root_path
   end
 end

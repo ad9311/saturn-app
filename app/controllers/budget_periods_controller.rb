@@ -1,5 +1,5 @@
 class BudgetPeriodsController < ApplicationController
-  # before_action :next_budget_period, only: :index
+  before_action :next_budget_period, only: :index
   before_action :set_budget_period, only: %i[show details]
 
   def index
