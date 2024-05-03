@@ -29,6 +29,10 @@ en:
         date: Date
         edit: Edit
         delete: Delete
+        income_list: Income list
+        expense_list: Expense list
+        empty_income_table: No income transactions
+        empty_expense_table: No expense transactions
         transaction_description: Description
         transaction_amount: Amount
         expense_category: Category

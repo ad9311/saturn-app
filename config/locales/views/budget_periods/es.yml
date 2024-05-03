@@ -29,6 +29,10 @@ es:
         date: Fecha
         edit: Editar
         delete: Borrar
+        income_list: Lista de ingresos
+        expense_list: Lista de gastos
+        empty_income_table: No tienes ingresos
+        empty_expense_table: No tienes gastos
         transaction_description: Descripción
         transaction_amount: Monto
         expense_category: Categoría

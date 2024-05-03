@@ -32,16 +32,30 @@
   <div class="mt-5 w-fit mx-auto">
     <%= render "shared/link_group", links: budget_period_details_nav_links(@budget_period) %>
   </div>
-  <div class="mt-5">
-    <%= turbo_frame_tag "income_table" do %>
-      <%= render "shared/table", table_columns: @income_table_columns, render_path: @income_render_path, rows: @income_rows %>
-      <%= paginate @income_rows, param_name: :income_page %>
+  <section class="mt-5">
+    <h3 class="mb-2 title-2"><%= t("views.budget_periods.table.income_list") %></h3>
+    <% if @income_rows.empty? %>
+      <div class="card py-10 text-center">
+        <span class="text-stone-400"><%= t("views.budget_periods.table.empty_income_table") %></span>
+      </div>
+    <% else %>
+      <%= turbo_frame_tag "income_table" do %>
+        <%= render "shared/table", table_columns: @income_table_columns, render_path: @income_render_path, rows: @income_rows %>
+        <%= paginate @income_rows, param_name: :income_page %>
+      <% end %>
     <% end %>
-  </div>
-  <div class="mt-5">
-    <%= turbo_frame_tag "expenses_table" do %>
-      <%= render "shared/table", table_columns: @expense_table_columns, render_path: @expense_render_path, rows:  @expense_rows %>
-      <%= paginate @expense_rows, param_name: :expense_page %>
+  </section>
+  <section class="mt-5">
+    <h3 class="mb-2 title-2"><%= t("views.budget_periods.table.expense_list") %></h3>
+    <% if @expense_rows.empty? %>
+      <div class="card py-10 text-center">
+        <span class="text-stone-400"><%= t("views.budget_periods.table.empty_expense_table") %></span>
+      </div>
+    <% else %>
+      <%= turbo_frame_tag "expenses_table" do %>
+        <%= render "shared/table", table_columns: @expense_table_columns, render_path: @expense_render_path, rows:  @expense_rows %>
+        <%= paginate @expense_rows, param_name: :expense_page %>
+      <% end %>
     <% end %>
-  </div>
+  </section>
 </section>
