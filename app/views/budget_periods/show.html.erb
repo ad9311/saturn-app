@@ -7,7 +7,15 @@
     <div class="p-5">
       <div class="mb-5 text-center">
         <p class="text-slate-400"><%= t("views.budget_periods.balance") %></p>
-        <strong class="text-xl number <%= @budget_period.balance.positive? ? 'text-green-500' : 'text-rose-500' %>"><%= number_to_currency(@budget_period.balance) %></strong>
+        <% if @budget_period.balance.zero? %>
+          <strong class="text-xl number text-slate-500"><%= number_to_currency(@budget_period.balance) %></strong>
+        <% else %>
+          <% if @budget_period.balance.positive? %>
+            <strong class="text-xl number text-green-500"><%= number_to_currency(@budget_period.balance) %></strong>
+          <% else %>
+            <strong class="text-xl number text-rose-500"><%= number_to_currency(@budget_period.balance) %></strong>
+          <% end %>
+        <% end %>
       </div>
       <div class="flex items-center gap-5">
         <div class="text-center">

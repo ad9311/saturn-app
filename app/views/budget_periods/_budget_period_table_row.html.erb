@@ -11,7 +11,7 @@
   </td>
   <td
     title="<%= t("views.budget_periods.balance") %>: <%= number_to_currency(data[:budget_period].balance) %>"
-    class="<%= data[:budget_period].balance.positive? ? 'text-green-600' : 'text-rose-600' %> number" style="background-color: #e2e8f0;">
+    class="<%= data[:budget_period].balance.positive? ? 'text-green-600' : data[:budget_period].balance.zero? ? 'text-slate-500' : 'text-rose-500' %> number" style="background-color: #e2e8f0;">
     <%= number_to_currency(data[:budget_period].balance) %>
   </td>
   <td
