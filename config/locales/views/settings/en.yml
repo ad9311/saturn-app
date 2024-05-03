@@ -1,0 +1,10 @@
+en:
+  views:
+    settings:
+      title: Settings
+      breadcrumbs:
+        home: Home
+      forms:
+        language: Idioma
+      links:
+        expense_categories: Expense categories

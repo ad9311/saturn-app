@@ -1,0 +1,7 @@
+en:
+  views:
+    shared:
+      navigation_links:
+        home: Home
+        budget_periods: Budgets
+        sign_out: Sign out

@@ -1,6 +1,14 @@
 es:
   views:
     expense_categories:
+      title: Categorías de gasto
+      table:
+        edit: Editar
+        name: Nombre
+        color: Color
+        delete: Borrar
+        edit_category: Editar categoría
+        delete_category: Borrar categoría
       forms:
         categories: Categorías
         new_expense: Nuevo gasto
@@ -8,3 +16,5 @@ es:
         edit_category: Editar categoría de gasto
         name: Nombre
         color: Color
+      breadcrumbs:
+        settings: Configuración

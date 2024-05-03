@@ -1,0 +1,7 @@
+es:
+  views:
+    shared:
+      navigation_links:
+        home: Inicio
+        budget_periods: Períodos
+        sign_out: Cerrar sesión

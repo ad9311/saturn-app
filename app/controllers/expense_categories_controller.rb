@@ -3,7 +3,12 @@ class ExpenseCategoriesController < ApplicationController
   before_action :set_redirect_path, except: %i[index destroy]
 
   def index
-    @table_columns = %w[Edit Name Color Delete]
+    @table_columns = [
+      t('views.expense_categories.table.edit'),
+      t('views.expense_categories.table.name'),
+      t('views.expense_categories.table.color'),
+      t('views.expense_categories.table.delete')
+    ]
     @render_path = 'expense_category_table_row'
     rows = current_user.expense_categories.where(default: false).map { |category| { category: } }
     @rows = Kaminari.paginate_array(rows).page(params[:categories_page])
