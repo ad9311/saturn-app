@@ -24,8 +24,10 @@
     <section>
       <h3 class="mb-10 text-slate-400 italic text-sm text-center"><%= t("views.settings.danger_zone.title") %></h3>
       <div class="flex justify-end">
-        <%= button_to t("views.settings.danger_zone.delete_account"), root_path, class: "destroy-button" %>
+        <%= button_to t("views.settings.danger_zone.delete_account"), confirm_destroy_user_path, method: :get, data: { turbo_stream: true }, class: "destroy-button" %>
       </div>
+      <%= turbo_frame_tag "destroy_user_modal" do %>
+      <% end %>
     </section>
   </div>
 </section>

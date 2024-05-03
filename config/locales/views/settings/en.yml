@@ -5,7 +5,7 @@ en:
       breadcrumbs:
         home: Home
       forms:
-        language: Idioma
+        language: Language
       links:
         expense_categories: Expense categories
       danger_zone:

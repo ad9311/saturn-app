@@ -1,0 +1,9 @@
+en:
+  views:
+    users:
+      delete:
+        delete_account: Delete account
+        text_1: Do you wish to delete your account?
+        text_2: This cannot be undone.
+        cancel: Cancel
+        delete: Delete

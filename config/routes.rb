@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Users
+  get 'account/destroy', to: 'users#confirm_destroy', as: :confirm_destroy_user
+  delete 'account/destroy', to: 'users#destroy', as: :destroy_user
+
+  # Settings
   resources :settings, only: :index
   patch 'settings/locale', to: 'settings#update_locale'
 
