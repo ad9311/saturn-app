@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card max-w-96 mx-auto md:mx-0">
   <%= render "shared/form_errors", model: @category %>
   <%= form_with model: @category, class: "form" do |f| %>
     <% unless @redirect_path.nil? %>

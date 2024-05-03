@@ -3,7 +3,7 @@
   <div class="mb-10">
     <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: t('views.settings.breadcrumbs.home'), path: root_path }] %>
   </div>
-  <div class="card max-w-96">
+  <div class="card max-w-96 mx-auto md:mx-0">
     <div>
       <%= form_with model: Setting.new, url: "/settings/locale", method: :patch, id: "locale-form" ,class: "form" do |f| %>
         <div class="group">

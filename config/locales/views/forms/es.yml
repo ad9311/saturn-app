@@ -1,6 +1,8 @@
-en:
+es:
   views:
     forms:
       textarea_placeholder: Escribe algo aquí...
       create: Crear
       update: Actualizar
+      errors:
+        title: Hay errores en el formulario

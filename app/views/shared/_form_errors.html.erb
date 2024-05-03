@@ -1,6 +1,6 @@
 <% unless model.errors.blank? %>
   <div class="mb-5 p-2 md:p-3 bg-rose-50 rounded-md">
-    <p class="mb-3 text-rose-600 font-bold"><%= t("views.forms.error_title") %>:</p>
+    <p class="mb-3 text-rose-600 font-bold"><%= t("views.forms.errors.title") %>:</p>
     <ul class="list-inside list-disc">
       <% model.errors.full_messages.each do |e| %>
         <li class="text-rose-600"><%= e %></li>

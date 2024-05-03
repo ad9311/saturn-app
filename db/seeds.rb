@@ -16,28 +16,28 @@ if Rails.env.development?
   ExpenseCategory.create(user:, name: 'Subscriptions', color: '#B60000')
   ExpenseCategory.create(user:, name: 'Other', color: '#B69500')
 
-  # current_year = 2020
-  # (1..36).each do |month_offset|
-  #   month = (month_offset % 12).zero? ? 12 : month_offset % 12
-  #   year = current_year + (month_offset / 12)
+  current_year = 2020
+  (1..36).each do |month_offset|
+    month = (month_offset % 12).zero? ? 12 : month_offset % 12
+    year = current_year + (month_offset / 12)
 
-  #   budget_period = BudgetPeriod.create(user:, month:, year:)
+    budget_period = BudgetPeriod.create(user:, month:, year:)
 
-  #   Faker::Number.between(from: 1, to: 50).times do
-  #     if Faker::Number.between(from: 1, to: 10).even?
-  #       IncomeTransaction.create(
-  #         budget_period:,
-  #         description: Faker::Commerce.product_name,
-  #         amount: Faker::Commerce.price
-  #       )
-  #     else
-  #       ExpenseTransaction.create(
-  #         expense_category: user.expense_categories.where(default: false).sample,
-  #         budget_period:,
-  #         description: Faker::Commerce.product_name,
-  #         amount: Faker::Commerce.price
-  #       )
-  #     end
-  #   end
-  # end
+    Faker::Number.between(from: 1, to: 50).times do
+      if Faker::Number.between(from: 1, to: 10).even?
+        IncomeTransaction.create(
+          budget_period:,
+          description: Faker::Commerce.product_name,
+          amount: Faker::Commerce.price
+        )
+      else
+        ExpenseTransaction.create(
+          expense_category: user.expense_categories.where(default: false).sample,
+          budget_period:,
+          description: Faker::Commerce.product_name,
+          amount: Faker::Commerce.price
+        )
+      end
+    end
+  end
 end
