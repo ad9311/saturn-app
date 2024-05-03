@@ -8,3 +8,6 @@ es:
         language: Idioma
       links:
         expense_categories: Categorías de gasto
+      danger_zone:
+        title: Zona de peligro
+        delete_account: Borrar cuenta

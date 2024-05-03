@@ -77,7 +77,7 @@ body {
   }
 
   .form input[type="submit"] {
-    @apply px-5 py-2 bg-lime-600 text-white rounded-md cursor-pointer
+    @apply px-5 py-2 bg-lime-600 text-white rounded-md cursor-pointer hover:bg-lime-700 transition-all;
   }
 
   .form .group {
@@ -137,5 +137,9 @@ body {
   .paginator .next-page,
   .paginator .prev-page {
     @apply block h-7 px-1 text-center;
+  }
+
+  .destroy-button {
+    @apply px-5 py-2 bg-rose-600 text-white rounded-md cursor-pointer hover:bg-rose-700 transition-all;
   }
 }

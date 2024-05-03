@@ -1,25 +1,34 @@
-<h2 class="title mb-5 text-center"><%= t("views.settings.title") %></h2>
-<div class="mb-10">
-  <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: t('views.settings.breadcrumbs.home'), path: root_path }] %>
-</div>
-<div class="card max-w-96">
-  <div>
-    <%= form_with model: Setting.new, url: "/settings/locale", method: :patch, id: "locale-form" ,class: "form" do |f| %>
-      <div class="group">
-        <%= f.label :language, t("views.settings.forms.language") %>
-        <%= f.select :locale, options_for_select([['English', 'en'], ['Español', 'es']], selected: I18n.locale.to_s), {}, { onchange: "submitForm()" } %>
-      </div>
-    <% end %>
+<section>
+  <h2 class="title mb-5 text-center"><%= t("views.settings.title") %></h2>
+  <div class="mb-10">
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: t('views.settings.breadcrumbs.home'), path: root_path }] %>
   </div>
-  <hr class="my-10">
-  <ul>
-    <% settings_links.each do |link| %>
-      <li class="mb-3 link bg-gray-100 rounded-md text-center font-bold hover:bg-gray-20">
-        <%= link_to link[:body], link[:path], class: "py-2 block" %>
-      </li>
-    <% end %>
-  </ul>
-</div>
+  <div class="card max-w-96">
+    <div>
+      <%= form_with model: Setting.new, url: "/settings/locale", method: :patch, id: "locale-form" ,class: "form" do |f| %>
+        <div class="group">
+          <%= f.label :language, t("views.settings.forms.language") %>
+          <%= f.select :locale, options_for_select([['English', 'en'], ['Español', 'es']], selected: I18n.locale.to_s), {}, { onchange: "submitForm()" } %>
+        </div>
+      <% end %>
+    </div>
+    <hr class="my-10">
+    <ul>
+      <% settings_links.each do |link| %>
+        <li class="mb-3 link bg-gray-100 rounded-md text-center font-bold hover:bg-gray-20">
+          <%= link_to link[:body], link[:path], class: "py-2 block" %>
+        </li>
+      <% end %>
+    </ul>
+    <hr class="mt-10 mb-1">
+    <section>
+      <h3 class="mb-10 text-slate-400 italic text-sm text-center"><%= t("views.settings.danger_zone.title") %></h3>
+      <div class="flex justify-end">
+        <%= button_to t("views.settings.danger_zone.delete_account"), root_path, class: "destroy-button" %>
+      </div>
+    </section>
+  </div>
+</section>
 
 <script>
   function submitForm() {
