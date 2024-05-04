@@ -46,3 +46,8 @@ es:
       forms:
         add_income: Añadir ingreso
         add_expense: Añadir gasto
+      charts:
+        title: Últimos seis meses
+        balance: Saldo
+        income: Ingresos
+        expense: Gastos

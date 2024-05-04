@@ -2,7 +2,11 @@ class BudgetPeriodsController < ApplicationController
   before_action :next_budget_period, only: :index
   before_action :set_budget_period, only: %i[show details]
 
+  include BudgetPeriodCharts
+
   def index
+    @last_six = current_user.budget_periods.order(uid: :desc).limit(4)
+    @chart_history = generate_chart_history(@last_six)
     @table_columns = [
       t('views.budget_periods.table.more'),
       t('views.budget_periods.table.date'),
