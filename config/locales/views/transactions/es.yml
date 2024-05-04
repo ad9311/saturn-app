@@ -1,6 +1,9 @@
 es:
   views:
     transactions:
+      expenses:
+        categories_chart:
+          title: Gráfica de categorías
       forms:
         new_income: Nuevo ingreso
         new_expense: Nuevo gasto

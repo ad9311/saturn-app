@@ -34,6 +34,31 @@ class ExpenseTransactionsController < ApplicationController
     redirect_to budget_period_details_path(@budget_period.uid)
   end
 
+  def categories_chart
+    @library = {
+      chartArea: {
+        backgroundColor: 'transparent' # Optional customization
+      },
+      afterDraw: "function(chart) {
+      const yAxis = chart.scales['y-axis-0'];
+      yAxis.ticks.forEach(tick => {
+        tick.label = '$' + tick.value.toFixed(2);
+      });
+    }"
+    }
+    query = 'expense_categories.name, expense_categories.color, SUM(expense_transactions.amount) AS total'
+    categories_data = ExpenseCategory.select(query)
+                                     .joins(:expense_transactions)
+                                     .where(expense_transactions: { budget_period_id: @budget_period.id })
+                                     .group(:name, :color)
+                                     .sort_by(&:total)
+                                     .reverse
+    @categories_data = categories_data.map do |category_data|
+      { name: category_data.name, data: [[@budget_period.display_period_short('/'), category_data.total.to_f]] }
+    end
+    @colors = categories_data.map(&:color)
+  end
+
   private
 
   def set_budget_period

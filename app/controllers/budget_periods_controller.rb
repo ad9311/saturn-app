@@ -27,18 +27,6 @@ class BudgetPeriodsController < ApplicationController
     @expense_rows = Kaminari.paginate_array(expense_rows).page(params[:expense_page])
   end
 
-  def categories_chart
-    categories_data = ExpenseCategory.select('expense_categories.name, expense_categories.color, SUM(expense_transactions.amount) AS total')
-                                     .joins(:expense_transactions)
-                                     .where(expense_transactions: { budget_period_id: @budget_period.id })
-                                     .order(:name)
-                                     .group('expense_categories.name', :color)
-    @categories_data = categories_data.map do |category_data|
-      [category_data.name, category_data.total]
-    end
-    @colors = categories_data.map(&:color)
-  end
-
   private
 
   def set_budget_period

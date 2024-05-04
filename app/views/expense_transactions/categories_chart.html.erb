@@ -1,0 +1,11 @@
+<section>
+  <h2 class="title mb-5 text-center"><%= @budget_period.display_period_full('/') %></h2>
+  <div class="mb-10">
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: categories_chart_breadcrum(@budget_period) %>
+  </div>
+  <div class="mb-5 mx-0 md:mx-20 card overflow-x-hidden">
+    <div class="p-5 overflow-auto">
+      <%= column_chart @categories_data, legend: :left, colors: @colors, prefix: t("views.charts.prefix"), thousands: t("views.charts.thousands"), decimal: t("views.charts.decimal") %>
+    </div>
+  </div>
+</section>
