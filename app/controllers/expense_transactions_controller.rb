@@ -35,17 +35,6 @@ class ExpenseTransactionsController < ApplicationController
   end
 
   def categories_chart
-    @library = {
-      chartArea: {
-        backgroundColor: 'transparent' # Optional customization
-      },
-      afterDraw: "function(chart) {
-      const yAxis = chart.scales['y-axis-0'];
-      yAxis.ticks.forEach(tick => {
-        tick.label = '$' + tick.value.toFixed(2);
-      });
-    }"
-    }
     query = 'expense_categories.name, expense_categories.color, SUM(expense_transactions.amount) AS total'
     categories_data = ExpenseCategory.select(query)
                                      .joins(:expense_transactions)
@@ -54,7 +43,7 @@ class ExpenseTransactionsController < ApplicationController
                                      .sort_by(&:total)
                                      .reverse
     @categories_data = categories_data.map do |category_data|
-      { name: category_data.name, data: [[@budget_period.display_period_short('/'), category_data.total.to_f]] }
+      { name: category_data.name, data: [[@budget_period.display_period_full(' '), category_data.total.to_f]] }
     end
     @colors = categories_data.map(&:color)
   end

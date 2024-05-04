@@ -7,7 +7,7 @@
     <h3 class="title-2 px-5 mt-3 mb-5"><%= t("views.budget_periods.charts.title") %></h3>
     <div class="p-5 overflow-auto">
       <%= turbo_frame_tag "budget_periods_chart" do %>
-        <%= line_chart @chart_history, legend: :bottom, colors: ["#0ea5e9", "#22c55e", "#f43f5e"] %>
+        <%= line_chart @chart_history, legend: :bottom, colors: ["#0ea5e9", "#22c55e", "#f43f5e"], prefix: t("views.charts.prefix"), thousands: t("views.charts.thousands"), decimal: t("views.charts.decimal") %>
       <% end %>
     </div>
   </section>
