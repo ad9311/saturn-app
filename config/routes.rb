@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   # Budget periods
   resources :budget_periods, path: :budgets, param: :uid, only: %i[index show]
   get 'budgets/:uid/details', to: 'budget_periods#details', as: :budget_period_details
+  get 'budgets/:uid/expenses/categories_chart', to: 'budget_periods#categories_chart', as: :categories_chart
 
   # Income transactions
   resources :budgets, only: [], param: :uid do

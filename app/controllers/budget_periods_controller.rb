@@ -1,6 +1,6 @@
 class BudgetPeriodsController < ApplicationController
   before_action :next_budget_period, only: :index
-  before_action :set_budget_period, only: %i[show details]
+  before_action :set_budget_period, except: :index
 
   include BudgetPeriodCharts
 
@@ -25,6 +25,18 @@ class BudgetPeriodsController < ApplicationController
     @expense_render_path = 'budget_periods/expense_table_row'
     @income_rows = Kaminari.paginate_array(income_rows).page(params[:income_page])
     @expense_rows = Kaminari.paginate_array(expense_rows).page(params[:expense_page])
+  end
+
+  def categories_chart
+    categories_data = ExpenseCategory.select('expense_categories.name, expense_categories.color, SUM(expense_transactions.amount) AS total')
+                                     .joins(:expense_transactions)
+                                     .where(expense_transactions: { budget_period_id: @budget_period.id })
+                                     .order(:name)
+                                     .group('expense_categories.name', :color)
+    @categories_data = categories_data.map do |category_data|
+      [category_data.name, category_data.total]
+    end
+    @colors = categories_data.map(&:color)
   end
 
   private
