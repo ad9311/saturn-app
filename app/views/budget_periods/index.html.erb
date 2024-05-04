@@ -12,7 +12,7 @@
     </div>
   </section>
   <%= turbo_frame_tag "budgets_table" do %>
-    <%= render "shared/table", table_columns: @table_columns, render_path: @render_path, rows: @rows %>
+    <%= render "shared/table", table_columns: budget_period_index_table_columns, render_path: @render_path, rows: @rows %>
     <%= paginate @rows, param_name: :budgets_page %>
   <% end %>
 </section>

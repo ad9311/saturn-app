@@ -40,7 +40,7 @@
       </div>
     <% else %>
       <%= turbo_frame_tag "income_table" do %>
-        <%= render "shared/table", table_columns: @income_table_columns, render_path: @income_render_path, rows: @income_rows %>
+        <%= render "shared/table", table_columns: budget_period_details_income_table_columns, render_path: @income_render_path, rows: @income_rows %>
         <%= paginate @income_rows, param_name: :income_page %>
       <% end %>
     <% end %>
@@ -53,7 +53,7 @@
       </div>
     <% else %>
       <%= turbo_frame_tag "expenses_table" do %>
-        <%= render "shared/table", table_columns: @expense_table_columns, render_path: @expense_render_path, rows:  @expense_rows %>
+        <%= render "shared/table", table_columns: budget_period_details_expense_table_columns, render_path: @expense_render_path, rows:  @expense_rows %>
         <%= paginate @expense_rows, param_name: :expense_page %>
       <% end %>
     <% end %>

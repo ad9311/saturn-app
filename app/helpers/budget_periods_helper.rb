@@ -1,4 +1,38 @@
 module BudgetPeriodsHelper
+  def budget_period_index_table_columns
+    [
+      t('views.budget_periods.table.more'),
+      t('views.budget_periods.table.date'),
+      t('views.budget_periods.balance'),
+      t('views.budget_periods.total_income_short'),
+      t('views.budget_periods.total_expenses_short'),
+      t('views.budget_periods.transaction_count_short'),
+      t('views.budget_periods.income_count_short'),
+      t('views.budget_periods.expense_count_short')
+    ]
+  end
+
+  def budget_period_details_income_table_columns
+    [
+      t('views.budget_periods.table.edit'),
+      t('views.budget_periods.table.transaction_description'),
+      t('views.budget_periods.table.transaction_amount'),
+      t('views.budget_periods.table.date'),
+      t('views.budget_periods.table.delete')
+    ]
+  end
+
+  def budget_period_details_expense_table_columns
+    [
+      t('views.budget_periods.table.edit'),
+      t('views.budget_periods.table.transaction_description'),
+      t('views.budget_periods.table.expense_category'),
+      t('views.budget_periods.table.transaction_amount'),
+      t('views.budget_periods.table.date'),
+      t('views.budget_periods.table.delete')
+    ]
+  end
+
   def budget_period_breadcrumb_show(budget_period)
     [
       { body: t('views.budget_periods.title_short'), path: budget_periods_path },

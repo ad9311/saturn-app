@@ -5,50 +5,25 @@ class BudgetPeriodsController < ApplicationController
   include BudgetPeriodCharts
 
   def index
-    @last_six = current_user.budget_periods.order(uid: :desc).limit(4)
-    @chart_history = generate_chart_history(@last_six)
-    @table_columns = [
-      t('views.budget_periods.table.more'),
-      t('views.budget_periods.table.date'),
-      t('views.budget_periods.balance'),
-      t('views.budget_periods.total_income_short'),
-      t('views.budget_periods.total_expenses_short'),
-      t('views.budget_periods.transaction_count_short'),
-      t('views.budget_periods.income_count_short'),
-      t('views.budget_periods.expense_count_short')
-    ]
-    @render_path = 'budget_period_table_row'
+    last_four = current_user.budget_periods.order(uid: :desc).limit(4)
     rows = current_user.budget_periods.order(uid: :desc).map { |budget_period| { budget_period: } }
+    @chart_history = generate_chart_history(last_four)
+    @render_path = 'budget_period_table_row'
     @rows = Kaminari.paginate_array(rows).page(params[:budgets_page])
   end
 
   def show; end
 
   def details
-    @income_table_columns = [
-      t('views.budget_periods.table.edit'),
-      t('views.budget_periods.table.transaction_description'),
-      t('views.budget_periods.table.transaction_amount'),
-      t('views.budget_periods.table.date'),
-      t('views.budget_periods.table.delete')
-    ]
-    @expense_table_columns = [
-      t('views.budget_periods.table.edit'),
-      t('views.budget_periods.table.transaction_description'),
-      t('views.budget_periods.table.expense_category'),
-      t('views.budget_periods.table.transaction_amount'),
-      t('views.budget_periods.table.date'),
-      t('views.budget_periods.table.delete')
-    ]
-    @income_render_path = 'budget_periods/income_table_row'
-    @expense_render_path = 'budget_periods/expense_table_row'
     income_rows = @budget_period.income_transactions.order(created_at: :desc).map do |income|
       { income:, budget_period: @budget_period }
     end
-    @income_rows = Kaminari.paginate_array(income_rows).page(params[:income_page])
     expense_rows = @budget_period.expense_transactions.order(created_at: :desc).map do |expense|
       { expense:, budget_period: @budget_period }
     end
+    @income_render_path = 'budget_periods/income_table_row'
+    @expense_render_path = 'budget_periods/expense_table_row'
+    @income_rows = Kaminari.paginate_array(income_rows).page(params[:income_page])
     @expense_rows = Kaminari.paginate_array(expense_rows).page(params[:expense_page])
   end
 

@@ -11,7 +11,7 @@ module BudgetPeriodCharts
       expense_data = expense_history(budget_periods)
       [{ name: t('views.budget_periods.charts.expense'), data: expense_data }]
     else
-      all_history(@last_six)
+      all_history(budget_periods)
     end
   end
 
