@@ -43,7 +43,7 @@ class ExpenseTransactionsController < ApplicationController
                                      .sort_by(&:total)
                                      .reverse
     @categories_data = categories_data.map do |category_data|
-      { name: category_data.name, data: [[@budget_period.display_period_full(' '), category_data.total.to_f]] }
+      [category_data.name, category_data.total.to_f]
     end
     @colors = categories_data.map(&:color)
   end
