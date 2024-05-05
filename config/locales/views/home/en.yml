@@ -2,3 +2,6 @@ en:
   views:
     home:
       title: Home
+      sections:
+        budget_periods:
+          title: Last period

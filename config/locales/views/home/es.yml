@@ -2,3 +2,6 @@ es:
   views:
     home:
       title: Inicio
+      sections:
+        budget_periods:
+          title: Último período
