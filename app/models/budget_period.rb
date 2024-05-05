@@ -54,6 +54,30 @@ class BudgetPeriod < ApplicationRecord
     "#{month_string}#{separator}#{year}"
   end
 
+  def rectify_period
+    data = {
+      balance: 0.0,
+      total_income: 0.0,
+      total_expenses: 0.0,
+      transaction_count: 0,
+      income_count: 0,
+      expense_count: 0
+    }
+    income_transactions.each do |i|
+      data[:balance] += i.amount
+      data[:total_income] += i.amount
+      data[:transaction_count] += 1
+      data[:income_count] += 1
+    end
+    expense_transactions.each do |i|
+      data[:balance] -= i.amount
+      data[:total_expenses] += i.amount
+      data[:transaction_count] += 1
+      data[:expense_count] += 1
+    end
+    update(data)
+  end
+
   private
 
   def set_uid
