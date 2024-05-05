@@ -10,19 +10,19 @@
       <%= data[:budget_period].display_period_short('/') %>
   </td>
   <td
-    title="<%= t("views.budget_periods.balance") %>: <%= number_to_currency(data[:budget_period].balance) %>"
+    title="<%= t("views.budget_periods.balance") %>: <%= currency(data[:budget_period].balance) %>"
     class="<%= data[:budget_period].balance.positive? ? 'text-green-600' : data[:budget_period].balance.zero? ? 'text-slate-500' : 'text-rose-500' %> number" style="background-color: #e2e8f0;">
-    <%= number_to_currency(data[:budget_period].balance) %>
+    <%= currency(data[:budget_period].balance) %>
   </td>
   <td
-    title="<%= t("views.budget_periods.total_income_full") %>: <%= number_to_currency(data[:budget_period].total_income) %>"
+    title="<%= t("views.budget_periods.total_income_full") %>: <%= currency(data[:budget_period].total_income) %>"
     class="text-green-600 number">
-      <%= number_to_currency(data[:budget_period].total_income) %>
+      <%= currency(data[:budget_period].total_income) %>
   </td>
   <td
-    title="<%= t("views.budget_periods.total_expenses_full") %>: <%= number_to_currency(data[:budget_period].total_expenses) %>"
+    title="<%= t("views.budget_periods.total_expenses_full") %>: <%= currency(data[:budget_period].total_expenses) %>"
     class="text-rose-600 number">
-      <%= number_to_currency(data[:budget_period].total_expenses) %>
+      <%= currency(data[:budget_period].total_expenses) %>
   </td>
   <td
     title="<%= t("views.budget_periods.transaction_count_full") %>: <%= data[:budget_period].transaction_count %>"

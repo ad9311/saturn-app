@@ -8,23 +8,23 @@
       <div class="mb-5 text-center">
         <p class="text-slate-400"><%= t('views.budget_periods.balance') %></p>
         <% if @budget_period.balance.zero? %>
-          <strong class="text-xl number text-slate-500"><%= number_to_currency(@budget_period.balance) %></strong>
+          <strong class="text-xl number text-slate-500"><%= currency(@budget_period.balance) %></strong>
         <% else %>
           <% if @budget_period.balance.positive? %>
-            <strong class="text-xl number text-green-500"><%= number_to_currency(@budget_period.balance) %></strong>
+            <strong class="text-xl number text-green-500"><%= currency(@budget_period.balance) %></strong>
           <% else %>
-            <strong class="text-xl number text-rose-500"><%= number_to_currency(@budget_period.balance) %></strong>
+            <strong class="text-xl number text-rose-500"><%= currency(@budget_period.balance) %></strong>
           <% end %>
         <% end %>
       </div>
       <div class="flex items-center gap-5">
         <div class="text-center">
           <p class="text-slate-400"><%= t('views.budget_periods.income_short') %></p>
-          <p class="text-xl number text-green-500"><%= number_to_currency(@budget_period.total_income) %></p>
+          <p class="text-xl number text-green-500"><%= currency(@budget_period.total_income) %></p>
         </div>
         <div class="text-center">
           <p class="text-slate-400"><%= t('views.budget_periods.expense_short') %></p>
-          <p class="text-xl number text-rose-500"><%= number_to_currency(@budget_period.total_expenses) %></p>
+          <p class="text-xl number text-rose-500"><%= currency(@budget_period.total_expenses) %></p>
         </div>
       </div>
     </div>

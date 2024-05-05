@@ -6,3 +6,7 @@ en:
         budget_periods: Budgets
         sign_out: Sign out
         settings: Settings
+      currency:
+        unit: $
+        separator: "."
+        delimiter: ","

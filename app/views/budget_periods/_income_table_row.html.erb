@@ -5,8 +5,8 @@
     <% end %>
   </td>
   <td title="<%= data[:income].description %>"><%= data[:income].description %></td>
-  <td title="<%= t("views.budget_periods.table.income_amount") %>: <%= number_to_currency(data[:income].amount) %>" class="text-green-600 number">
-    <%= number_to_currency(data[:income].amount) %>
+  <td title="<%= t("views.budget_periods.table.income_amount") %>: <%= currency(data[:income].amount) %>" class="text-green-600 number">
+    <%= currency(data[:income].amount) %>
   </td>
   <td title="<%= data[:income].created_at.strftime('%B %d, %Y %I:%M%p') %>" class="italic text-slate-500">
     <%= data[:income].created_at.strftime('%A %d') %>

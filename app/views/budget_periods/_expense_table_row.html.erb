@@ -13,9 +13,9 @@
     <% end %>
   </td>
   <td
-    title="<%= t("views.budget_periods.table.expense_amount") %>: <%= number_to_currency(data[:expense].amount) %>"
+    title="<%= t("views.budget_periods.table.expense_amount") %>: <%= currency(data[:expense].amount) %>"
     class="text-rose-600 number">
-      <%= number_to_currency(data[:expense].amount) %>
+      <%= currency(data[:expense].amount) %>
   </td>
   <td title="<%= data[:expense].created_at.strftime('%B %d, %Y %I:%M%p') %>" class="italic text-slate-500"><%= data[:expense].created_at.strftime('%A %d') %></td>
   <td title="Delete expense">

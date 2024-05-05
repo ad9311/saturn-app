@@ -6,3 +6,7 @@ es:
         budget_periods: Períodos
         sign_out: Cerrar sesión
         settings: Configuración
+      currency:
+        unit: $
+        separator: ","
+        delimiter: "."
