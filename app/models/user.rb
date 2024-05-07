@@ -40,6 +40,7 @@ class User < ApplicationRecord
   has_many :income_transactions, through: :budget_periods
   has_many :expense_transactions, through: :budget_periods
   has_many :expense_categories, dependent: :destroy
+  has_many :todo_lists, dependent: :destroy
 
   before_destroy :prepare_destroy, prepend: true
 
