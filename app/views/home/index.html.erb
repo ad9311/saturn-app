@@ -1,8 +1,8 @@
 <section>
   <h2 class="title mb-10 text-center"><%= t("views.home.title") %></h2>
-  <ul class="grid grid-flow-col gap-5 w-full md:w-3/5 mx-0 md:mx-auto">
+  <ul class="grid grid-flow-row gap-5 w-full md:w-3/5 mx-0 md:mx-auto">
     <li>
-      <section class="card">
+      <article class="card">
         <h3 class="title-2"><%= t("views.home.sections.budget_periods.title") %></h3>
         <div class="my-5 text-center">
           <%= link_to @budget_period.display_period_full(' '), budget_period_path(@budget_period.uid), class: "link text-xl" %>
@@ -10,6 +10,11 @@
             <%= currency(@budget_period.balance) %>
           </p>
         </div>
+      </article>
+    </li>
+    <li>
+      <section class="card">
+        <h3 class="title-2">Todo lists</h3>
       </section>
     </li>
   </ul>

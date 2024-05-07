@@ -1,0 +1,18 @@
+<section>
+    <h2 class="title mb-5 text-center">Todo lists</h2>
+  <div class="mb-10">
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: "Home", path: root_path }] %>
+  </div>
+  <ul class="grid grid-flow-row gap-5 w-full md:w-3/5 mx-0 md:mx-auto">
+    <% @todo_lists.each do |list| %>
+    <li>
+      <article class="card">
+        <h3 class="title-2"><%= list.name %></h3>
+        <div class="my-5">
+
+        </div>
+      </article>
+    </li>
+    <% end %>
+  </ul>
+</section>
