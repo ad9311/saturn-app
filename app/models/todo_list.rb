@@ -19,5 +19,7 @@
 class TodoList < ApplicationRecord
   belongs_to :user
 
+  has_many :todo_tasks, dependent: :destroy
+
   validates :name, presence: true, length: { minimum: 1, maximum: 20 }
 end

@@ -1,0 +1,2 @@
+class TodoTasksController < ApplicationController
+end

@@ -3,8 +3,9 @@
 # Table name: todo_tasks
 #
 #  id           :bigint           not null, primary key
+#  description  :text             not null
 #  done         :boolean          default(FALSE), not null
-#  text         :text             not null
+#  done_at      :datetime
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  todo_list_id :bigint           not null
@@ -19,4 +20,10 @@
 #
 class TodoTask < ApplicationRecord
   belongs_to :todo_list
+
+  validates :description, presence: true, length: { minimum: 1, maximum: 20 }
+
+  def done?
+    done
+  end
 end

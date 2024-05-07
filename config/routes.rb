@@ -33,4 +33,7 @@ Rails.application.routes.draw do
 
   # Expense categories
   resources :expense_categories, except: :show
+
+  # Todo Lists
+  resources :todo_lists
 end
