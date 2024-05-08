@@ -6,6 +6,7 @@
 #  description  :text             not null
 #  done         :boolean          default(FALSE), not null
 #  done_at      :datetime
+#  properties   :jsonb            not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  todo_list_id :bigint           not null
