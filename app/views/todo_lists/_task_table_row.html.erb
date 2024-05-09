@@ -1,0 +1,15 @@
+<tr>
+  <td><%= data[:task].done %></td>
+  <td>-</td>
+  <td><%= data[:task].description %></td>
+  <% if data[:todo_list].prioritized %>
+    <td><%= data[:task].priority %></td>
+  <% end %>
+  <% if data[:todo_list].categorized %>
+    <td style="color: <%= data[:task].todo_category.color %>;">
+      <%= data[:task].todo_category.name %>
+    </td>
+  <% end %>
+  <td><%= data[:task].created_at.strftime('%B %d, %Y') %></td>
+  <td>-</td>
+</tr>

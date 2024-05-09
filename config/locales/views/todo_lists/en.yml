@@ -1,3 +1,14 @@
 en:
   views:
     todo_lists:
+      title: Todo list
+      breadcrumbs:
+        home: Home
+      table:
+        done: Done
+        edit: Edit
+        task_description: Description
+        priority: Priority
+        category: Category
+        date: Date
+        delete: Delete

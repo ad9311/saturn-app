@@ -1,0 +1,10 @@
+<section>
+  <h2 class="title text-center mb-5"><%= @todo_list.name %></h2>
+  <div class="mb-5">
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: t('views.todo_lists.breadcrumbs.home'), path: root_path }, { body: t('views.todo_lists.title') }] %>
+  </div>
+  <%= turbo_frame_tag "budgets_table" do %>
+    <%= render "shared/table", table_columns: todo_list_full_tasks_table_rows(@todo_list), render_path: @render_path, rows: @rows %>
+    <%= paginate @rows, param_name: :todo_lists_page %>
+  <% end %>
+</section>

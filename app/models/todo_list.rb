@@ -31,6 +31,6 @@ class TodoList < ApplicationRecord
   private
 
   def create_default_category
-    todo_categories.create(name: 'default', color: '#FFFFFF', default: true)
+    todo_categories.create(name: 'default', color: '#000000', default: true)
   end
 end

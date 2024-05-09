@@ -4,7 +4,13 @@ class TodoListsController < ApplicationController
     @todo_lists = current_user.todo_lists.order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    rows = @todo_list.todo_tasks.order(created_at: :desc).map do |task|
+      { task:, todo_list: @todo_list }
+    end
+    @render_path = 'todo_lists/task_table_row'
+    @rows = Kaminari.paginate_array(rows).page(params[:todo_lists_page])
+  end
 
   def new
     @todo_list = TodoList.new

@@ -1,3 +1,14 @@
 es:
   views:
     todo_lists:
+      title: Lista de tareas
+      breadcrumbs:
+        home: Inicio
+      table:
+        done: Hecho
+        edit: Editar
+        task_description: Descripción
+        priority: Prioridad
+        category: Categoría
+        date: Fecha
+        delete: Borrar
