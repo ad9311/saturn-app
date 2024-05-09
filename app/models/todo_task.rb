@@ -28,7 +28,7 @@ class TodoTask < ApplicationRecord
 
   validates :description, presence: true, length: { minimum: 1, maximum: 20 }
 
-  enum priority: { none: 0, low: 1, medium: 2, high: 3 }
+  enum priority: { default: 0, low: 1, medium: 2, high: 3 }
 
   def done?
     done
