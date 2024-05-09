@@ -4,6 +4,10 @@ es:
       expenses:
         categories_chart:
           title: Gráfica de categorías
+      details: Detalles
+      budget_period:
+        title_short: Períodos
+        title_full: Períodos presupuestarios
       forms:
         new_income: Nuevo ingreso
         new_expense: Nuevo gasto

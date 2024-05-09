@@ -51,3 +51,4 @@ es:
         balance: Saldo
         income: Ingresos
         expense: Gastos
+        expense_category: Gráfica de categorías

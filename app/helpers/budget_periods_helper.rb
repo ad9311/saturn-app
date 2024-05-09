@@ -67,7 +67,7 @@ module BudgetPeriodsHelper
         path: new_budget_expense_transaction_path(budget_period.uid)
       },
       {
-        body: t('views.transactions.expenses.categories_chart.title'),
+        body: t('views.budget_periods.charts.expense_category'),
         path: budget_expenses_categories_chart_path(budget_period.uid)
       }
     ]

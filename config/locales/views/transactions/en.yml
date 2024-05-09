@@ -4,6 +4,10 @@ en:
       expenses:
         categories_chart:
           title: Categories chart
+      details: Details
+      budget_period:
+        title_short: Periods
+        title_full: Budget periods
       forms:
         new_income: New income
         new_expense: New expense
