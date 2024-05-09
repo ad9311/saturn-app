@@ -5,3 +5,6 @@ en:
       sections:
         budget_periods:
           title: Last period
+        todo_lists:
+          title: Last todo list
+          tasks: Tasks
