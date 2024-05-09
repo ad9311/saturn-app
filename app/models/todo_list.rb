@@ -2,11 +2,13 @@
 #
 # Table name: todo_lists
 #
-#  id         :bigint           not null, primary key
-#  name       :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  id          :bigint           not null, primary key
+#  categorized :boolean          default(FALSE), not null
+#  name        :string           not null
+#  prioritized :boolean          default(FALSE), not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :bigint           not null
 #
 # Indexes
 #
@@ -20,6 +22,15 @@ class TodoList < ApplicationRecord
   belongs_to :user
 
   has_many :todo_tasks, dependent: :destroy
+  has_many :todo_categories, dependent: :destroy
 
-  validates :name, presence: true, length: { minimum: 1, maximum: 20 }
+  validates :name, presence: true, length: { minimum: 1, maximum: 25 }
+
+  after_create :create_default_category
+
+  private
+
+  def create_default_category
+    todo_categories.create(name: 'default', color: '#FFFFFF', default: true)
+  end
 end

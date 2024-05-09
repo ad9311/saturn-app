@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_08_234438) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_09_013607) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,11 +70,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_234438) do
     t.index ["user_id"], name: "index_settings_on_user_id"
   end
 
+  create_table "todo_categories", force: :cascade do |t|
+    t.bigint "todo_list_id", null: false
+    t.string "name", null: false
+    t.string "color", null: false
+    t.boolean "default", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_list_id"], name: "index_todo_categories_on_todo_list_id"
+  end
+
   create_table "todo_lists", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "categorized", default: false, null: false
+    t.boolean "prioritized", default: false, null: false
     t.index ["user_id"], name: "index_todo_lists_on_user_id"
   end
 
@@ -85,7 +97,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_234438) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "done_at", precision: nil
-    t.jsonb "properties", default: {}, null: false
+    t.bigint "todo_category_id", null: false
+    t.integer "priority", default: 0, null: false
+    t.index ["todo_category_id"], name: "index_todo_tasks_on_todo_category_id"
     t.index ["todo_list_id"], name: "index_todo_tasks_on_todo_list_id"
   end
 
@@ -114,6 +128,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_08_234438) do
   add_foreign_key "expense_transactions", "expense_categories"
   add_foreign_key "income_transactions", "budget_periods"
   add_foreign_key "settings", "users"
+  add_foreign_key "todo_categories", "todo_lists"
   add_foreign_key "todo_lists", "users"
+  add_foreign_key "todo_tasks", "todo_categories"
   add_foreign_key "todo_tasks", "todo_lists"
 end

@@ -30,7 +30,7 @@ class ExpenseCategory < ApplicationRecord
   before_destroy :transfer_expenses_to_default, prepend: true
   before_destroy :prevent_default_category_deletion, prepend: true
 
-  scope :default, -> { where(default: true)[0] }
+  scope :default, -> { where(default: true).first }
 
   def default?
     default
