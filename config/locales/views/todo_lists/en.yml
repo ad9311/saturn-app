@@ -12,3 +12,11 @@ en:
         category: Category
         date: Date
         delete: Delete
+        is_done: Done
+        not_done: Not done
+        default: None
+        low: Low
+        medium: medium
+        high: High
+        default_category: No category
+        delete_task: Delete task

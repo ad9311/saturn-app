@@ -18,7 +18,7 @@
       <%= currency(data[:expense].amount) %>
   </td>
   <td title="<%= data[:expense].created_at.strftime('%B %d, %Y %I:%M %p') %>" class="italic text-slate-500"><%= data[:expense].created_at.strftime('%A %d') %></td>
-  <td title="Delete expense">
+  <td title="<%= t("views.budget_periods.table.delete_expense") %>">
     <%= button_to budget_expense_transaction_path(data[:budget_period].uid, data[:expense]), method: :delete, data: { turbo: false } do %>
       <%= image_tag "bin.svg", alt: "more", class: "w-5" %>
     <% end %>
