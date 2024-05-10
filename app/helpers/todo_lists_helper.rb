@@ -15,6 +15,15 @@ module TodoListsHelper
     ]
   end
 
+  def bredcrumbs_todo_lists_edit(todo_list)
+    [
+      { body: t('views.todo_lists.breadcrumbs.home'), path: root_path },
+      { body: t('views.todo_lists.breadcrumbs.todo_lists'), path: todo_lists_path },
+      { body: todo_list.name, path: todo_list_path(todo_list) },
+      { body: t('views.todo_lists.forms.edit_todo_list') }
+    ]
+  end
+
   def todo_list_index_nav_links
     [
       { body: t('views.todo_lists.navigation_links.add'), path: new_todo_list_path }

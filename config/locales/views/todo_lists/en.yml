@@ -29,5 +29,6 @@ en:
         default_category: No category
         delete_task: Delete task
       forms:
-        new_todo_list: New todo list
+        new_todo_list: New list
         name: Name
+        edit_todo_list: Edit list

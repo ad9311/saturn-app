@@ -29,5 +29,6 @@ es:
         default_category: Sin categoría
         delete_task: Borrar tarea
       forms:
-        new_todo_list: Nueva lista de tareas
+        new_todo_list: Nueva lista
         name: Nombre
+        edit_todo_list: Editar lista
