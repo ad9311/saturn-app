@@ -1,0 +1,18 @@
+<div class="card max-w-96 mx-auto md:mx-0">
+  <%= render "shared/form_errors", model: @todo_list %>
+  <%= form_with model: @todo_list, class: "form" do |f| %>
+    <div class="group">
+      <%= f.label :name, t("views.todo_lists.forms.name") %>
+      <%= f.text_field :name, placeholder: t("views.forms.text_placeholder") %>
+    </div>
+    <div class="submit">
+      <% if action_name == 'new' || action_name == 'create' %>
+        <%= f.submit t("views.forms.create") %>
+      <% end %>
+
+      <% if action_name == 'edit' || action_name == 'update' %>
+        <%= f.submit t("views.forms.update") %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

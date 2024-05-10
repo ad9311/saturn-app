@@ -1,5 +1,5 @@
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, except: %i[index new]
+  before_action :set_todo_list, except: %i[index new create]
   def index
     @todo_lists = current_user.todo_lists.order(created_at: :desc)
   end
@@ -21,17 +21,17 @@ class TodoListsController < ApplicationController
   def create
     @todo_list = current_user.todo_lists.build(todo_list_params)
     if @todo_list.save
-      redirect_to root_path
+      redirect_to todo_list_path(@todo_list)
     else
-      render :new, status: :forbidden
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @todo_list.update(todo_list_params)
-      redirect_to root_path
+      redirect_to todo_list_path(@todo_list)
     else
-      render :new, status: :forbidden
+      render :edit, status: :unprocessable_entity
     end
   end
 

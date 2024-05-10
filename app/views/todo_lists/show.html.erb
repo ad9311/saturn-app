@@ -1,7 +1,10 @@
 <section>
   <h2 class="title text-center mb-5"><%= @todo_list.name %></h2>
   <div class="mb-5">
-    <%= render "shared/breadcrumb_navigation", breadcrumbs: [{ body: t('views.todo_lists.breadcrumbs.home'), path: root_path }, { body: t('views.todo_lists.title') }] %>
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: bredcrumbs_todo_lists_show(@todo_list) %>
+  </div>
+  <div class="my-5 mx-auto w-fit">
+    <%= render "shared/link_group", links: todo_list_show_nav_links(@todo_list) %>
   </div>
   <%= turbo_frame_tag "budgets_table" do %>
     <%= render "shared/table", table_columns: todo_list_full_tasks_table_rows(@todo_list), render_path: @render_path, rows: @rows %>

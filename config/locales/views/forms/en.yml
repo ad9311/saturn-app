@@ -2,6 +2,7 @@ en:
   views:
     forms:
       textarea_placeholder: Type something here...
+      text_placeholder: Type something here...
       create: Create
       update: Update
       errors:

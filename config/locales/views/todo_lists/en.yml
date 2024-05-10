@@ -2,8 +2,16 @@ en:
   views:
     todo_lists:
       title: Todo list
+      plural: Todo lists
+      tasks: Tasks
+      navigation_links:
+        add: New todo list
+        edit: Edit todo list
+        delete: Delete todo list
       breadcrumbs:
         home: Home
+        todo_lists: Todo lists
+        new_list: New list
       table:
         done: Done
         edit: Edit
@@ -20,3 +28,6 @@ en:
         high: High
         default_category: No category
         delete_task: Delete task
+      forms:
+        new_todo_list: New todo list
+        name: Name

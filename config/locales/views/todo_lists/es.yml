@@ -1,9 +1,17 @@
 es:
   views:
     todo_lists:
-      title: Lista de tareas
+      title: Lista de tarea
+      plural: Lista de tareas
+      tasks: Tareas
+      navigation_links:
+        add: Añadir lista
+        edit: Editar lista
+        delete: Borrar lista
       breadcrumbs:
         home: Inicio
+        todo_lists: Lista de tareas
+        new_list: Nueva lista
       table:
         done: Hecho
         edit: Editar
@@ -20,3 +28,6 @@ es:
         high: Alta
         default_category: Sin categoría
         delete_task: Borrar tarea
+      forms:
+        new_todo_list: Nueva lista de tareas
+        name: Nombre
