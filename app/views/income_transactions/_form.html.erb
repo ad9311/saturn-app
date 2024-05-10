@@ -9,6 +9,7 @@
       <%= f.label :amount, t("views.transactions.forms.amount") %>
       <%= f.number_field :amount, min: 0.01, step: 0.01, placeholder: 0.0 %>
     </div>
+    <div class="submit">
       <% if action_name == 'new' || action_name == 'create' %>
         <%= f.submit t("views.forms.create") %>
       <% end %>

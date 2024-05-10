@@ -11,6 +11,7 @@ en:
         delete_category: Borrar categoría
       navigiation_links:
         new_category: New category
+        edit_category: Edit category
       forms:
         name: Name
         color: Color
