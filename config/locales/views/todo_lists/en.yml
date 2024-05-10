@@ -8,6 +8,7 @@ en:
         add: New todo list
         edit: Edit todo list
         delete: Delete todo list
+        categories: Categorías
         add_task: New todo task
       breadcrumbs:
         home: Home

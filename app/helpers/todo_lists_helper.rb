@@ -32,8 +32,8 @@ module TodoListsHelper
 
   def todo_list_show_nav_links(todo_list)
     [
-      { body: t('views.todo_lists.navigation_links.add'), path: new_todo_list_path },
       { body: t('views.todo_lists.navigation_links.edit'), path: edit_todo_list_path(todo_list) },
+      { body: t('views.todo_lists.navigation_links.categories'), path: todo_list_todo_categories_path(todo_list) },
       { body: t('views.todo_lists.navigation_links.add_task'), path: new_todo_list_todo_task_path(todo_list) }
     ]
   end

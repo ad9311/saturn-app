@@ -37,6 +37,6 @@ Rails.application.routes.draw do
   # Todo Lists
   resources :todo_lists do
     resources :todo_tasks, only: %i[new create edit update destroy]
-    # resources :todo_categories, only: %i[new create edit update destroy]
+    resources :todo_categories, except: :show
   end
 end

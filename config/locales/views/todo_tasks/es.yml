@@ -1,0 +1,6 @@
+en:
+  views:
+    todo_tasks:
+      forms:
+        new_todo_task: Nueva tarea
+        description: Descripción

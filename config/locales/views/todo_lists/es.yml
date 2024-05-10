@@ -8,6 +8,7 @@ es:
         add: Añadir lista
         edit: Editar lista
         delete: Borrar lista
+        categories: Categorías
         add_task: Añadir tarea
       breadcrumbs:
         home: Inicio

@@ -1,0 +1,5 @@
+<h2 class="title mb-5 text-center"><%= t("views.todo_tasks.forms.new_todo_task") %></h2>
+<div class="mb-10">
+  <%= render "shared/breadcrumb_navigation", breadcrumbs: bredcrumbs_todo_task_new(@todo_list) %>
+</div>
+<%= render "form" %>
