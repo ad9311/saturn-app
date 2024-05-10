@@ -1,0 +1,16 @@
+
+<section>
+  <h2 class="title mb-5 text-center"><%= t("views.todo_categories.title") %></h2>
+  <div class="mb-10">
+    <%= render "shared/breadcrumb_navigation", breadcrumbs: todo_categories_index_breadcrumbs(@todo_list) %>
+  </div>
+  <div class="my-5 w-fit mx-auto">
+    <%= render "shared/link_group", links: todo_categories_index_navigation_links(@todo_list) %>
+  </div>
+  <div class="w-fit mx-auto">
+    <%= turbo_frame_tag "categories_table" do %>
+      <%= render "shared/table", table_columns: @table_columns, render_path: @render_path, rows: @rows %>
+      <%= paginate @rows, param_name: :categories_page %>
+    <% end %>
+  </div>
+</section>

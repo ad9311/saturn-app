@@ -3,7 +3,17 @@ class TodoCategoriesController < ApplicationController
   before_action :set_todo_category, only: %i[edit update destroy]
 
   def index
-    @todo_categories = @todo_list.todo_categories.order(:name)
+    @table_columns = [
+      t('views.todo_categories.table.edit'),
+      t('views.todo_categories.table.name'),
+      t('views.todo_categories.table.color'),
+      t('views.todo_categories.table.delete')
+    ]
+    @render_path = 'todo_category_table_row'
+    rows = @todo_list.todo_categories.where(default: false).order(:name).map do |category|
+      { category:, todo_list: @todo_list }
+    end
+    @rows = Kaminari.paginate_array(rows).page(params[:categories_page])
   end
 
   def new

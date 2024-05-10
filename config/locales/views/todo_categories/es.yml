@@ -1,0 +1,16 @@
+es:
+  views:
+    todo_categories:
+      title:  Categorías
+      table:
+        edit: Editar
+        name: Nombre
+        color: Color
+        delete: Borrar
+        edit_category: Editar categoría
+        delete_category: Borrar categoría
+      navigiation_links:
+        new_category: Nueva categoría
+      forms:
+        name: Nombre
+        color: Color

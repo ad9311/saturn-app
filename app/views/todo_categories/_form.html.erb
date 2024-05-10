@@ -1,0 +1,17 @@
+
+<div class="card max-w-96 mx-auto md:mx-0">
+  <%= render "shared/form_errors", model: @todo_category %>
+  <%= form_with model: [@todo_list, @todo_category], class: "form" do |f| %>
+    <div class="group">
+      <%= f.label :name, t("views.todo_categories.forms.name") %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="group">
+      <%= f.label :color, t("views.todo_categories.forms.color") %>
+      <%= f.color_field :color %>
+    </div>
+    <div class="submit">
+      <%= f.submit action_name == 'new' ? t("views.forms.create") : t("views.forms.update") %>
+    </div>
+  <% end %>
+</div>
