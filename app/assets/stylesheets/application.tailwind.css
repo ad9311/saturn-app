@@ -88,6 +88,18 @@ body {
     @apply mb-5;
   }
 
+  .form .vertical {
+    @apply flex items-center gap-2;
+  }
+
+  .form .two-columns {
+    @apply w-fit grid grid-cols-2 items-center gap-3;
+  }
+
+  /* .form .two-columns label {
+    @apply pr-2;
+  } */
+
   .form .submit {
     @apply mt-10 flex justify-end;
   }

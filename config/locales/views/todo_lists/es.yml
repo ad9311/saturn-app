@@ -8,6 +8,7 @@ es:
         add: Añadir lista
         edit: Editar lista
         delete: Borrar lista
+        add_task: Añadir tarea
       breadcrumbs:
         home: Inicio
         todo_lists: Lista de tareas
@@ -32,3 +33,5 @@ es:
         new_todo_list: Nueva lista
         name: Nombre
         edit_todo_list: Editar lista
+        categorized: Categorizada
+        prioritized: Priorizada

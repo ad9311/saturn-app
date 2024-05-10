@@ -38,7 +38,7 @@ class TodoListsController < ApplicationController
   def destroy
     @todo_list.destroy!
 
-    redirect_to root_path
+    redirect_to todo_lists_path
   end
 
   private
@@ -48,6 +48,6 @@ class TodoListsController < ApplicationController
   end
 
   def todo_list_params
-    params.require(:todo_list).permit(:name)
+    params.require(:todo_list).permit(:name, :categorized, :prioritized)
   end
 end

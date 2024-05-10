@@ -8,6 +8,7 @@ en:
         add: New todo list
         edit: Edit todo list
         delete: Delete todo list
+        add_task: New todo task
       breadcrumbs:
         home: Home
         todo_lists: Todo lists
@@ -32,3 +33,5 @@ en:
         new_todo_list: New list
         name: Name
         edit_todo_list: Edit list
+        categorized: Categorized
+        prioritized: Prioritized

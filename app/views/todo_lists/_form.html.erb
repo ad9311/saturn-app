@@ -5,6 +5,12 @@
       <%= f.label :name, t("views.todo_lists.forms.name") %>
       <%= f.text_field :name, placeholder: t("views.forms.text_placeholder") %>
     </div>
+    <div class="group two-columns">
+      <%= f.label :categorized, t("views.todo_lists.forms.categorized") %>
+      <%= f.check_box :categorized %>
+      <%= f.label :prioritized, t("views.todo_lists.forms.prioritized") %>
+      <%= f.check_box :prioritized %>
+    </div>
     <div class="submit">
       <% if action_name == 'new' || action_name == 'create' %>
         <%= f.submit t("views.forms.create") %>
