@@ -76,12 +76,24 @@ body {
     @apply text-lime-600 outline-lime-600;
   }
 
+  .form  input[type="radio"] {
+    @apply text-lime-600 outline-lime-600;
+  }
+
   .form input[type="color"] {
     @apply h-8 w-8;
   }
 
   .form input[type="submit"] {
     @apply px-5 py-2 bg-lime-600 text-white rounded-md cursor-pointer hover:bg-lime-700 transition-all;
+  }
+
+  .form .radio-buttons label {
+    @apply text-sm not-italic text-slate-500;
+  }
+
+  .form .radio-group {
+    @apply flex items-center gap-2;
   }
 
   .form .group {
@@ -95,10 +107,6 @@ body {
   .form .two-columns {
     @apply w-fit grid grid-cols-2 items-center gap-3;
   }
-
-  /* .form .two-columns label {
-    @apply pr-2;
-  } */
 
   .form .submit {
     @apply mt-10 flex justify-end;

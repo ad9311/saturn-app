@@ -32,7 +32,7 @@
       </td>
     <% end %>
   <% end %>
-  <% if data[:todo_list].categorized %>
+  <% if data[:todo_list].categorized? %>
     <td title="<%= data[:task].todo_category.default? ? t("views.todo_lists.table.default_category") : data[:task].todo_category.name %>">
       <% if data[:task].todo_category.default? %>
         <span class="text-slate-400"><%= t("views.todo_lists.table.default_category") %></span>

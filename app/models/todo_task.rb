@@ -6,7 +6,7 @@
 #  description      :text             not null
 #  done             :boolean          default(FALSE), not null
 #  done_at          :datetime
-#  priority         :integer          default(0), not null
+#  priority         :integer          default("default"), not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  todo_category_id :bigint           not null
@@ -30,7 +30,17 @@ class TodoTask < ApplicationRecord
 
   enum priority: { default: 0, low: 1, medium: 2, high: 3 }
 
+  before_validation :assign_default_category, on: :create
+
   def done?
     done
+  end
+
+  private
+
+  def assign_default_category
+    return unless todo_category_id.nil?
+
+    self.todo_category_id = todo_list.todo_categories.default.first.id
   end
 end

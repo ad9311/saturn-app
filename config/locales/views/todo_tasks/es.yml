@@ -3,4 +3,8 @@ en:
     todo_tasks:
       forms:
         new_todo_task: Nueva tarea
+        edit_todo_task: Editar tarea
         description: Descripción
+        create_new_category: Crear nueva categoría
+        warnings:
+          create_category: No hay categorías, por favor crea una para continuar.

@@ -1,13 +1,10 @@
 class TodoTasksController < ApplicationController
   before_action :set_todo_list
   before_action :set_todo_task, only: %I[edit update destroy]
+  before_action :set_todo_categories, only: %I[new create edit update]
 
   def new
     @todo_task = TodoTask.new
-    @todo_category_default = @todo_list.todo_categories.default
-    @todo_categories = @todo_list.todo_categories.where(default: false).map do |category|
-      [category.name, category.id]
-    end
   end
 
   def edit; end
@@ -46,6 +43,12 @@ class TodoTasksController < ApplicationController
   end
 
   def todo_task_params
-    params.require(:todo_task).permit(:description, :todo_category, :priority)
+    params.require(:todo_task).permit(:description, :todo_category_id, :priority)
+  end
+
+  def set_todo_categories
+    @todo_categories = @todo_list.todo_categories.where(default: false).map do |category|
+      [category.name, category.id]
+    end
   end
 end

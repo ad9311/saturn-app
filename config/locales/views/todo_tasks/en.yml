@@ -2,5 +2,9 @@ en:
   views:
     todo_tasks:
       forms:
-        new_todo_task: New task
+        new_todo_task: New 
+        edit_todo_task: Editar tarea
         description: Description
+        create_new_category: Create new category
+        warnings:
+          create_category: No categories, please create a catagory to proceed.

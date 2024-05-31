@@ -26,7 +26,7 @@ class TodoCategory < ApplicationRecord
   validates :name, presence: true, length: { minimum: 1, maximum: 25 }
   validates :color, presence: true, length: { is: 7 }
 
-  scope :default, -> { where(default: true).first }
+  scope :default, -> { where(default: true) }
 
   def default?
     default
