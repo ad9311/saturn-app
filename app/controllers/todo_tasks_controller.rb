@@ -4,6 +4,10 @@ class TodoTasksController < ApplicationController
 
   def new
     @todo_task = TodoTask.new
+    @todo_category_default = @todo_list.todo_categories.default
+    @todo_categories = @todo_list.todo_categories.where(default: false).map do |category|
+      [category.name, category.id]
+    end
   end
 
   def edit; end

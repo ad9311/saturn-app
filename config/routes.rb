@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   delete 'account/destroy', to: 'users#destroy', as: :destroy_user
 
   # Settings
-  resources :settings, only: :index
-  patch 'settings/locale', to: 'settings#update_locale'
+  resources :settings, only: :index do
+    collection do
+      patch 'locale', to: 'settings#update_locale'
+    end
+  end
 
   # Home
   resources :home, only: %i[index]

@@ -45,6 +45,7 @@
       <% end %>
     <% end %>
   </section>
+  <%= Time.zone.now.sec %>
   <section class="mt-5">
     <h3 class="mb-2 title-2"><%= t("views.budget_periods.table.expense_list") %></h3>
     <% if @expense_rows.empty? %>
