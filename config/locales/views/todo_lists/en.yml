@@ -22,7 +22,7 @@ en:
         category: Category
         date: Date
         delete: Delete
-        is_done: Done
+        is_done: Done!
         not_done: Not done
         default: None
         low: Low

@@ -22,7 +22,7 @@ es:
         category: Categoría
         date: Fecha
         delete: Borrar
-        is_done: Hecho
+        is_done: ¡Hecho!
         not_done: Por hacer
         default: Ninguna
         low: Baja

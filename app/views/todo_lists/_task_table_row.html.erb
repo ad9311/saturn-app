@@ -5,7 +5,11 @@
     <% end %>
   </td>
   <td title="<%= data[:task].done ? t("views.todo_lists.table.is_done") : t("views.todo_lists.table.not_done") %>">
-    <%= data[:task].done %>
+    <% form_id = "todo_task_#{data[:task].id}" %>
+    <%= form_with model: [data[:todo_list], data[:task]], method: :patch, class: "form", id: form_id do |f| %>
+      <%= f.check_box :done, { checked: data[:task].done, onchange: "submitForm('#{form_id}')" } %>
+      <%= f.hidden_field :id, value: data[:task].id %>
+    <% end %>
   </td>
   <td title="<%= data[:task].description %>">
     <%= data[:task].description %>

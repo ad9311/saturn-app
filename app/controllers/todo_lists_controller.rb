@@ -5,7 +5,7 @@ class TodoListsController < ApplicationController
   end
 
   def show
-    rows = @todo_list.todo_tasks.order(created_at: :desc).map do |task|
+    rows = @todo_list.todo_tasks.order(done: :desc, created_at: :desc).map do |task|
       { task:, todo_list: @todo_list }
     end
     @render_path = 'todo_lists/task_table_row'

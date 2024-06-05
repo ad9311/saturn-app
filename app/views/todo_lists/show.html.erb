@@ -10,4 +10,9 @@
     <%= render "shared/table", table_columns: todo_list_full_tasks_table_rows(@todo_list), render_path: @render_path, rows: @rows %>
     <%= paginate @rows, param_name: :todo_lists_page %>
   <% end %>
+  <script>
+    function submitForm(formId) {
+      document.getElementById(formId).submit();
+    }
+  </script>
 </section>

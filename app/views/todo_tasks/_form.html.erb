@@ -25,15 +25,15 @@
         <fieldset class="radio-buttons">
           <div class="radio-group">
             <%= f.radio_button :priority, :low %>
-            <%= f.label :low %>
+            <%= f.label :low, t("views.todo_tasks.forms.low") %>
           </div>
           <div class="radio-group">
             <%= f.radio_button :priority, :medium %>
-            <%= f.label :medium %>
+            <%= f.label :medium, t("views.todo_tasks.forms.medium") %>
           </div>
           <div class="radio-group">
             <%= f.radio_button :priority, :high %>
-            <%= f.label :high %>
+            <%= f.label :high, t("views.todo_tasks.forms.high") %>
           </div>
         </fieldset>
       </div>

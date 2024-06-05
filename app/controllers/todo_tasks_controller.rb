@@ -43,7 +43,7 @@ class TodoTasksController < ApplicationController
   end
 
   def todo_task_params
-    params.require(:todo_task).permit(:description, :todo_category_id, :priority)
+    params.require(:todo_task).permit(:description, :todo_category_id, :priority, :done)
   end
 
   def set_todo_categories
