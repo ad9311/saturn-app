@@ -19,19 +19,19 @@ module BudgetPeriodCharts
 
   def balance_history(budget_periods)
     budget_periods.map do |bp|
-      [bp.display_period_short('/'), bp.balance.to_f]
+      ["#{bp.month.to_s.rjust(2, '0')}/#{bp.year}", bp.balance.to_f]
     end
   end
 
   def income_history(budget_periods)
     budget_periods.map do |bp|
-      [bp.display_period_short('/'), bp.total_income.to_f]
+      ["#{bp.month.to_s.rjust(2, '0')}/#{bp.year}", bp.total_income.to_f]
     end
   end
 
   def expense_history(budget_periods)
     budget_periods.map do |bp|
-      [bp.display_period_short('/'), bp.total_expenses.to_f]
+      ["#{bp.month.to_s.rjust(2, '0')}/#{bp.year}", bp.total_expenses.to_f]
     end
   end
 
