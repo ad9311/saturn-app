@@ -5,7 +5,7 @@ class BudgetPeriodsController < ApplicationController
   include BudgetPeriodCharts
 
   def index
-    last_four = current_user.budget_periods.order(uid: :desc).limit(4)
+    last_four = current_user.budget_periods.order(uid: :desc).limit(4).reverse
     rows = current_user.budget_periods.order(uid: :desc).map { |budget_period| { budget_period: } }
     @chart_history = generate_chart_history(last_four)
     @render_path = 'budget_period_table_row'
