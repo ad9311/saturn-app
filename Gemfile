@@ -44,6 +44,9 @@ gem 'bootsnap', require: false
 # Use devise for user authentication
 gem 'devise'
 
+# Use devise-jwt to use JWT tokens for authentication
+gem 'devise-jwt'
+
 # Use dockerfile-rails to manage Dockerfiles
 gem 'dockerfile-rails', '>= 1.6', group: :development
 
