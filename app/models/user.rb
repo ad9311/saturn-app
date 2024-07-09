@@ -28,11 +28,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise(
     :database_authenticatable,
-    # :registerable,
     :recoverable,
     :rememberable,
     :validatable,
-    :trackable
+    :trackable,
+    :jwt_authenticatable,
+    jwt_revocation_strategy: Devise::JWT::RevocationStrategies::Null
   )
 
   has_one  :setting, dependent: :destroy
