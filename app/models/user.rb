@@ -43,6 +43,8 @@ class User < ApplicationRecord
   has_many :expense_categories, dependent: :destroy
   has_many :todo_lists, dependent: :destroy
 
+  include UserSerializer
+
   before_destroy :prepare_destroy, prepend: true
 
   def full_name

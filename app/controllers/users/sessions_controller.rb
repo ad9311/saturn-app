@@ -11,7 +11,9 @@ class Users::SessionsController < Devise::SessionsController
         super
       end
       format.json do
-        response = build_response(:CREATED, { token: request.env['warden-jwt_auth.token'], user: resource })
+        status = :CREATED
+        data = { token: request.env['warden-jwt_auth.token'], user: resource.serialized_hash }
+        response = build_response(status, data)
         render json: response, status: :created
       end
     end

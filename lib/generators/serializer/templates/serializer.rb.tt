@@ -1,0 +1,5 @@
+module <%= class_name %>Serializer
+  def serialized_hash
+    { id: }
+  end
+end
