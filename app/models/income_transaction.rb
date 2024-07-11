@@ -23,8 +23,8 @@ class IncomeTransaction < ApplicationRecord
   validates :description, presence: true, length: { minimum: 1, maximum: 100 }
   validates :amount, numericality: { greater_than: 0 }
 
-  include Transactions
-  include Transactions::Income
+  include TransactionConcern
+  include TransactionConcern::Income
 
   after_create :run_after_create
   before_update :run_before_update

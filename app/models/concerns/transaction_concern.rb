@@ -1,4 +1,4 @@
-module Transactions
+module TransactionConcern
   def credit_budget_period!(new_amount)
     balance = budget_period.balance + new_amount
     budget_period.update(balance:)

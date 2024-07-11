@@ -27,8 +27,8 @@ class ExpenseTransaction < ApplicationRecord
   validates :description, presence: true, length: { minimum: 1, maximum: 100 }
   validates :amount, numericality: { greater_than: 0 }
 
-  include Transactions
-  include Transactions::Expenses
+  include TransactionConcern
+  include TransactionConcern::Expenses
 
   after_create :run_after_create
   before_update :run_before_update
