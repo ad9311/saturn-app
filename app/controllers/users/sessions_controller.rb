@@ -1,6 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
   skip_before_action :verify_authenticity_token
 
+  include Api::ResponseBuilder
+
   private
 
   def respond_with(resource, _options)
@@ -9,7 +11,8 @@ class Users::SessionsController < Devise::SessionsController
         super
       end
       format.json do
-        render json: { data: { token: request.env['warden-jwt_auth.token'], user: resource } }, status: :created
+        response = build_response(:CREATED, { token: request.env['warden-jwt_auth.token'], user: resource })
+        render json: response, status: :created
       end
     end
   end

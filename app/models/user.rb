@@ -24,6 +24,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  include Devise::JWT::RevocationStrategies::Allowlist
+
   devise(
     :database_authenticatable,
     :recoverable,
@@ -31,7 +33,7 @@ class User < ApplicationRecord
     :validatable,
     :trackable,
     :jwt_authenticatable,
-    jwt_revocation_strategy: Devise::JWT::RevocationStrategies::Null
+    jwt_revocation_strategy: self
   )
 
   has_one  :setting, dependent: :destroy
