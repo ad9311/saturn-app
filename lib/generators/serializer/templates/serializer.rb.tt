@@ -1,5 +1,9 @@
 module <%= class_name %>Serializer
-  def serialized_hash
+  include Serializer
+
+  private
+
+  def attributes
     { id: }
   end
 end

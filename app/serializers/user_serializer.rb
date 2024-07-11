@@ -1,8 +1,9 @@
 module UserSerializer
-  require 'active_support/core_ext/string'
+  include Serializer
 
-  def serialized_hash
-    atttributes = { id:, first_name:, last_name:, email: }
-    atttributes.transform_keys { |key| key.to_s.camelize(:lower) }
+  private
+
+  def attributes
+    { id:, first_name:, last_name:, email: }
   end
 end
