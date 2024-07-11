@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'up', to: 'rails/health#show', as: :rails_health_check
 
   # Devise
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, path: 'api', controllers: { sessions: 'users/sessions' }
 
   # Users
   get 'account/destroy', to: 'users#confirm_destroy', as: :confirm_destroy_user
