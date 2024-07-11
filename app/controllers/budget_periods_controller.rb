@@ -2,7 +2,7 @@ class BudgetPeriodsController < ApplicationController
   before_action :next_budget_period, only: :index
   before_action :set_budget_period, except: :index
 
-  include BudgetPeriodCharts
+  include BudgetPeriodsHelper::Charts
 
   def index
     last_four = current_user.budget_periods.order(uid: :desc).limit(4).reverse
