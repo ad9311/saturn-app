@@ -5,6 +5,6 @@ class Api::UsersController < ApplicationController
     status = :OK
     data = { user: current_user.serialized_hash }
     response = build_response(data, status:)
-    render json: response, status: :ok
+    render json: response
   end
 end
