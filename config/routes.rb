@@ -9,6 +9,19 @@ Rails.application.routes.draw do
   # Devise
   devise_for :users, path: 'api', controllers: { sessions: 'users/sessions' }
 
+  # Api
+  namespace :api do
+    # Users
+    resources :users, only: [] do
+      collection do
+        get 'me', to: 'users#me'
+      end
+    end
+
+    # Budget Periods
+    resources :budget_periods, only: %i[index]
+  end
+
   # Users
   get 'account/destroy', to: 'users#confirm_destroy', as: :confirm_destroy_user
   delete 'account/destroy', to: 'users#destroy', as: :destroy_user

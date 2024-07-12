@@ -42,6 +42,8 @@ class BudgetPeriod < ApplicationRecord
     numericality: { only_integer: true, greater_than_or_equal_to: 2000, less_than_or_equal_to: 3000 }
   )
 
+  include BudgetPeriodSerializer
+
   before_save :set_uid
 
   def display_period_short(separator)
