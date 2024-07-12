@@ -9,6 +9,6 @@ class Api::BudgetPeriodsController < ApplicationController
 
     status = :OK
     data = { budget_periods: serialized }
-    render json: build_response(status, data)
+    render json: build_response(data, status:)
   end
 end

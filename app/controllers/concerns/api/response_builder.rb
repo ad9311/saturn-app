@@ -1,5 +1,5 @@
 module Api::ResponseBuilder
-  def build_response(status, data = nil, errors = nil)
+  def build_response(data, status: nil, errors: nil)
     return { status:, data: } if errors.nil?
 
     { status:, data:, errors: }
