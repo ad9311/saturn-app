@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
   private
 
   def set_user_setting
+    return if request.format.json?
+
     return unless user_signed_in?
 
     Setting.create(user: current_user) if current_user.setting.nil?
