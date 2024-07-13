@@ -20,7 +20,22 @@ class Api::BudgetPeriodsController < ApplicationController
       render(json: build_response(data, status: :ERROR), status: :not_found) and return
     end
 
-    data = { budgetPeriod: @budget_period.serialized_hash }
+    budget_period = @budget_period.serialized_hash
+    include_params = params[:include]&.split(':') || []
+
+    if include_params.any?('expenses')
+      @expenses = @budget_period.expense_transactions
+                                .joins(:expense_category)
+                                .includes(:expense_category)
+                                .map(&:serialized_hash)
+    end
+
+    @income = @budget_period.income_transactions.map(&:serialized_hash) if include_params.any?('income')
+
+    budget_period = budget_period.merge({ expenses: @expenses }) unless @expenses.nil?
+    budget_period = budget_period.merge({ income: @income }) unless @income.nil?
+
+    data = { budgetPeriod: budget_period }
     render json: build_response(data, status: :SUCCESS)
   end
 

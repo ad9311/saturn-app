@@ -25,6 +25,7 @@ class IncomeTransaction < ApplicationRecord
 
   include TransactionConcern
   include TransactionConcern::Income
+  include IncomeTransactionSerializer
 
   after_create :run_after_create
   before_update :run_before_update
