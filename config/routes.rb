@@ -19,9 +19,9 @@ Rails.application.routes.draw do
     end
 
     # Budget Periods
-    resources :budget_periods, param: :uid, only: %i[index show] do
+    resources :budgets, param: :uid, only: %i[index show] do
       collection do
-        get 'last', to: 'budget_periods#show_last'
+        get 'last', to: 'budgets#show_last'
       end
     end
   end

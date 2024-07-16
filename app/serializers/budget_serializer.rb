@@ -1,4 +1,4 @@
-module BudgetPeriodSerializer
+module BudgetSerializer
   include Serializer
 
   private

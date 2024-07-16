@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: budget_periods
+# Table name: budgets
 #
 #  id                :bigint           not null, primary key
 #  balance           :decimal(11, 2)   default(0.0), not null
@@ -18,14 +18,14 @@
 #
 # Indexes
 #
-#  index_budget_periods_on_uid      (uid) UNIQUE
-#  index_budget_periods_on_user_id  (user_id)
+#  index_budgets_on_uid      (uid) UNIQUE
+#  index_budgets_on_user_id  (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class BudgetPeriod < ApplicationRecord
+class Budget < ApplicationRecord
   belongs_to :user
 
   has_many :income_transactions, dependent: :destroy
@@ -42,19 +42,9 @@ class BudgetPeriod < ApplicationRecord
     numericality: { only_integer: true, greater_than_or_equal_to: 2000, less_than_or_equal_to: 3000 }
   )
 
-  include BudgetPeriodSerializer
+  include BudgetSerializer
 
   before_save :set_uid
-
-  def display_period_short(separator)
-    month_string = I18n.t("models.budget_period.#{month.to_s.rjust(2, '0')}.short")
-    "#{month_string}#{separator}#{year}"
-  end
-
-  def display_period_full(separator)
-    month_string = I18n.t("models.budget_period.#{month.to_s.rjust(2, '0')}.full")
-    "#{month_string}#{separator}#{year}"
-  end
 
   def rectify_period
     data = {

@@ -20,19 +20,19 @@ if Rails.env.development?
     (1..12).each do |month|
       break if Time.zone.now.month == month && Time.zone.now.year == year
 
-      budget_period = BudgetPeriod.create(user:, month:, year:)
+      budget = Budget.create(user:, month:, year:)
 
       Faker::Number.between(from: 1, to: 50).times do
         if Faker::Number.between(from: 1, to: 10).even?
           IncomeTransaction.create(
-            budget_period:,
+            budget:,
             description: Faker::Commerce.product_name,
             amount: Faker::Commerce.price
           )
         else
           ExpenseTransaction.create(
             expense_category: user.expense_categories.where(default: false).sample,
-            budget_period:,
+            budget:,
             description: Faker::Commerce.product_name,
             amount: Faker::Commerce.price
           )

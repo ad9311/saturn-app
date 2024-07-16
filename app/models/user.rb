@@ -37,9 +37,9 @@ class User < ApplicationRecord
   )
 
   has_one  :setting, dependent: :destroy
-  has_many :budget_periods, dependent: :destroy
-  has_many :income_transactions, through: :budget_periods
-  has_many :expense_transactions, through: :budget_periods
+  has_many :budgets, dependent: :destroy
+  has_many :income_transactions, through: :budgets
+  has_many :expense_transactions, through: :budgets
   has_many :expense_categories, dependent: :destroy
   has_many :todo_lists, dependent: :destroy
 

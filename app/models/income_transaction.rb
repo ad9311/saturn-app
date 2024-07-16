@@ -2,23 +2,23 @@
 #
 # Table name: income_transactions
 #
-#  id               :bigint           not null, primary key
-#  amount           :decimal(11, 2)   not null
-#  description      :string           not null
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  budget_period_id :bigint           not null
+#  id          :bigint           not null, primary key
+#  amount      :decimal(11, 2)   not null
+#  description :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  budget_id   :bigint           not null
 #
 # Indexes
 #
-#  index_income_transactions_on_budget_period_id  (budget_period_id)
+#  index_income_transactions_on_budget_id  (budget_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (budget_period_id => budget_periods.id)
+#  fk_rails_...  (budget_id => budgets.id)
 #
 class IncomeTransaction < ApplicationRecord
-  belongs_to :budget_period
+  belongs_to :budget
 
   validates :description, presence: true, length: { minimum: 1, maximum: 100 }
   validates :amount, numericality: { greater_than: 0 }
@@ -36,14 +36,14 @@ class IncomeTransaction < ApplicationRecord
 
   def run_after_create
     increment_transaction_count!
-    credit_budget_period!(amount)
+    credit_budget!(amount)
     credit_total_income!(amount)
     increment_income_count!
   end
 
   def run_before_destroy
     decrement_transaction_count!
-    debit_budget_period!(amount)
+    debit_budget!(amount)
     debit_total_income!(amount)
     decrement_income_count!
   end
@@ -51,14 +51,14 @@ class IncomeTransaction < ApplicationRecord
   def run_before_update
     return unless amount_changed?
 
-    debit_budget_period!(amount_was)
+    debit_budget!(amount_was)
     debit_total_income!(amount_was)
   end
 
   def run_after_update
     return unless saved_change_to_amount?
 
-    credit_budget_period!(amount)
+    credit_budget!(amount)
     credit_total_income!(amount)
   end
 end

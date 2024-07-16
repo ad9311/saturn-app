@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_11_152839) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_16_223456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_11_152839) do
     t.index ["user_id"], name: "index_allowlisted_jwts_on_user_id"
   end
 
-  create_table "budget_periods", force: :cascade do |t|
+  create_table "budgets", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.decimal "balance", precision: 11, scale: 2, default: "0.0", null: false
     t.integer "month", null: false
@@ -38,8 +38,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_11_152839) do
     t.integer "transaction_count", default: 0, null: false
     t.integer "income_count", default: 0, null: false
     t.integer "expense_count", default: 0, null: false
-    t.index ["uid"], name: "index_budget_periods_on_uid", unique: true
-    t.index ["user_id"], name: "index_budget_periods_on_user_id"
+    t.index ["uid"], name: "index_budgets_on_uid", unique: true
+    t.index ["user_id"], name: "index_budgets_on_user_id"
   end
 
   create_table "expense_categories", force: :cascade do |t|
@@ -54,23 +54,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_11_152839) do
   end
 
   create_table "expense_transactions", force: :cascade do |t|
-    t.bigint "budget_period_id", null: false
+    t.bigint "budget_id", null: false
     t.string "description"
     t.decimal "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "expense_category_id", null: false
-    t.index ["budget_period_id"], name: "index_expense_transactions_on_budget_period_id"
+    t.index ["budget_id"], name: "index_expense_transactions_on_budget_id"
     t.index ["expense_category_id"], name: "index_expense_transactions_on_expense_category_id"
   end
 
   create_table "income_transactions", force: :cascade do |t|
-    t.bigint "budget_period_id", null: false
+    t.bigint "budget_id", null: false
     t.string "description", null: false
     t.decimal "amount", precision: 11, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["budget_period_id"], name: "index_income_transactions_on_budget_period_id"
+    t.index ["budget_id"], name: "index_income_transactions_on_budget_id"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -134,11 +134,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_11_152839) do
   end
 
   add_foreign_key "allowlisted_jwts", "users", on_delete: :cascade
-  add_foreign_key "budget_periods", "users"
+  add_foreign_key "budgets", "users"
   add_foreign_key "expense_categories", "users"
-  add_foreign_key "expense_transactions", "budget_periods"
+  add_foreign_key "expense_transactions", "budgets"
   add_foreign_key "expense_transactions", "expense_categories"
-  add_foreign_key "income_transactions", "budget_periods"
+  add_foreign_key "income_transactions", "budgets"
   add_foreign_key "settings", "users"
   add_foreign_key "todo_categories", "todo_lists"
   add_foreign_key "todo_lists", "users"
