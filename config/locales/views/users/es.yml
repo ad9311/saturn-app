@@ -1,9 +1,0 @@
-es:
-  views:
-    users:
-      delete:
-        delete_account: Borrar cuenta
-        text_1: ¿Desea borrar su cuenta?
-        text_2: Esto no se puede deshacer.
-        cancel: Cancelar
-        delete: Borrar

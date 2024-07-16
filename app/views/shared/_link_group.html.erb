@@ -1,8 +1,0 @@
-<ul class="flex gap-4">
-  <% links.each do |link| %>
-    <% next if link[:skip] %>
-    <li>
-      <%= link_to link[:body], link[:path], class: "link" %>
-    </li>
-  <% end %>
-</ul>

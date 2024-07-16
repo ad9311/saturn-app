@@ -10,7 +10,7 @@ module Api::ResponseBuilder
   end
 
   def limit_data(records, limit: nil)
-    records if limit.nil?
+    return records if limit.nil?
 
     records.limit(limit)
   end

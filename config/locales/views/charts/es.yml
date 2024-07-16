@@ -1,6 +1,0 @@
-es:
-  views:
-    charts:
-      thousands: "."
-      decimal: ","
-      prefix: "$"
