@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: income_transactions
+# Table name: incomes
 #
 #  id          :bigint           not null, primary key
 #  amount      :decimal(11, 2)   not null
@@ -11,13 +11,13 @@
 #
 # Indexes
 #
-#  index_income_transactions_on_budget_id  (budget_id)
+#  index_incomes_on_budget_id  (budget_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (budget_id => budgets.id)
 #
-class IncomeTransaction < ApplicationRecord
+class Income < ApplicationRecord
   belongs_to :budget
 
   validates :description, presence: true, length: { minimum: 1, maximum: 100 }

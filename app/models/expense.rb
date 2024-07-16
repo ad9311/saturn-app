@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: expense_transactions
+# Table name: expenses
 #
 #  id                  :bigint           not null, primary key
 #  amount              :decimal(, )
@@ -12,15 +12,15 @@
 #
 # Indexes
 #
-#  index_expense_transactions_on_budget_id            (budget_id)
-#  index_expense_transactions_on_expense_category_id  (expense_category_id)
+#  index_expenses_on_budget_id            (budget_id)
+#  index_expenses_on_expense_category_id  (expense_category_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (budget_id => budgets.id)
 #  fk_rails_...  (expense_category_id => expense_categories.id)
 #
-class ExpenseTransaction < ApplicationRecord
+class Expense < ApplicationRecord
   belongs_to :budget
   belongs_to :expense_category
 

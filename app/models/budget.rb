@@ -28,8 +28,8 @@
 class Budget < ApplicationRecord
   belongs_to :user
 
-  has_many :income_transactions, dependent: :destroy
-  has_many :expense_transactions, dependent: :destroy
+  has_many :incomes, dependent: :destroy
+  has_many :expenses, dependent: :destroy
 
   validates :uid, uniqueness: true
   validates :balance, numericality: true

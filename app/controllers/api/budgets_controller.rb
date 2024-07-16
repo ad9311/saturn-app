@@ -57,11 +57,11 @@ class Api::BudgetsController < ApplicationController
   end
 
   def include_transactions(expenses, income)
-    expenses_hash = expenses && @budget.expense_transactions
+    expenses_hash = expenses && @budget.expenses
                                        .joins(:expense_category)
                                        .includes(:expense_category)
                                        .map(&:serialized_hash)
-    income_hash = @budget.income_transactions.map(&:serialized_hash) if income
+    income_hash = @budget.incomes.map(&:serialized_hash) if income
 
     @budget_hash = @budget_hash.merge({ expenses: expenses_hash }) if expenses_hash
     @budget_hash = @budget_hash.merge({ income: income_hash }) if income_hash

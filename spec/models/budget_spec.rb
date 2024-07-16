@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: budget_periods
+# Table name: budgets
 #
 #  id                :bigint           not null, primary key
 #  balance           :decimal(11, 2)   default(0.0), not null
@@ -18,8 +18,8 @@
 #
 # Indexes
 #
-#  index_budget_periods_on_uid      (uid) UNIQUE
-#  index_budget_periods_on_user_id  (user_id)
+#  index_budgets_on_uid      (uid) UNIQUE
+#  index_budgets_on_user_id  (user_id)
 #
 # Foreign Keys
 #
@@ -49,7 +49,7 @@ RSpec.describe Budget, type: :model do
   end
 
   it 'increments the budget period balance' do
-    @budget.income_transactions.create(description: 'test', amount: 1_000.0)
+    @budget.incomes.create(description: 'test', amount: 1_000.0)
     expect(@budget.balance.to_f).to eq(1000.0)
   end
 
@@ -66,7 +66,7 @@ RSpec.describe Budget, type: :model do
   end
 
   it 'decrements the budget period balance' do
-    @budget.expense_transactions.create(
+    @budget.expenses.create(
       expense_category: @expense_category,
       description: 'test',
       amount: 500.0
@@ -87,7 +87,7 @@ RSpec.describe Budget, type: :model do
   end
 
   it 'reverts balance back when an income is destroyed' do
-    income = @budget.income_transactions.create(description: 'test', amount: 50.0)
+    income = @budget.incomes.create(description: 'test', amount: 50.0)
     income.destroy
     expect(@budget.balance.to_f).to eq(500.0)
   end
@@ -105,7 +105,7 @@ RSpec.describe Budget, type: :model do
   end
 
   it 'reverts balance back when an expense is destroyed' do
-    expense = @budget.expense_transactions.create(
+    expense = @budget.expenses.create(
       expense_category: @expense_category,
       description: 'test',
       amount: 50.0
@@ -127,7 +127,7 @@ RSpec.describe Budget, type: :model do
   end
 
   it 'corrects the balance when an income is updated' do
-    income = @budget.income_transactions.create(description: 'test', amount: 50.0)
+    income = @budget.incomes.create(description: 'test', amount: 50.0)
     income.update(amount: 20.0)
     expect(@budget.balance.to_f).to eq(520.0)
   end
@@ -137,7 +137,7 @@ RSpec.describe Budget, type: :model do
   end
 
   it 'corrects the balance when an expense is updated' do
-    expense = @budget.expense_transactions.create(
+    expense = @budget.expenses.create(
       expense_category: @expense_category,
       description: 'test',
       amount: 10.0
