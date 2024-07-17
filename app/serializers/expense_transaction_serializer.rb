@@ -25,7 +25,7 @@ module ExpenseTransactionSerializer
 
   private
 
-  def attributes
+  def attributes(_options)
     {
       id:,
       amount:,

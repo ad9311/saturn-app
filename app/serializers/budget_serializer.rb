@@ -30,8 +30,8 @@ module BudgetSerializer
 
   private
 
-  def attributes
-    {
+  def attributes(options)
+    budget_hash = {
       uid:,
       year:,
       month:,
@@ -42,5 +42,20 @@ module BudgetSerializer
       expense_count:,
       income_count:
     }
+    budget_hash = budget_hash.merge({ expenses: include_expenses }) if options[:expenses]
+    budget_hash = budget_hash.merge({ incomeList: include_incomes }) if options[:incomes]
+    budget_hash
+  end
+
+  def include_expenses
+    expenses
+      .joins(:expense_category)
+      .includes(:expense_category)
+      .order(created_at: :desc)
+      .map(&:serialized_hash)
+  end
+
+  def include_incomes
+    incomes.order(created_at: :desc).map(&:serialized_hash)
   end
 end

@@ -22,7 +22,7 @@ module IncomeTransactionSerializer
 
   private
 
-  def attributes
+  def attributes(_options)
     { id:, amount:, description: }
   end
 end
