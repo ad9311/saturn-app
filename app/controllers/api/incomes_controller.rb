@@ -6,10 +6,10 @@ class Api::IncomesController < ApplicationController
   def create
     @income = @budget.incomes.build(income_params)
     if @income.save
-      data = { income: @income.serialized_hash }
+      data = { income: @income.serialized_hash, budget: @budget.serialized_hash(expenses: true, incomes: true) }
       render json: build_response(data, status: :SUCCESS), status: :created
     else
-      render json: build_response(nil, :ERROR), status: :bad_request
+      render json: build_response(nil, status: :ERROR), status: :bad_request
     end
   end
 
