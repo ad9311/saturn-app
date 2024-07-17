@@ -60,10 +60,11 @@ class Api::BudgetsController < ApplicationController
     expenses_hash = expenses && @budget.expenses
                                        .joins(:expense_category)
                                        .includes(:expense_category)
+                                       .order(created_at: :desc)
                                        .map(&:serialized_hash)
-    income_hash = @budget.incomes.map(&:serialized_hash) if income
+    income_hash = @budget.incomes.order(created_at: :desc).map(&:serialized_hash) if income
 
     @budget_hash = @budget_hash.merge({ expenses: expenses_hash }) if expenses_hash
-    @budget_hash = @budget_hash.merge({ income: income_hash }) if income_hash
+    @budget_hash = @budget_hash.merge({ incomeList: income_hash }) if income_hash
   end
 end

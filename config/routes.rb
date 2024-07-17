@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       collection do
         get 'last', to: 'budgets#show_last'
       end
+      resources :incomes, only: %i[create]
     end
   end
 end

@@ -1,6 +1,8 @@
 module Api::ResponseBuilder
-  def build_response(data, status: nil)
-    { data:, status: }
+  def build_response(data, status: nil, errors: nil)
+    return { data:, status: } if errors.nil?
+
+    { data:, status:, errors: }
   end
 
   def order_data(records, by: nil, direction: nil)
