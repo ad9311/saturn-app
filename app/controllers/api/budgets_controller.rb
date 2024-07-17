@@ -16,8 +16,8 @@ class Api::BudgetsController < ApplicationController
 
   def show
     if @budget.nil?
-      data = { messages: ['budget not found'] }
-      render(json: build_response(data, status: :ERROR), status: :not_found) and return
+      errors = { messages: ['budget not found'] }
+      render(json: build_error_response(errors, status: :ERROR), status: :not_found) and return
     end
 
     include_params = params[:include]&.split(':') || []
