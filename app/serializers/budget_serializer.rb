@@ -42,8 +42,8 @@ module BudgetSerializer
       expense_count:,
       income_count:
     }
-    budget_hash = budget_hash.merge({ expenses: include_expenses }) if options[:expenses]
     budget_hash = budget_hash.merge({ incomeList: include_incomes }) if options[:incomes]
+    budget_hash = budget_hash.merge({ expenses: include_expenses }) if options[:expenses]
     budget_hash
   end
 

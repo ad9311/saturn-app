@@ -29,7 +29,7 @@ class Expense < ApplicationRecord
 
   include TransactionConcern
   include TransactionConcern::Expenses
-  include ExpenseTransactionSerializer
+  include ExpenseSerializer
 
   after_create :run_after_create
   before_update :run_before_update

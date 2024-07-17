@@ -1,12 +1,12 @@
-class Api::IncomesController < ApplicationController
+class Api::ExpensesController < ApplicationController
   before_action :set_budget
 
   include Api::ResponseBuilder
 
   def create
-    income = @budget.incomes.build(income_params)
-    if income.save
-      data = { income: income.serialized_hash, budget: @budget.serialized_hash(incomes: true, expenses: true) }
+    expense = @budget.expenses.build(expense_params)
+    if expense.save
+      data = { expense: expense.serialized_hash, budget: @budget.serialized_hash(incomes: true, expenses: true) }
       render json: build_response(data, status: :SUCCESS), status: :created
     else
       render json: build_response(nil, status: :ERROR), status: :bad_request
@@ -19,7 +19,7 @@ class Api::IncomesController < ApplicationController
     @budget = Budget.find_by(uid: params[:budget_uid])
   end
 
-  def income_params
-    params.require(:income).permit(:description, :amount)
+  def expense_params
+    params.require(:expense).permit(:description, :expense_category_id, :amount)
   end
 end

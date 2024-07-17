@@ -24,6 +24,9 @@ Rails.application.routes.draw do
         get 'last', to: 'budgets#show_last'
       end
       resources :incomes, only: %i[create]
+      resources :expenses, only: %i[create]
     end
+
+    resources :expense_categories, only: %i[index]
   end
 end

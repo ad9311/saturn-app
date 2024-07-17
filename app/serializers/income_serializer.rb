@@ -17,7 +17,7 @@
 #
 #  fk_rails_...  (budget_id => budgets.id)
 #
-module IncomeTransactionSerializer
+module IncomeSerializer
   include Serializer
 
   private

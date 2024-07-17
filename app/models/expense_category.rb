@@ -27,6 +27,8 @@ class ExpenseCategory < ApplicationRecord
   validates :name, presence: true, length: { minimum: 1, maximum: 25 }
   validates :color, presence: true, length: { is: 7 }
 
+  include ExpenseCategorySerializer
+
   before_destroy :transfer_expenses_to_default, prepend: true
   before_destroy :prevent_default_category_deletion, prepend: true
 

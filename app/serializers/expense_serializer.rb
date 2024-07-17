@@ -20,7 +20,7 @@
 #  fk_rails_...  (budget_id => budgets.id)
 #  fk_rails_...  (expense_category_id => expense_categories.id)
 #
-module ExpenseTransactionSerializer
+module ExpenseSerializer
   include Serializer
 
   private
@@ -30,10 +30,7 @@ module ExpenseTransactionSerializer
       id:,
       amount:,
       description:,
-      category: {
-        name: expense_category.name,
-        color: expense_category.color
-      }
+      expense_category: expense_category.serialized_hash
     }
   end
 end
