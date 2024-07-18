@@ -7,8 +7,8 @@ module Api::ResponseBuilder
     { data:, status: }
   end
 
-  def build_error_response(errors, status: nil)
-    { errors:, status: }
+  def build_error_response(messages, status: nil)
+    { messages:, status: }
   end
 
   def order_data(records, by: nil, direction: nil)

@@ -9,7 +9,8 @@ class Api::IncomesController < ApplicationController
       data = { income: income.serialized_hash, budget: @budget.serialized_hash(incomes: true, expenses: true) }
       render json: build_response(data, status: :SUCCESS), status: :created
     else
-      render json: build_error_response([], status: :ERROR), status: :bad_request
+      messages = income.errors.full_messages
+      render json: build_error_response(messages, status: :ERROR), status: :bad_request
     end
   end
 

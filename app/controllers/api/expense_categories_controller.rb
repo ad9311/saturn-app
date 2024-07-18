@@ -20,7 +20,8 @@ class Api::ExpenseCategoriesController < ApplicationController
       data = { expense_categories: }
       render json: build_response(data, status: :SUCCESS), status: :created
     else
-      render json: build_error_response([], status: :ERROR)
+      errors = expense_category.errors.full_messages
+      render json: build_error_response(errors, status: :ERROR)
     end
   end
 
