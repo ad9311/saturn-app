@@ -1,9 +1,0 @@
-module <%= class_name %>Serializer
-  include Serializer
-
-  private
-
-  def attributes
-    { id: }
-  end
-end

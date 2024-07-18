@@ -44,9 +44,6 @@ gem 'bootsnap', require: false
 # Use devise for user authentication
 gem 'devise'
 
-# Use devise-jwt to use JWT tokens for authentication
-gem 'devise-jwt'
-
 # Use dockerfile-rails to manage Dockerfiles
 gem 'dockerfile-rails', '>= 1.6', group: :development
 
@@ -60,7 +57,7 @@ gem 'faker'
 gem 'chartkick'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
-gem 'rack-cors'
+# gem 'rack-cors'
 
 # Use figaro for managing env variables
 gem 'figaro'

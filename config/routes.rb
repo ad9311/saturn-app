@@ -7,24 +7,7 @@ Rails.application.routes.draw do
   get 'up', to: 'rails/health#show', as: :rails_health_check
 
   # Devise
-  devise_for :users, controllers: { sessions: 'users/sessions' }
-
-  # Api
-  namespace :api do
-    # Users
-    resources :users, only: [] do
-      collection do
-        get 'me', to: 'users#me'
-      end
-    end
-
-    # Budget Periods
-    resources :budget_periods, param: :uid, only: %i[index show] do
-      collection do
-        get 'last', to: 'budget_periods#show_last'
-      end
-    end
-  end
+  devise_for :users
 
   # Users
   get 'account/destroy', to: 'users#confirm_destroy', as: :confirm_destroy_user

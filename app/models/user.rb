@@ -24,16 +24,12 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  include Devise::JWT::RevocationStrategies::Allowlist
-
   devise(
     :database_authenticatable,
     :recoverable,
     :rememberable,
     :validatable,
-    :trackable,
-    :jwt_authenticatable,
-    jwt_revocation_strategy: self
+    :trackable
   )
 
   has_one  :setting, dependent: :destroy
@@ -42,8 +38,6 @@ class User < ApplicationRecord
   has_many :expense_transactions, through: :budget_periods
   has_many :expense_categories, dependent: :destroy
   has_many :todo_lists, dependent: :destroy
-
-  include UserSerializer
 
   before_destroy :prepare_destroy, prepend: true
 
