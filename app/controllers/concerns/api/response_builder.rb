@@ -1,18 +1,14 @@
 module Api::ResponseBuilder
   def build_response(data, status: nil, options: {})
     camelize = options.fetch(:camelize, true)
-    response = { data:, status: }
-    return response unless camelize
+    return { data:, status: } unless camelize
 
-    response.transform_keys { |key| key.to_s.camelize(:lower) }
+    data = data.transform_keys { |key| key.to_s.camelize(:lower) }
+    { data:, status: }
   end
 
-  def build_error_response(errors, status: nil, options: {})
-    camelize = options.fetch(:camelize, true)
-    response = { errors:, status: }
-    return response unless camelize
-
-    response.transform_keys { |key| key.to_s.camelize(:lower) }
+  def build_error_response(errors, status: nil)
+    { errors:, status: }
   end
 
   def order_data(records, by: nil, direction: nil)
